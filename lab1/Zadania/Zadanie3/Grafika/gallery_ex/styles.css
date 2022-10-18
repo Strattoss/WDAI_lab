@@ -1,1 +1,25 @@
+.grid-container {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 215px 215px;
+    grid-template-rows: auto auto auto;
+}
 
+h1 {
+    color: rgb(28, 85, 68);
+}
+
+.photo {
+    border: 2px solid rgb(100, 100, 100);
+    padding: 5px;
+}
+
+.intro {
+    text-align: left;
+    font-size: 1em;
+}
+
+p {
+    text-align: center;
+    font-size: 0.8em;
+}

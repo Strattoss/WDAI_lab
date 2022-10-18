@@ -1,0 +1,8 @@
+.fles-container {
+    display: flex;
+    flex: 1;
+}
+
+.flex-item {
+    background-color: paleturquoise;
+}
