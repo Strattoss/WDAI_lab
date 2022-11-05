@@ -1,0 +1,28 @@
+/*.row_tab1:nth-child(even) {
+    background-color: rgb(178, 196, 216);
+}
+
+.row_tab1:nth-child(odd) {
+    background-color: rgb(217, 219, 223);
+}
+
+td {
+    padding: 5px;
+}*/
+
+th, td {
+    padding: 0.5em;
+}
+
+tr {
+    background-color: rgb(179, 179, 179);
+    padding: 0.5em;
+}
+
+tr.tab1:nth-child(even) {
+    background-color: rgb(175, 207, 238);
+}
+
+tr.tab1:nth-child(odd) {
+    background-color: rgb(102, 160, 235);
+}
