@@ -1,25 +1,101 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Widnows-1250" />
+	<meta http-equiv="Content-Type" content="text/html; charset=Widnows-1250" />
 
-<style type="text/css">
+	<style type="text/css">
+		body {
+			font: 62.5% Verdana, Arial, Helvetica, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
 
-body {
-	font: 62.5% Verdana, Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 20px;
-}
-</style>
+		.flex-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			/*if you want vertical menu, just write flex-direction: column;*/
+
+			/*answer for question in this exercise is:
+			make two flexes inside one flex and just write appropiate justify-content values*/
+		}
+
+		.flex-item {
+			background-color: rgb(216, 216, 216);
+			height: 25px;
+			padding: 5px;
+			width: 100px;
+			border-color: grey;
+			border-style: dotted;
+			border-width: 3px 3px 3px 0px;
+			flex: 1 1;
+			text-align: center;
+		}
+
+		.flex-item:hover {
+			background-color: rgb(85, 255, 85);
+		}
+
+		.flex-item:first-child {
+			border-left-width: 3px;
+		}
+	</style>
 </head>
+
 <body>
-  <ul>
-    <li><a href="/index.html">Strona g≥Ûwna</a></li>
-    <li><a href="/features/">Oferta</a></li>
-    <li><a href="/experts/">Eksperci</a></li>
-    <li><a href="/quiz/">Quiz</a></li>
-    <li><a href="/projects/">Projekty</a></li>
-    <li><a href="/horoscopes/">Horoskop</a></li>
-  </ul>
+	<ul>
+		<li><a href="/index.html">Strona g≈Ç√≥wna</a></li>
+		<li><a href="/features/">Oferta</a></li>
+		<li><a href="/experts/">Eksperci</a></li>
+		<li><a href="/quiz/">Quiz</a></li>
+		<li><a href="/projects/">Projekty</a></li>
+		<li><a href="/horoscopes/">Horoskop</a></li>
+	</ul>
+
+	<nav class="flex-container">
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="images/home.png" />
+				<a href="/index.html">HOME</a>
+			</div>
+		</div>
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="imageS/bg_here.png" />
+				<a href="/features/">FEATURES</a>
+			</div>
+		</div>
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="images/link.png" />
+				<a href="/experts/">EXPERTS</a>
+			</div>
+		</div>
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="images/link.png" />
+				<a href="/quiz/">QUIZ</a>
+			</div>
+		</div>
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="images/link.png" />
+				<a href="/projects/">PROJECTS</a>
+			</div>
+		</div>
+		<div class="flex-item">
+			<div class="flex-container">
+				<img src="images/link.png" />
+				<a href="/horoscopes/">HOROSCOPES</a>
+			</div>
+		</div>
+	</nav>
+
+	<nav class="flex-container">
+		
+	</nav>
+
 </body>
+
 </html>

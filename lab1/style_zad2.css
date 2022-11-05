@@ -1,7 +1,12 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 5fr 1fr;
+    grid-template-areas: 
+    'topstrony topstrony topstrony topstrony'
+    'stronaglowna galeria lokalizacja kontakt'
+    'lewakolumna zawartoscstrony zawartoscstrony zawartoscstrony'
+    'stopka stopka stopka stopka';
     background-color: #8bc5f5;
     margin: 0px;
     border: 2px solid black;

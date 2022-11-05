@@ -1,0 +1,14 @@
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-items: flex-start;
+}
+
+.flex-item {
+    border-radius: 20px;
+}
+
+img {
+    width: 215px;
+    height: 190px;
+}

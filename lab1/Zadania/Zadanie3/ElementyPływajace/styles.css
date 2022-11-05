@@ -1,3 +1,8 @@
+:root {
+	--orange: #ffd000;
+	--yellow: rgb(255, 236, 128);
+}
+
 body {
 	font-family: Tahoma, "Lucida Grande", Arial, sans-serif;
 	font-size: 62.5%;
@@ -10,6 +15,8 @@ h1 {
 	background-color:rgb(23, 48, 46);
 	color: aliceblue;
 	padding: 12px 0px 12px 30px;
+	border-bottom: 5px solid var(--orange);
+	border-top: 5px solid var(--orange);
 }
 h2 {
 	font-size: 2.2em;
@@ -32,4 +39,14 @@ p {
 ul {
 	color: #666666;
 	list-style: square;
+}
+
+.sidenote {
+	float:right;
+	margin: 10px 0px 10px 20px;
+	background-color: var(--yellow);
+	padding: 10px;
+	width:15%;
+	border-top: 5px solid var(--orange);
+	border-right: 3px solid var(--orange);
 }

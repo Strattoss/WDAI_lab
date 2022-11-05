@@ -1,8 +1,27 @@
-.fles-container {
+.flex-container {
     display: flex;
-    flex: 1;
+    flex-wrap: wrap;
+    min-width: 400px;
 }
 
 .flex-item {
     background-color: paleturquoise;
+    padding: 5px;
+    margin: 5px;
+    flex: 1;
+}
+
+.red {
+    background-color: red;
+    flex: 1 1 30%;
+}
+
+.lightblue {
+    background-color: lightblue;
+    flex: 2 2 60%;
+}
+
+.yellowe {
+    background-color: yellow;
+    flex-basis: 100%;
 }
