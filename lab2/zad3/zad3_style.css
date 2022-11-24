@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(226, 226, 226);
+}
+
+.flex-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-container1>* {
+    background-color: rgb(255, 255, 255);
+    min-width: 250px;
+    box-shadow: 10px 10px 5px gray;
+    overflow: hidden;
+    border-radius: 20px;
+    flex: 0px 1 1;
+}
+
+.flex-container2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-around;
+}
+
+.flex-container2>* {
+    margin: 10px;
+}
+
+.button {
+    background-color: rgb(255, 93, 93);
+    padding: 10px;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+.button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+img {
+    width: 100%;
+}
+
+figcaption {
+    margin: 15px;
+}
+
+
+

@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zad4_style.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- umięsćić zdjęcie, wyświetlić i "zniebieszczyć"
-    nie oczekuje od nas tutaj akurat responsywności,
-    guziki zmieniają przezroczystość,
-    hoover nad listą, dodaj ten mały niebieski daszek,
-    tylko jeden poziom listy rozwijalnej -->
+    <nav class="flex-container">
+        <h1>LogoFirmy</h1>
+
+        <section class="flex-container" style="align-items:stretch">
+            <div class="menu-button">Home</div>
+            <div class="dropdown">
+                <div class="menu-button">Menu&#9660;</div>
+                <div class="dropdown-content">
+                    <a>link1</a>
+                    <a>link2</a>
+                    <a>link3</a>
+                    <a>link4</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="menu-button">Services&#9660;</div>
+                <div class="dropdown-content">
+                    <a>link1</a>
+                    <a>link2</a>
+                    <a>link3</a>
+                </div>
+            </div>
+            <div class="menu-button">About</div>
+        </section>
+
+        <section class="flex-container">
+            <div class="button login">Log in</div>
+            <div class="button signup">Sign up</div>
+        </section>
+    </nav>
+    <div class="filter-applier"></div>
 </body>
 </html>

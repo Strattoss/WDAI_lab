@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zad6_style.css">
     <title>Document</title>
 </head>
+
 <body>
     <!-- po zjechaniu ma się pojawić guzik trzech pasków (hamburger menu),
-    to nie może być hoover, bo po zjechaniu myszką ma nadal trzymaćn
+    to nie może być hoover, bo po zjechaniu myszką ma nadal trzymać,
     hamburger ma się animować -->
+
+    <nav class="flex-nav">
+        <h1 id="company-logo">LogoFirmy</h1>
+
+        <div class="flex-bar">
+            <div>USŁUGI</div>
+            <div>WDROŻENIA</div>
+            <div>O FIRMIE</div>
+            <div>ZESPÓŁ</div>
+            <div>KONTAKT</div>
+        </div>
+    </nav>
+
+    <input id="toggle" type="checkbox"></input>
+    <label for="toggle" class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </label>
+
+    <div class="burger-menu">
+        <div>USŁUGI</div>
+        <div>WDROŻENIA</div>
+        <div>O FIRMIE</div>
+        <div>ZESPÓŁ</div>
+        <div>KONTAKT</div>
+    </div>
 </body>
+
 </html>
