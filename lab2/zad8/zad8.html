@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zad8_style.css">
     <title>Document</title>
 </head>
+
 <body>
     <!-- elementy wjeżdżają z boków na środek,
     w pewnym miejscu zmieniam układ i jest jeden pod drugim -->
+    <div id="heading-background">
+        <div id="heading-text" class="flex-vertical">
+            <h1>Nagłówek</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quia consequatur assumenda nobis tempore
+                officia a consectetur vitae possimus molestiae natus, commodi inventore at perspiciatis accusantium sunt
+                laboriosam ea incidunt quasi cupiditate nisi doloremque cumque ullam minus.
+            <div class="button">Zobacz więcej</div>
+        </div>
+        <div id="form-background" class="flex-vertical">
+            <h2>Formularz testowy</h2>
+            <form class="flex-vertical">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Company Name">
+                <input type="text" placeholder="Email">
+            </form>
+            <div class="button" style="color: var(--white);">Send</div>
+        </div>
+    </div>
 </body>
+
 </html>

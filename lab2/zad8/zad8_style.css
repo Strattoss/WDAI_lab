@@ -1,0 +1,137 @@
+:root {
+    --blue: #007fbe;
+    --white: #ffffff;
+}
+
+body {
+    margin: 8px;
+    min-width: 250px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+    color: var(--white);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#heading-background {
+    display: flex;
+    margin: -8px;
+    padding: 5%;
+    position: relative;
+    background-color: var(--blue);
+}
+
+#heading-background::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--blue);
+    transform-origin: top right;
+    transform: skewY(-2deg);
+    z-index: -1;
+}
+
+#heading-background>* {
+
+    margin: 30px;
+}
+
+#heading-text {
+    flex: 100px 2 2;
+    display: flex;
+    flex-direction: column;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+#form-background {
+    flex: 300px 0 0;
+    color: black;
+    padding: 5%;
+    background-color: var(--white);
+    border-radius: 20px;
+    animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+#form-background>* {
+    color: black;
+    margin: 5px;
+}
+
+.button {
+    align-self: flex-start;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 5px;
+    background-color: var(--blue);
+    padding: 10px;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.flex-vertical>* {
+    margin: 5px;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft-alt {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight-alt {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 800px) {
+    #heading-background {
+        display: block;
+    }
+
+    #form-background {
+        animation: 1s ease-out 0s 1 slideInFromRight-alt;
+    }
+
+    #heading-text {
+        animation: 1s ease-out 0s 1 slideInFromLeft-alt;
+    }
+}
