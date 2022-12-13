@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-    <!-- zarządzanie modelem zdarzeniowym,
-    dobrze jest gdzieś z boku wyświetlać, co zrobiłem i w jakiej kolejności -->
+    <main>
+        <div id="box1" class="flex-center">
+            1
+            <div id="box2" class="flex-center">
+                2
+                <div id="box3" class="flex-center">
+                    3
+                </div>
+            </div>
+        </div>
+
+        <p id="points">0</p>
+        <p id="info"></p>
+        <div class="buttons">
+            <button id="clear-button">Clear Messages</button>
+            <button id="reset-button">Reset</button>
+            <button id="propagation-button">Stop/Start Propagation</button>
+            <button id="reverse-button">Reverse Propagation Order</button>
+        </div>
+    </main>
 </body>
+
 </html>

@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(255, 219, 166);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ p, div {
+    color: rgb(194, 194, 194);
+}

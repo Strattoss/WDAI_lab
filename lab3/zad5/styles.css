@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#box1, #box2, #box3{
+    font-size: 50px;
+}
+
+.flex-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#box1 {
+    width: 500px;
+    height: 500px;
+    background-color: rgb(137, 231, 255);
+}
+
+#box2 {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(255, 115, 110);
+}
+
+#box3 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(253, 255, 111);
+}

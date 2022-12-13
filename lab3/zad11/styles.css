@@ -1,0 +1,39 @@
+body {
+    background-color: lightgrey;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    padding: 10px;
+    background-color: rgba(253, 52, 52, 0.5);
+}
+
+td {
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: rgb(255, 177, 112);
+}
+
+/*#listing-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.row, #table-heading {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.number:nth-child(1) {
+    background-color: aqua;
+}
+
+.row > *, #table-heading > * {
+    flex: 0px 1 1;
+}*/

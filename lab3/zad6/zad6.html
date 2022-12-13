@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="flex-container flex-column">
+        <div class="flex-container flex-column">
+            <h1>Twoje kontakty 📔</h1>
+            <div id="entries" class="flex-container">
+            </div>
+        </div>
+        <form id="form">
+            <div>
+                <div class="input-div">
+                    <label for="first-last-name">IMIĘ I NAZWISKO:</label>
+                    <input type="text" required="true" id="first-last-name" name="first-last-name" class="normal-input"
+                        required pattern="^(\p{Lu}{1}\p{Ll}* \p{Lu}{1}\p{Ll}{1,}(-\p{Lu}{1}\p{Ll}{1,})?)$">
+                </div>
+                <div class="input-div">
+                    <label for="phone-number">NUMER TELEFONU:</label>
+                    <input type="text" required="true" id="phone-number" name="phone-number" class="normal-input"
+                        required pattern="^(\+( *[0-9] *){3})?( *[0-9] *){9}$">
+                </div>
+            </div>
+            <div id="add" class="button">Dodaj</div>
+        </form>
+
+    </main>
+</body>
+
+</html>

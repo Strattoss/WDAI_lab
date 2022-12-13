@@ -1,0 +1,140 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(images/board-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-width:500px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cursor-circle {
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 10px solid rgba(255, 255, 255, 0.726);
+    transform: translate(-50px, -50px);
+    pointer-events: none;
+}
+
+#cursor-inner {
+    display: none;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: rgb(255, 0, 0);
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#ui-bar {
+    display: none;
+    justify-content: space-around;
+}
+
+#ui-bar > * {
+    padding:3vh;
+}
+
+#score,
+#name,
+#health {
+  color: white;
+  font-weight: bold;
+  font-size: 10vh;
+  user-select: none;
+}
+
+#board {
+    display: none;
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.zombie-div {
+    overflow: hidden;
+    position: absolute;
+    left: 120vw;
+    user-select: none;
+}
+
+.zombie-div-move {
+    transform: translate(-180vw);
+}
+
+.zombie-img {
+    transform: translate(-1800px);
+}
+
+#username-div, #defeat-div {
+    margin: 100px auto;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#defeat-div {
+    display: none;
+}
+
+#username-prompt, #defeat-prompt {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(131, 40, 116);
+    border-radius: 10px;
+    border: 5px solid black;
+    padding: 50px;
+}
+
+#username-prompt > *, #defeat-prompt > *{
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+    color: aliceblue;
+}
+
+#username-input {
+    color: black;
+    font-size: large;
+    border-width: 5px;
+}
+
+#leaderboard-list {
+    align-self: center;
+}
+
+tbody > * > *{
+    padding: 5px;
+    font-size: 20px;
+}
+
+tbody>*:hover {
+    background-color: rgba(0, 255, 255, 0.281);
+}
+
+#start-game-button, #play-again-button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(190, 190, 190);
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(202, 47, 176);
+    transition: background-color 0.5s;
+}
+
+#start-game-button:hover, #play-again-button:hover {
+    background-color: black;
+}

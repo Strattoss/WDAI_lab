@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-    <!-- new password w czasie rzeczywistym ocenia jakość hasła,
-    robimy tylko na klawiszach i fokusie -->
+    <form id="change-password-form">
+        <section>
+            <label for="new-password">New Password</label>
+            <input id="new-password" type="password" required="true" name="new-password">
+            <img id="text-visibility-new-password" src="img/closed_eye.jpg">
+            <div id="new-password-warning">New password has to fulfill all necessary conditions!</div>
+        </section>
+        <section>
+            <label for="repeated-password">Repeat new password</label>
+            <input id="repeated-password" type="password" required="true" name="repeated-password">
+            <img id="text-visibility-repeated-password" src="img/closed_eye.jpg">
+            <div id="repeated-password-warning">Repeated new password has to be the same as new password!</div>
+        </section>
+        <section>
+            <h3>Password requirements:</h3>
+            <section id="requirements">
+                <div>
+                    <div id="requirement1" class="invalid">⛌</div>
+                    <div>at least 8 characters </div>
+                </div>
+                <div>
+                    <div id="requirement2" class="invalid">⛌</div>
+                    <div>at least one special character </div>
+                </div>
+                <div>
+                    <div id="requirement3" class="invalid">⛌</div>
+                    <div>at least one capital letter</div>
+                </div>
+                <div>
+                    <div id="requirement4" class="invalid">⛌</div>
+                    <div>at least one digit</div>
+                </div>
+                
+                
+                
+
+            </section>
+        </section>
+    </form>
 </body>
+
 </html>
