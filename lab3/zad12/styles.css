@@ -60,7 +60,6 @@ body {
     display: none;
     position: relative;
     height: 80vh;
-    overflow: hidden;
 }
 
 .zombie-div {
