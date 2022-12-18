@@ -1,0 +1,11 @@
+<div *ngIf="countries.length > 0; then countriesList else noCountries"></div>
+<ng-template #countriesList>
+    <div>Lista państw (długość - {{countries.length}}):</div>
+    <ul>
+        <li *ngFor="let country of countries">{{country}}</li>
+    </ul>
+</ng-template>
+
+<ng-template #noCountries>
+    <div>No countries on the list!</div>
+</ng-template>

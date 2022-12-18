@@ -1,0 +1,9 @@
+Zad7
+Gdy wykupię całą wycieczkę, to nie może być ona najdroższa/najtańsza,
+inny element powinien mieć rameczkę
+Filtrowanie "in real time" - zmiana w filtrach od razu powoduje zmianę
+w wyświetlanej zawartości
+
+Filtrowanie - powiedzmy, że moje filtry ograniczają wycieczki do takich
+pomiędzy 3000zł a 6000zł i powinno to być odzwierciedlone w opcjach filtrowania
+(żeby nie było filtrowania po bezsensownych wartościach np. od 1000zł do 2000zł)
