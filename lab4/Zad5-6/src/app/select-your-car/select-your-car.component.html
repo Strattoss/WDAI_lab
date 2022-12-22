@@ -1,0 +1,37 @@
+<h1>Zad. 5.</h1>
+<div id="form">
+    <h3>Make:</h3>
+    <select [(ngModel)]="selectedMake" (ngModelChange)="makeChosen()">
+        <ng-container *ngIf="showMakes">
+            <option selected>-</option>
+            <option *ngFor="let make of getMakes()">{{make}}</option>
+        </ng-container>
+    </select><br />
+
+    <h3>Model:</h3>
+    <select [(ngModel)]="selectedModel" (ngModelChange)="modelChosen()">
+        <ng-container *ngIf="showModels">
+            <option selected>-</option>
+            <option *ngFor="let model of getModels()">
+                {{model}}
+            </option>
+        </ng-container>
+    </select><br />
+
+    <h3>Color:</h3>
+    <select [(ngModel)]="selectedColor" (ngModelChange)="colorChosen()">
+        <ng-container *ngIf="showColors">
+            <option selected>-</option>
+            <option *ngFor="let color of getColors()" style="background-color: {{color}};">
+                {{color}}
+            </option>
+        </ng-container>
+    </select>
+</div>
+
+<div id="show-full-car">
+    <ng-container *ngIf="showFullCar">
+        <div>You have chosen: {{selectedMake}} {{selectedModel}} of color: {{selectedColor}}</div>
+        <div id="show-color" style="background-color: {{selectedColor}};"></div>
+    </ng-container>
+</div>
