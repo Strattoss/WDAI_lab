@@ -1,0 +1,12 @@
+<div id="whole">
+    <h1>Zad. 6</h1>
+    <app-topic-displayer></app-topic-displayer>
+
+    <div id="topics-container">
+        <h2>Choose your topic</h2>
+        <hr>
+        <div id="topics-list">
+            <app-topic *ngFor="let topic of topics" [topic]="topic.topic" [content]="topic.content" [fullContent]="topic.fullContent"></app-topic>
+        </div>
+    </div>
+</div>
