@@ -1,0 +1,36 @@
+<div id="whole" *ngIf="trip" [ngStyle]="{'border-color': tripsToDistinguish.getsGreenBorder(this) ? 'green' : tripsToDistinguish.getsRedBorder(this) ? 'red' : ''}">
+    <div class="img-box" style="background-image: url({{trip.imgPath}});"></div>
+    <h3 class="trip-title">{{trip.name}}</h3>
+    <div class="trip-info">
+        <p>📍 {{trip.destination | uppercase}}</p>
+        <p>📅 from {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
+        <div *ngIf="trip.freeSeats - numOfReservations > 0; then availibleFreeSeats else unavailibleFreeSeats"></div>
+        <ng-template #availibleFreeSeats><p [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">💺 {{trip.freeSeats - numOfReservations}} seats left</p></ng-template>
+        <ng-template #unavailibleFreeSeats><p class="unavailibleFreeSeats">💺 No free seats</p></ng-template>
+        <div class="trip-reservation">
+            <div class="trip-reservation-price">
+                <h3>{{trip.unitPrice}} $</h3>
+                <p>per pearson</p>
+            </div>
+            <div class="trip-reservation-panel">
+                <div class="trip-reservation-buttons">
+                    <div *ngIf="ifFreeSeatsAvailible(); then showPlusButton else hideShowButton"></div>
+                    <ng-template #showPlusButton><button  class="trip-reservation-button-plus" (click)="deltaReservation(1)">➕</button></ng-template>
+                    <ng-template #hideShowButton><div style="width: 30px;"></div></ng-template>
+                    <button class="trip-reservation-button-minus" (click)="deltaReservation(-1)">➖</button>
+                </div>
+                <div *ngIf="numOfReservations == 0; then startReservations else continueReservations"></div>
+                <ng-template #startReservations class="trip-reservation-num">Buy tickets!</ng-template>
+                <ng-template #continueReservations class="trip-reservation-num">You've chosen: {{numOfReservations}}</ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="trip-description">
+        <div class="trip-description-bar">
+            <p>Description 📝:</p>
+            <button (click)="toggleDescription()">Show/hide description</button>
+
+        </div>
+        <p *ngIf="showDescription">{{trip.description}}</p>
+    </div>
+</div>

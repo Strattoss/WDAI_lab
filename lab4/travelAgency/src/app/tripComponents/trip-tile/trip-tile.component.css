@@ -1,0 +1,136 @@
+#whole {
+    --card-padding-margin: 5%;
+    --main-color: #ecdf9e;
+    --secondary-color: #96c7c7;
+    --important-color: #eb7575;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    width: 80vw;
+    margin: 2vw;
+
+    border: 4px solid darkgrey;
+    background-color: var(--main-color);
+    /*background-color: #CBCCAD;*/
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px grey;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.img-box {
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    border: 1px solid darkgrey;
+    box-shadow: 5px 5px 5px 5px grey;
+    border-radius: 50%;
+    width: calc(100% - 2*var(--card-padding-margin));
+    aspect-ratio: 1 / 1;
+    margin: 5px var(--card-padding-margin);
+}
+
+.trip-title {
+    font-family: fantasy;
+}
+
+.trip-info {
+    width: calc(100% - 2*var(--card-padding-margin));
+    padding: 5px var(--card-padding-margin);
+
+    /*background-color: #A9BBCC;*/
+    background-color: var(--secondary-color);
+}
+
+.unavailibleFreeSeats {
+    color: red;
+}
+
+.trip-reservation {
+    display: flex;
+    justify-content: space-around;
+
+    width: 96%;
+    padding: 2%;
+
+    border: 1px solid darkgrey;
+    border-radius: 20px;
+    background-color: var(--important-color);
+}
+
+.trip-reservation {
+    flex: 1 1 10px;
+}
+
+.trip-reservation-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 5px;
+}
+
+.trip-reservation-price > * {
+    margin: 0px;
+}
+
+.trip-reservation-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.trip-reservation-buttons {
+    
+    display: flex;
+    justify-content: flex-end;
+}
+
+.trip-reservation-buttons > * {
+    aspect-ratio: 1 / 1;
+    
+}
+
+.trip-reservation-num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+.trip-reservation-num > * {
+    margin: 0px;
+}
+
+.trip-description {
+    align-self: stretch;
+    padding: 5px var(--card-padding-margin);
+}
+
+.trip-description-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+@media (min-width: 700px) {
+    #whole {
+        width: 38vw;
+    }
+}
+
+@media (min-width: 1000px) {
+    #whole {
+        width: 20vw;
+    }
+}
+
+
+
