@@ -14,6 +14,9 @@ export class TripTileComponent {
   showDescription = false;
   numOfReservations = 0;
 
+  ifBorderGreen = false;
+  ifBorderRed = false;
+
   constructor(public tripsToDistinguish: TripsToDistinguishService,
     public totalNumOfReservations: TotalNumOfReservationsService,
     public tripsDataService: TripsDataService) {}
@@ -58,13 +61,10 @@ export class TripTileComponent {
     return !this.ifYellow() && this.trip.freeSeats - this.numOfReservations <= 3;
   }
 
-  afterViewChecked() {
-    this.tripsToDistinguish.updateGreenRedBorders();
-  }
-
   removeThisTrip() {
     if (this.trip == undefined) {return;}
     this.deltaReservation(-this.numOfReservations);
+    this.tripsToDistinguish.signOff(this);
     this.tripsDataService.deleteTrip(this.trip);
   }
 

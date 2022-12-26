@@ -1,4 +1,4 @@
-<div id="whole" *ngIf="trip" [ngStyle]="{'border-color': tripsToDistinguish.getsGreenBorder(this) ? 'green' : tripsToDistinguish.getsRedBorder(this) ? 'red' : ''}">
+<div id="whole" *ngIf="trip" [ngStyle]="{'border-color': ifBorderGreen ? 'green' : ifBorderRed ? 'red' : ''}">
     <div class="img-box" style="background-image: url({{trip.imgPath}});"></div>
     <h3 class="trip-title">{{trip.name}}</h3>
     <div class="trip-info">
