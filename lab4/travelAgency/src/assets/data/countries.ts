@@ -225,7 +225,7 @@ export const Countries: string[] = [
     "Tonga",
     "Trinidad and Tobago",
     "Tunisia",
-    "Turkey",
+    "Türkiye",
     "Turkmenistan",
     "Turks and Caicos Islands",
     "Tuvalu",

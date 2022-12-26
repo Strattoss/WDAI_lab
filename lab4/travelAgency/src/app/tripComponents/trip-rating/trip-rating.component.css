@@ -1,0 +1,12 @@
+#whole {
+    display: flex;
+    padding: 0px 2%;
+    border-radius: 20px;
+    margin: 15px 0px;
+}
+
+#whole > * {
+    font-size: 1.5em;
+    aspect-ratio: 1 / 1;
+    
+}

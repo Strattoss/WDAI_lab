@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewChecked } from '@angular/core';
-import { Trip } from 'src/app/trip';
+import { Trip } from 'src/assets/interfaces/trip';
 import { TripsToDistinguishService } from '../trips-to-distinguish.service';
 import { TotalNumOfReservationsService } from '../total-num-of-reservations.service';
 import { TripsDataService } from 'src/app/trips-data.service';
@@ -66,6 +66,7 @@ export class TripTileComponent {
     this.deltaReservation(-this.numOfReservations);
     this.tripsToDistinguish.signOff(this);
     this.tripsDataService.deleteTrip(this.trip);
+    this.tripsToDistinguish.updateGreenRedBorders();
   }
 
 }

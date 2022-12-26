@@ -1,0 +1,5 @@
+<div id="whole" (mouseleave)="setRatingDivisor(-1)">
+    <app-star *ngFor="let num of [0, 1, 2, 3, 4]" [ngStyle]="{'cursor': ratingDivisorMovable ? 'pointer' : 'unset'}"
+        [ratingDivisor]="ratingDivisor" [myNum]="num" (mouseenter)="setRatingDivisor(num)"
+        (clickedStarEmitter)="clickedStar($event)"></app-star>
+</div>

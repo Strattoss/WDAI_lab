@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
-import { Trip } from 'src/app/trip';
+import { Trip } from 'src/assets/interfaces/trip';
 import { TripsDataService } from 'src/app/trips-data.service';
 import { TripsToDistinguishService } from '../trips-to-distinguish.service';
 

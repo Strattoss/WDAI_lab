@@ -51,6 +51,8 @@
     display: flex;
     justify-content: space-around;
 
+    flex: 1 1 10px;
+
     width: 96%;
     padding: 2%;
     margin-bottom: 5px;
@@ -60,7 +62,7 @@
     background-color: var(--important-color);
 }
 
-.trip-reservation {
+.trip-reservation > * {
     flex: 1 1 10px;
 }
 

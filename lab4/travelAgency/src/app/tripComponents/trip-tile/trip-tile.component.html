@@ -7,6 +7,7 @@
         <div *ngIf="trip.freeSeats - numOfReservations > 0; then availibleFreeSeats else unavailibleFreeSeats"></div>
         <ng-template #availibleFreeSeats><p [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">💺 {{trip.freeSeats - numOfReservations}} seats left</p></ng-template>
         <ng-template #unavailibleFreeSeats><p class="unavailibleFreeSeats">💺 No free seats</p></ng-template>
+        <app-trip-rating></app-trip-rating>
         <div class="trip-reservation">
             <div class="trip-reservation-price">
                 <h3>{{trip.unitPrice}} $</h3>
@@ -19,9 +20,9 @@
                     <ng-template #hideShowButton><div style="width: 30px;"></div></ng-template>
                     <button class="trip-reservation-button-minus" (click)="deltaReservation(-1)">➖</button>
                 </div>
-                <div *ngIf="numOfReservations == 0; then startReservations else continueReservations"></div>
-                <ng-template #startReservations class="trip-reservation-num">Buy tickets!</ng-template>
-                <ng-template #continueReservations class="trip-reservation-num">You've chosen: {{numOfReservations}}</ng-template>
+                <div *ngIf="trip.freeSeats == 0">No free tickets!</div>
+                <div *ngIf="trip.freeSeats != 0 && numOfReservations == 0" class="trip-reservation-num">Buy tickets!</div>
+                <div *ngIf="trip.freeSeats != 0 && numOfReservations > 0" class="trip-reservation-num">You've chosen: {{numOfReservations}}</div>
             </div>
         </div>
     </div>

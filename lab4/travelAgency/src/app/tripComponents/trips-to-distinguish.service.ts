@@ -1,6 +1,6 @@
 import { InterpolationConfig } from '@angular/compiler';
 import { ComponentRef, Injectable } from '@angular/core';
-import { Trip } from '../trip';
+import { Trip } from '../../assets/interfaces/trip';
 import { TripTileComponent } from './trip-tile/trip-tile.component';
 
 @Injectable({
@@ -8,11 +8,9 @@ import { TripTileComponent } from './trip-tile/trip-tile.component';
 })
 
 export class TripsToDistinguishService {
-
-
-  tripTiles: TripTileComponent[] = [];
-  redBorder?: TripTileComponent;
-  greenBorder?: TripTileComponent;
+  private tripTiles: TripTileComponent[] = [];
+  private redBorder?: TripTileComponent;
+  private greenBorder?: TripTileComponent;
 
   constructor() { }
 
@@ -28,7 +26,7 @@ export class TripsToDistinguishService {
   updateGreenRedBorders() {
     this.sortByUnitPrice();
 
-    for (let i = 0; i < this.tripTiles.length; i++) {
+    for (let i = this.tripTiles.length - 1; i >= 0; i--) {
       let trip = this.tripTiles[i].trip;
       if (trip != undefined && trip.freeSeats - this.tripTiles[i].numOfReservations > 0) {
         if (this.redBorder != undefined) {
@@ -40,7 +38,7 @@ export class TripsToDistinguishService {
       }
     }
 
-    for (let i = this.tripTiles.length - 1; i >= 0; i--) {
+    for (let i = 0; i < this.tripTiles.length; i++) {
       let trip = this.tripTiles[i].trip;
       if (trip != undefined && trip.freeSeats - this.tripTiles[i].numOfReservations > 0) {
         if (this.greenBorder != undefined) {

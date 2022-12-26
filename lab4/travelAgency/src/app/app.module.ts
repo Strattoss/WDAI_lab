@@ -7,6 +7,8 @@ import { TripsListComponent } from './tripComponents/trips-list/trips-list.compo
 import { TripTileComponent } from './tripComponents/trip-tile/trip-tile.component';
 import { TripFormComponent } from './addRemoveTrips/trip-form/trip-form.component';
 import { TotalReservationsComponent } from './tripComponents/total-reservations/total-reservations.component';
+import { TripRatingComponent } from './tripComponents/trip-rating/trip-rating.component';
+import { StarComponent } from './tripComponents/trip-rating/star/star.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TotalReservationsComponent } from './tripComponents/total-reservations/
     TripsListComponent,
     TripTileComponent,
     TripFormComponent,
-    TotalReservationsComponent
+    TotalReservationsComponent,
+    TripRatingComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Trips } from './mock-trips';
-import { Trip } from './trip';
+import { Trips } from '../assets/data/mock-trips';
+import { Trip } from '../assets/interfaces/trip';
 import { TripsToDistinguishService } from './tripComponents/trips-to-distinguish.service';
 
 @Injectable({
@@ -26,7 +26,6 @@ export class TripsDataService {
   }
 
   deleteTrip(trip: Trip) {
-    console.log("deleting");
     this.trips.forEach((value, index) => {
       if (value.name == trip.name) this.trips.splice(index, 1);
     });
