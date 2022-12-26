@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnChanges} from '@angular/core';
 import { Trip } from 'src/app/trip';
 import { TripsDataService } from 'src/app/trips-data.service';
 import { TripsToDistinguishService } from '../trips-to-distinguish.service';
@@ -8,7 +8,7 @@ import { TripsToDistinguishService } from '../trips-to-distinguish.service';
   templateUrl: './trips-list.component.html',
   styleUrls: ['./trips-list.component.css']
 })
-export class TripsListComponent {
+export class TripsListComponent implements OnInit, OnChanges {
   trips?: Trip[];
 
   constructor(public tripsDataService: TripsDataService, public tripsToDistinguish: TripsToDistinguishService) { }
@@ -18,8 +18,11 @@ export class TripsListComponent {
     this.updateGreenRedBorders();
   }
 
+  ngOnChanges() {
+    this.tripsToDistinguish.updateGreenRedBorders();
+  }
+
   updateGreenRedBorders() {
-    console.log("f");
     this.tripsToDistinguish.updateGreenRedBorders();
   }
 

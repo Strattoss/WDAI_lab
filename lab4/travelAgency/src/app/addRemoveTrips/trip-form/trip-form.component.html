@@ -1,1 +1,39 @@
-<p>trip-form works!</p>
+<form (ngSubmit)="onSubmit()" #tripForm="ngForm" id="whole">
+    <h1>Trip Form</h1>
+    <div class="form-group">
+        <label for="destination">Destination country</label>
+        <select class="form-control" name="destination" id="destination" required [(ngModel)]="model.destination">
+            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">Trip title</label>
+        <input name="name" id="name" required [(ngModel)]="model.name">
+    </div>
+    <div class="form-group">
+        <label for="startDate">Start date</label>
+        <input type="date" name="startDate" id="startDate" required [ngModel]="model.startDate | date:'dd-MM-yyyy'" (ngModelChange)="model.startDate = $event">
+    </div>
+    <div class="form-group">
+        <label for="endDate">End date</label>
+        <input type="date" name="endDate" id="endDate" required  [ngModel]="model.endDate | date:'dd-MM-yyyy'" (ngModelChange)="model.endDate = $event">
+    </div>
+    <div class="form-group">
+        <label for="unitPrice">Unit price</label>
+        <input type="number" step="0.01" min="0" name="unitPrice" id="unitPrice" required [(ngModel)]="model.unitPrice">
+    </div>
+    <div class="form-group">
+        <label for="freeSeats">Free seats</label>
+        <input type="number" name="freeSeats" min="0" id="freeSeats" required [(ngModel)]="model.freeSeats">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" name="description" id="description" required [(ngModel)]="model.description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="imgPath">Image Path</label>
+        <input name="imgPath" id="imgPath" required [(ngModel)]="model.imgPath">
+    </div>
+
+    <button type="submit" [disabled]="!tripForm.form.valid">Submit</button>
+</form>

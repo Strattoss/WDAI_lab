@@ -13,8 +13,8 @@ export class TotalNumOfReservationsService {
   }
 
   getColor() {
-    if (this.numOfReservations > 10) {return 'green'};
-    if (this.numOfReservations <= 10) {return 'red'};
+    if (this.numOfReservations > 10) {return '#54C74A'};
+    if (this.numOfReservations <= 10) {return '#eb7575'};
     return '';
   }
 

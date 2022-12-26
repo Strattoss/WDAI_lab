@@ -2,6 +2,7 @@ import { Component, Input, AfterViewChecked } from '@angular/core';
 import { Trip } from 'src/app/trip';
 import { TripsToDistinguishService } from '../trips-to-distinguish.service';
 import { TotalNumOfReservationsService } from '../total-num-of-reservations.service';
+import { TripsDataService } from 'src/app/trips-data.service';
 
 @Component({
   selector: 'app-trip-tile',
@@ -13,7 +14,9 @@ export class TripTileComponent {
   showDescription = false;
   numOfReservations = 0;
 
-  constructor(public tripsToDistinguish: TripsToDistinguishService, public totalNumOfReservations: TotalNumOfReservationsService) {}
+  constructor(public tripsToDistinguish: TripsToDistinguishService,
+    public totalNumOfReservations: TotalNumOfReservationsService,
+    public tripsDataService: TripsDataService) {}
 
   ngOnInit() {
     this.tripsToDistinguish.signUp(this);
@@ -57,6 +60,12 @@ export class TripTileComponent {
 
   afterViewChecked() {
     this.tripsToDistinguish.updateGreenRedBorders();
+  }
+
+  removeThisTrip() {
+    if (this.trip == undefined) {return;}
+    this.deltaReservation(-this.numOfReservations);
+    this.tripsDataService.deleteTrip(this.trip);
   }
 
 }

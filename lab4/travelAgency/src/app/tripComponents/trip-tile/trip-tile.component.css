@@ -1,6 +1,6 @@
 #whole {
     --card-padding-margin: 5%;
-    --main-color: #ecdf9e;
+    --primary-color: #ecdf9e;
     --secondary-color: #96c7c7;
     --important-color: #eb7575;
 
@@ -12,8 +12,7 @@
     margin: 2vw;
 
     border: 4px solid darkgrey;
-    background-color: var(--main-color);
-    /*background-color: #CBCCAD;*/
+    background-color: var(--primary-color);
     border-radius: 20px;
     box-shadow: 5px 5px 5px 5px grey;
 
@@ -54,6 +53,7 @@
 
     width: 96%;
     padding: 2%;
+    margin-bottom: 5px;
 
     border: 1px solid darkgrey;
     border-radius: 20px;
@@ -105,6 +105,14 @@
 
 .trip-reservation-num > * {
     margin: 0px;
+}
+
+.trip-remove-button {
+    width: calc(100% - 2 * var(--card-padding-margin));
+    padding: var(--card-padding-margin);
+    margin: var(--card-padding-margin);
+    background-color: red;
+    color: white;
 }
 
 .trip-description {

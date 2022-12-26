@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TripsListComponent } from './tripComponents/trips-list/trips-list.component';
@@ -16,7 +17,8 @@ import { TotalReservationsComponent } from './tripComponents/total-reservations/
     TotalReservationsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
