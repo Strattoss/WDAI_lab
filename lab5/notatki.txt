@@ -1,0 +1,2 @@
+FireBase
+ctrl+C ze strony FireBase i wkleić do Angular_project/coś_tam_config
