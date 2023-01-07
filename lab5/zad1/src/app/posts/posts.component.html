@@ -1,1 +1,11 @@
-<p>posts works!</p>
+<nav id="pagination-bar">
+    <div (click)="prevPage()" class="button">Prev</div>
+    <div>Page: {{page+1}}</div>
+    <div (click)="nextPage()" class="button">Next</div>
+    {{maxPage}}
+</nav>
+<div class="post" *ngFor="let post of posts?.slice(this.page * this.span, (this.page+1) * this.span)">
+    <p class="post-user-id">By user: {{post.userId}}</p>
+    <h2 class="post-title">{{post.title}}</h2>
+    <p class="post-body">{{post.body}}</p>
+</div>

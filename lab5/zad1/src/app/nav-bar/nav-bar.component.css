@@ -3,7 +3,7 @@ a:link, a:visited, a:active {
 }
 
 #flex-nav {
-    background-color:#B8A8FF;
+    background-color:#b09eff;
     display: flex; 
     align-items: center;
     justify-content: space-between;
@@ -16,19 +16,30 @@ a:link, a:visited, a:active {
 }
 
 #company-logo {
+    text-decoration: none;
+    font-size: 2em;
+    border-radius: 5px;
+
     padding: 15px;
     margin: 15px;
+    transition: all 0.5s;
+}
+
+#company-logo:hover {
+    box-shadow: 10px 5px 5px grey;
+    background-color: #FFF6B3;
 }
 
 #flex-bar>* {
-    text-decoration:none;
+    text-decoration: none;
     padding: 2vw;
     margin: 0px 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: 0.5s background-color;
 }
 
 #flex-bar>*:hover {
     background-color: #FFF6B3;
+    box-shadow: 10px 5px 5px grey;
 }
 

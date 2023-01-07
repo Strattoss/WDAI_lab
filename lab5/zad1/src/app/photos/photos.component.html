@@ -1,1 +1,13 @@
-<p>photos works!</p>
+<nav id="pagination-bar">
+    <div (click)="prevPage()" class="button">Prev</div>
+    <div>Page: {{page+1}}</div>
+    <div (click)="nextPage()" class="button">Next</div>
+</nav>
+<section class="photos-info">
+    <figure class="photo"
+        *ngFor="let photo of photos?.slice(this.page * this.span, (this.page+1) * this.span)"
+        (click)="showPhoto(photo.id)">
+        <img src="{{photo.thumbnailUrl}}">
+        <figcaption>Album number: {{photo.albumId}}, Photo id: {{photo.id}}</figcaption>
+    </figure>
+</section>
