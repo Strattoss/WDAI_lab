@@ -1,0 +1,4 @@
+<app-trip-rating *ngFor="let rating of trip?.ratings; let i = index"
+    [ratingDivisor]=i
+    [ratingDivisorMovable]=false 
+    [ratingNum]="(trip != undefined) ? trip.ratings[i] : undefined"></app-trip-rating>

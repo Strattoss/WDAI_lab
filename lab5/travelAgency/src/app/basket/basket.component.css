@@ -1,0 +1,16 @@
+.trips-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+#basket-info {
+    display: flex;
+    justify-content: center;
+}
+
+#no-reservations {
+    margin: 60px;
+    text-align: center;
+}

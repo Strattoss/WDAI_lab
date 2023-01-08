@@ -1,0 +1,8 @@
+main {
+    margin: -8px;
+    --color-prim: #F5703C;
+    --color-prim-light:#FF8657;
+    --color-prim-dark: #A84118;
+    --color-sec: #3BF5D6;
+    --color-sec-dark: #07A88D;
+}

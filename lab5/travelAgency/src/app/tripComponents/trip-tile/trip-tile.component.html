@@ -1,0 +1,42 @@
+<div id="whole" *ngIf="trip" [ngStyle]="{'border-color': ifBorderGreen ? 'green' : ifBorderRed ? 'red' : ''}">
+    <div class="img-box" (click)="showTripDetails()">
+        <img class="img" src="{{trip.imgsInfo[0].imgs[1].src}}">
+    </div>
+    <h3 class="trip-title">{{trip.name}}</h3>
+    <div class="trip-info">
+        <p>📍 {{trip.destination | uppercase}}</p>
+        <p>📅 from {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
+        <div *ngIf="trip.freeSeats - numOfReservations > 0; then availibleFreeSeats else unavailibleFreeSeats"></div>
+        <ng-template #availibleFreeSeats>
+            <p [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">💺 {{trip.freeSeats -
+                numOfReservations}} seats left</p>
+        </ng-template>
+        <ng-template #unavailibleFreeSeats>
+            <p class="unavailibleFreeSeats">💺 No free seats</p>
+        </ng-template>
+        <app-trip-rating [ratingNum]="getAverageRating()" [ratingDivisor]="getAverageRatingDivisor()"></app-trip-rating>
+        <div class="trip-reservation">
+            <div class="trip-reservation-price">
+                <h3>{{trip.unitPrice | currency}}</h3>
+                <p>per pearson</p>
+            </div>
+            <div class="trip-reservation-panel">
+                <div class="trip-reservation-buttons">
+                    <div *ngIf="ifFreeSeatsAvailible(); then showPlusButton else hideShowButton"></div>
+                    <ng-template #showPlusButton><button class="trip-reservation-button-plus"
+                            (click)="deltaReservation(1)">➕</button></ng-template>
+                    <ng-template #hideShowButton>
+                        <div style="width: 30px;"></div>
+                    </ng-template>
+                    <button class="trip-reservation-button-minus" (click)="deltaReservation(-1)">➖</button>
+                </div>
+                <div *ngIf="trip.freeSeats == 0">No free tickets!</div>
+                <div *ngIf="trip.freeSeats != 0 && numOfReservations == 0" class="trip-reservation-num">Buy tickets!
+                </div>
+                <div *ngIf="trip.freeSeats != 0 && numOfReservations > 0" class="trip-reservation-num">You've chosen:
+                    {{numOfReservations}}</div>
+            </div>
+        </div>
+    </div>
+    <button class="trip-remove-button" (click)="removeThisTrip()">REMOVE THIS TRIP</button>
+</div>

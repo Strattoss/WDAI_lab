@@ -1,0 +1,115 @@
+.prev-button-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}
+
+.prev-button {
+    background-color: var(--color-sec);
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.prev-button:hover {
+    background-color: var(--color-sec-dark);
+}
+
+.thumbnails-list {
+    margin: 5px;
+}
+
+.thumbnail {
+    height: 15vh;
+    width: auto;
+    margin: 5px;
+    float: left;
+}
+
+.thumbnail:hover {
+    box-shadow: 5px 5px 5px grey;
+}
+
+/* Clear floats after imgaes */
+.thumbnails-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#expandedImg {
+    width: 74%;
+    margin: 10px;
+}
+
+.trip-title {
+    font-family: fantasy;
+    text-align: center;
+}
+
+.img-container {
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.img-container-position {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.closebtn {
+    position: absolute;
+    left: 13%;
+    top: 10px;
+
+    width: 50px;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.closebtn:hover {
+    background-color: var(--color-prim);
+}
+
+.trip-reservation-price {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.trip-reservation-price > * {
+    margin: 0px;
+}
+
+.trip-info-whole {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--color-prim-light);
+    border-radius: 20px;
+}
+
+.trip-info>* {
+    border: 2px solid var(--color-sec);
+    flex: 1 1 100px;
+    margin: 15px;
+}
+
+.trip-info { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.trip-info>*, trip-title {
+    padding: 10px;
+    border-radius: 10px;
+}
