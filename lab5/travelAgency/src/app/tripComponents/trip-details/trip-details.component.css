@@ -41,7 +41,7 @@
 }
 
 #expandedImg {
-    width: 74%;
+    width: 86%;
     margin: 10px;
 }
 
@@ -64,7 +64,7 @@
 
 .closebtn {
     position: absolute;
-    left: 13%;
+    left: 7%;
     top: 10px;
 
     width: 50px;
@@ -84,7 +84,7 @@
     padding: 5px;
 }
 
-.trip-reservation-price > * {
+.trip-reservation-price>* {
     margin: 0px;
 }
 
@@ -99,17 +99,50 @@
 
 .trip-info>* {
     border: 2px solid var(--color-sec);
-    flex: 1 1 100px;
+    flex: 1 1 200px;
     margin: 15px;
 }
 
-.trip-info { 
+.trip-info {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.trip-info>*, trip-title {
+.trip-info>*,
+trip-title {
     padding: 10px;
     border-radius: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+}
+
+.comment {
+    width: 90%;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: var(--color-sec-dark);
+    transition: all 0.5s;
+}
+
+.comment:hover {
+    background-color: var(--color-sec);
+}
+
+.comment-content {
+    word-break: break-all;
+    white-space: normal;
 }

@@ -14,7 +14,7 @@
         <ng-template #unavailibleFreeSeats>
             <p class="unavailibleFreeSeats">💺 No free seats</p>
         </ng-template>
-        <app-trip-rating [ratingNum]="getAverageRating()" [ratingDivisor]="getAverageRatingDivisor()"></app-trip-rating>
+        <app-trip-rating style="background-color: unset; padding: 5px 0px; margin-top: 20px;" [ratingNum]="getAverageRating()" [ratingDivisor]="getAverageRatingDivisor()"></app-trip-rating>
         <div class="trip-reservation">
             <div class="trip-reservation-price">
                 <h3>{{trip.unitPrice | currency}}</h3>

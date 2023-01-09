@@ -77,7 +77,9 @@ export class TripTileComponent {
     if (this.trip == undefined) { return; }
     this.deltaReservation(-this.numOfReservations);
     this.tripsToDistinguish.signOff(this);
-    this.tripsDataService.deleteTrip(this.trip);
+    if (this.tripId != undefined) {
+      this.tripsDataService.deleteTrip(this.tripId); 
+    }
     this.tripsToDistinguish.updateGreenRedBorders();
   }
 
@@ -97,7 +99,7 @@ export class TripTileComponent {
   }
 
   getAverageRatingDivisor() {
-    return Math.round(this.getAverageRating())-1;
+    return Math.round(this.getAverageRating()) - 1;
   }
 
 }

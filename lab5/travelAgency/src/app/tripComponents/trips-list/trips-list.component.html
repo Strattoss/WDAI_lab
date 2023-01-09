@@ -1,4 +1,4 @@
 <app-total-reservations></app-total-reservations>
 <div id="whole">
-    <app-trip-tile *ngFor="let trip of trips; let i = index" [tripId]="i"></app-trip-tile>
+    <app-trip-tile *ngFor="let trip of getTrips(); let i = index" [tripId]="getNthTripId(i)"></app-trip-tile>
 </div>

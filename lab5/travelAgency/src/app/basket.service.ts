@@ -6,11 +6,18 @@ import { TripsDataService } from './trips-data.service';
   providedIn: 'root'
 })
 export class BasketService {
-  private reservations: Array<[Trip, number]> = new Array();
+  // [Trip, number] <=> [trio object, number of reservation for this trip]
+  private reservations: Array<[Trip, number]> = [];
+  private trips?: Trip[];
 
-  constructor(private tripsData: TripsDataService ) { }
+  constructor(private tripsData: TripsDataService) {
+    this.trips = this.tripsData.getTripsAndIds()?.map(x => x[0])
+  }
 
   getNumOfReservations(trip: Trip): number {
+    if (trip == undefined || trip == null) {return 0;}
+    
+    
     let correctTrip: [Trip, number] | undefined = this.reservations.find(val => this.tripsEqual(val[0], trip));
     if (correctTrip == undefined) {return 0;}
     return correctTrip[1];
@@ -62,5 +69,6 @@ export class BasketService {
   getReservations() {
     return this.reservations;
   }
+  
 }
 

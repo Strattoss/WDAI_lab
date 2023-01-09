@@ -11,7 +11,7 @@
     width: 250px;
     border: 3px solid grey;
 
-    background-color: var(--primary-color);
+    background-color: var(--color-prim);
     border-radius: 20px;
 
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -49,7 +49,13 @@
     padding: 5px var(--card-padding-margin);
 
     /*background-color: #A9BBCC;*/
-    background-color: var(--secondary-color);
+    background-color: white;
+}
+
+.trip-info>* { 
+    background-color: var(--color-prim);
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .unavailibleFreeSeats {

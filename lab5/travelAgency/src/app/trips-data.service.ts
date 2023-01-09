@@ -1,47 +1,64 @@
 import { Injectable } from '@angular/core';
 import { Trip } from '../assets/interfaces/trip';
 import { TripsToDistinguishService } from './tripComponents/trips-to-distinguish.service';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
-import { map, Observable, filter, find } from 'rxjs';
+import { AngularFireDatabase} from '@angular/fire/compat/database';
+import { map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripsDataService {
-  trips: Trip[] = new Array<Trip>();
+  tripsAndIds?: [Trip, number][] = [];
 
-  constructor(private db:AngularFireDatabase , public tripsToDistinguish: TripsToDistinguishService) {
-    this.getTrips().subscribe(trips => this.trips = trips);
+  constructor(private db: AngularFireDatabase, public tripsToDistinguish: TripsToDistinguishService) {
+    this.getTripsAndIdsObservable().subscribe(x => {
+      this.tripsAndIds = [];
+      x.forEach(y => {
+        if (y.key == null || y.payload.val() == null) { return };
+        this.tripsAndIds?.push([y.payload.val() as Trip, Number.parseInt(y.key)]);
+      });
+    }
+    );
+    this.getTripsAndIdsObservable();
   }
 
-  getTrips() {
+  getTripsObservable(): Observable<Trip[]> {
     return this.db.list('trips').valueChanges().pipe(map(obj => obj as Trip[]));
   }
 
+  getTripsAndIdsObservable() {
+    return this.db.list('trips').snapshotChanges();
+  }
+
+  getTripsAndIds(): [Trip, number][] | undefined {
+    return this.tripsAndIds;
+  }
+
   getTripById(id: number): Observable<Trip> {
-    return this.db.object('trips/'+id).valueChanges() as Observable<Trip>;
+    return this.db.object<Trip>('trips/' + id).valueChanges() as Observable<Trip>;
   }
 
   getIdByTrip(trip: Trip) {
-    for(let i in this.trips) {
-      if (this.tripsEqual(this.trips[i], trip)) {
-        return Number.parseInt(i);
+    let tmp;
+    this.tripsAndIds?.forEach(x => {
+      if (this.tripsEqual(x[0], trip)) {
+        tmp = x[1];
       }
-    };
-    return undefined;
+    })
+    return tmp;
+
   }
 
   //todo: change it
   addTrip(trip: Trip) {
-    this.trips.push(trip);
-    this.tripsToDistinguish.updateGreenRedBorders();
+    //this.trips.push(trip);
+    //this.tripsToDistinguish.updateGreenRedBorders();
   }
 
-  //todo: change it
-  deleteTrip(trip: Trip) {
-    this.trips.forEach((value, index) => {
-      if (value.name == trip.name) this.trips.splice(index, 1);
-    });
+  deleteTrip(id: number) {
+    console.log("removing trip with id " + id);
+    
+    this.db.object('trips/'+id).remove();
     this.tripsToDistinguish.updateGreenRedBorders();
   }
 

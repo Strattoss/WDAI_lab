@@ -6,6 +6,7 @@ import { TripsDataService } from 'src/app/trips-data.service';
 import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { ImgUrl } from 'src/assets/interfaces/ImgUrl';
 import { Trip } from 'src/assets/interfaces/trip';
+import { Comment } from 'src/assets/interfaces/comment';
 
 @Component({
   selector: 'app-trip-details',
@@ -24,6 +25,10 @@ export class TripDetailsComponent implements OnInit {
 
   numOfReservations = 0;
 
+  model: Comment = {nick: "", tripTitle: this.trip?.name, content: ""};
+  errorMsgs: string[] = [];
+  comments: Comment[] = [{nick: "abc", tripTitle: this.trip?.name, content: "Example of comment. zsertdxryrfctuughb rfctdgvui fcgvcybjihjnko ftyctgycvihboijnop tgigvihboijnop ycggicvybji vuigh"}];
+
   constructor(public basket: BasketService,
     private activatedRoute: ActivatedRoute,
     private tripsData: TripsDataService) { }
@@ -36,6 +41,7 @@ export class TripDetailsComponent implements OnInit {
         this.tripObs = this.tripsData.getTripById(this.tripId);
         this.tripObs.subscribe(v => {
           this.trip = v;
+          this.model.tripTitle = this.trip.name;
           this.numOfReservations = this.basket.getNumOfReservations(this.trip);
         }
         );
@@ -122,8 +128,20 @@ export class TripDetailsComponent implements OnInit {
   }
 
   getAverageRatingDivisor() {
-    console.log(Math.round(this.getAverageRating()) - 1);
     return Math.round(this.getAverageRating()) - 1;
+  }
+
+  onSubmit() {
+    this.errorMsgs = [];
+    if (this.model.content.length < 50) {
+      this.errorMsgs.push("Comment has to be at least 50 characters long! Current length: " + this.model.content.length)
+      return;
+    }
+    if (this.model.content.length > 500) {
+      this.errorMsgs.push("Comment cannot exceed 500 characters in length! Current length: " + this.model.content.length)
+      return;
+    }
+    this.comments.push(this.model);
   }
 
 }

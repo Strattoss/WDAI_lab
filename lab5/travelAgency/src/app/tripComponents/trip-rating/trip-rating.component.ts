@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-trip-rating',
@@ -9,6 +9,7 @@ export class TripRatingComponent {
   @Input() ratingDivisor = -1;
   @Input() ratingDivisorMovable = false;
   @Input() ratingNum?: number;
+  @Output() numOfStars = new EventEmitter<number>();
 
   setRatingDivisor(n: number) {
     if (this.ratingDivisorMovable) {
@@ -20,7 +21,12 @@ export class TripRatingComponent {
     if (this.ratingDivisorMovable) {
       this.ratingDivisor = starNum;
       this.ratingDivisorMovable = false;
+      this.emitNumOfStars(this.ratingDivisor);
     }
+  }
+
+  emitNumOfStars(value: number) {
+    this.numOfStars.emit(value);
   }
 
   isNaN(n: number) {
