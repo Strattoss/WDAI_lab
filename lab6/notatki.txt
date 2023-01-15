@@ -1,0 +1,5 @@
+Refresh (F5) nie powinno wywalić aplikacji
+Masz napisać, żeby odsłużyć wszystkie (?) 3 stany
+Trzeba samemu obsłużyć role użytkowników
+Banowanie użytkowników -> może korzystać, ale nie może zostawić oceny
+Do asynchronicznegoo propagowania danych używaj Observabli
