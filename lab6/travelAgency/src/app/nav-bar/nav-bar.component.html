@@ -1,0 +1,34 @@
+<nav id="flex-nav">
+    <a id="company-logo" routerLink="/home">FlyAway</a>
+    <nav id="flex-bar" [ngClass]="hamburgerEnabled ? 'hide-flex-bar' : 'show-flex-bar'">
+        <a (click)="route('/home')">HOME</a>
+        <a (click)="route('/trips-list')">TRIPS</a>
+        <a (click)="route('/add-trip')">ADD TRIP</a>
+        <a (click)="route('/history')">HISTORY</a>
+        <div id="basket" (click)="route('/basket')">
+            <div>BASKET INFO</div>
+            <p>Made reservations: {{basket.getSumOfReservationsNum()}}</p>
+            <p>Summed price: {{basket.getSumOfReservationsMoney() | currency}}</p>
+        </div>
+        <div id="user">👤 my name</div>
+        <div id="notifications">🔔</div>
+    </nav>
+
+
+    <div id="hamburger" [ngClass]="hamburgerEnabled ? 'show-hambuger' : 'hide-hamburger'" (click)="toggleHamburger()">
+        <div [ngClass]="hamburgerToggled ? 'line1' : ''"></div>
+        <div [ngClass]="hamburgerToggled ? 'line2' : ''"></div>
+        <div [ngClass]="hamburgerToggled ? 'line3' : ''"></div>
+    </div>
+
+
+</nav>
+<div class="hamburger-menu-position">
+    <div [ngClass]="hamburgerToggled ? 'show-hamburger-menu' : 'hide-hamburger-menu'" id="hamburger-menu">
+        <a (click)="route('/home')">HOME</a>
+        <a (click)="route('/trips-list')">TRIPS</a>
+        <a (click)="route('/add-trip')">ADD TRIP</a>
+        <a (click)="route('/basket')">BASKET</a>
+        <a (click)="route('/history')">HISTORY</a>
+    </div>
+</div>

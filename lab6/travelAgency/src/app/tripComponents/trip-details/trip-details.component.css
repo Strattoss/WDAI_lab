@@ -1,0 +1,149 @@
+.prev-button-position {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}
+
+.prev-button {
+    background-color: var(--color-sec);
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.prev-button:hover {
+    background-color: var(--color-sec-dark);
+}
+
+.thumbnails-list {
+    margin: 5px;
+}
+
+.thumbnail {
+    height: 15vh;
+    width: auto;
+    margin: 5px;
+    float: left;
+}
+
+.thumbnail:hover {
+    box-shadow: 5px 5px 5px grey;
+}
+
+/* Clear floats after imgaes */
+.thumbnails-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#expandedImg {
+    width: 86%;
+    margin: 10px;
+}
+
+.trip-title {
+    text-align: center;
+}
+
+.img-container {
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.img-container-position {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.closebtn {
+    position: absolute;
+    right: 7%;
+    top: 10px;
+    background-color: white;
+
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.closebtn:hover {
+    background-color: var(--color-prim);
+}
+
+.trip-reservation-price {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.trip-reservation-price>* {
+    margin: 0px;
+}
+
+.trip-info-whole {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--color-prim-light);
+    border-radius: 20px;
+}
+
+.trip-info>* {
+    border: 2px solid var(--color-sec);
+    flex: 1 1 200px;
+    margin: 15px;
+}
+
+.trip-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.trip-info>*,
+trip-title {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+}
+
+.comment {
+    width: 90%;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: var(--color-sec-dark);
+    transition: all 0.5s;
+}
+
+.comment:hover {
+    background-color: var(--color-sec);
+}
+
+.comment-content {
+    word-break: break-all;
+    white-space: normal;
+}

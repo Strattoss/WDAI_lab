@@ -1,0 +1,68 @@
+<form id="whole" [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+    <h2>Trip Form</h2>
+    <h2>Formularz nie działa!</h2>
+    <div class="form-div">
+        <label for="destination">Destination country</label>
+        <select class="form-control" name="destination" id="destination" required formControlName="destination">
+            <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+    </div>
+    <div class="form-div">
+        <label for="name">Trip title</label>
+        <input name="name" id="name" formControlName="name">
+    </div>
+    <div class="form-div">
+        <label for="startDate">Start date</label>
+        <input type="date" name="startDate" id="startDate" formControlName="startDate">
+    </div>
+    <div class="form-div">
+        <label for="endDate">End date</label>
+        <input type="date" name="endDate" id="endDate" formControlName="endDate">
+    </div>
+    <div class="form-div">
+        <label for="unitPrice">Unit price</label>
+        <input type="number" step="0.01" min="0" name="unitPrice" id="unitPrice" formControlName="unitPrice">
+    </div>
+    <div class="form-div">
+        <label for="freeSeats">Free seats</label>
+        <input type="number" name="freeSeats" min="0" id="freeSeats" formControlName="freeSeats">
+    </div>
+    <div class="form-div">
+        <label for="description">Description</label>
+        <textarea type="text" name="description" id="description" formControlName="description"></textarea>
+    </div>
+
+    <div formArrayName="imgs">
+        <h2 class="form-div">Images (at least one)</h2>
+        <button type="button" (click)="addImgForm()" class="form-div">Add another image</button>
+
+        <div *ngFor="let img of imgsFormArray.controls; let i=index">
+            <div [formGroupName]="i" class="img-form">
+                <p class="form-div"><b>Image num: {{i + 1}}</b></p>
+                <div class="form-div">
+                    <label for="img-{{ i }}-alt">Alternative</label>
+                    <input type="text" formControlName="alt">
+                </div>
+
+                <div class="form-div">
+                    <label for="img-{{ i }}-thumbnail">Source for thumbnail</label>
+                    <input type="text" formControlName="srcThumbnail">
+                </div>
+
+                <div class="form-div">
+                    <label for="img-{{ i }}-full">Source for full image</label>
+                    <input type="text" formControlName="srcFull">
+                </div>
+
+                <div class="form-div">
+                    <label for="img-{{ i }}-title">Image title</label>
+                    <input type="text" formControlName="title">
+                </div>
+
+                <button type="button" (click)="deleteImgForm(i)"  class="form-div">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="submitButton" type="submit" [disabled]="!tripForm.valid">Submit</button>
+</form>

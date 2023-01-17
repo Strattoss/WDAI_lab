@@ -1,0 +1,11 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-grey-light);
+}
+
+#main>* {
+    margin-left: 10px;
+    margin-right: 10px;
+}

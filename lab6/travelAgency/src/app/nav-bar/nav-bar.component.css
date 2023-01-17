@@ -1,0 +1,151 @@
+a, #basket, #user, #hamburger-menu>*, #notifications {
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.5s all;
+}
+
+#flex-nav {
+    background-color: var(--color-prim);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#flex-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*#flex-bar>* {
+    padding: 2vw;
+    margin: 0px 5px;
+    border-radius: 5px;
+    transition: 0.5s all;
+}*/
+
+#flex-bar>*:hover {
+    background-color: var(--color-sec);
+    box-shadow: 10px 5px 5px grey;
+}
+
+.show-flex-bar>* {
+    padding: 2vw;
+    margin: 0px 5px;
+}
+
+.hide-flex-bar>* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0px;
+}
+
+#company-logo {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    border-radius: 5px;
+
+    padding: 15px;
+    margin: 15px;
+    transition: all 0.5s;
+}
+
+#company-logo:hover {
+    box-shadow: 10px 5px 5px grey;
+    background-color: var(--color-sec);
+}
+
+
+#hamburger {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    width: 3em;
+    height: 3.5em;
+    transition: font-size 1s;
+}
+
+.show-hamburger {
+    font-size: medium;
+}
+
+.hide-hamburger {
+    font-size: 0px;
+}
+
+#hamburger div {
+    position: relative;
+    width: 3em;
+    height: 0.5em;
+    border-radius: 3px;
+    background-color: #000000;
+    margin-top: 0.5em;
+    transition: all 1s;
+}
+
+.hamburger-menu-position {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+#hamburger-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 105vw;
+    height: 105vh;
+    align-items: center;
+    transition: transform 1s, background-color 1.5s;
+}
+
+#hamburger-menu>* {
+    font-size: 3vh;
+    padding: 3vw;
+    margin: 0px 5px;
+}
+
+#hamburger-menu>*:hover {
+    background-color: var(--color-sec);
+    box-shadow: 10px 5px 5px grey;
+}
+
+.hide-hamburger-menu {
+    transform: translateX(-150%);
+}
+
+.show-hamburger-menu {
+    transform: translate(0%);
+    background-color: rgba(100, 100, 100, 0.9);
+}
+
+#toggle {
+    display: none;
+}
+
+.line1 {
+    transform: rotate(-45deg) translate(-0.9em, 0.6em);
+    margin-top: 1.5em;
+}
+
+.line2 {
+    opacity: 0;
+    transform: translateY(1.4em);
+}
+
+.line3 {
+
+    transform: rotate(45deg) translate(-0.9em, -0.6em);
+}
+
+#basket {
+    display: flex;
+    flex-direction: column;
+}
+
+#basket>* {
+    margin: 0px;
+    padding: 0px;
+}

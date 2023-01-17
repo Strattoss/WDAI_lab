@@ -1,0 +1,15 @@
+<div id="basket-info">
+    <div *ngIf="reservations.length > 0; else noReservations">
+        <h3>Made reservations: {{sumOfReservationsNum}}</h3>
+        <h3>Summed price: {{sumOfReservationsMoney | currency}}</h3>
+    </div>
+    <ng-template #noReservations>
+        <h2 id="no-reservations">You haven't made any reservations yet!</h2>
+    </ng-template>
+</div>
+
+<div class="trips-list">
+    <div #showReservations *ngFor="let reservation of reservations">
+        <app-trip-tile [tripId]="reservation.id"></app-trip-tile>
+    </div>
+</div>

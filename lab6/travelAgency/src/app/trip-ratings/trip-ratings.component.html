@@ -1,0 +1,4 @@
+<app-trip-rating *ngFor="let rating of (tripObs | async)?.ratings; let i = index"
+    [ratingDivisor]=i
+    [ratingDivisorMovable]=false 
+    [ratingNum]="rating"></app-trip-rating>

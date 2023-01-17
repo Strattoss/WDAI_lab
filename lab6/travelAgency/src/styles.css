@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    margin: -8px;
+    --color-prim: #F5703C;
+    --color-prim-light:#ffa683;
+    --color-prim-dark: #A84118;
+    --color-sec: #3BF5D6;
+    --color-sec-dark: #07A88D;
+    --color-grey-light: #e0e0e0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+}

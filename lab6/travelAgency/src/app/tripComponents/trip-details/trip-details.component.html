@@ -1,0 +1,96 @@
+<div class="prev-button-position">
+    <div class="prev-button" routerLink="/trips-list">
+        Back to list of trips
+    </div>
+</div>
+
+<article class="thumbnails-list">
+    <img class="thumbnail" *ngFor="let img of trip?.imgs; let i = index" src="{{img.srcThumbnail}}" title="{{img.title}}" alt="{{img.alt}}" (click)="expandImg(img)">
+</article>
+
+<article class="img-container" [ngStyle]="{'display': showExpandedImg ? '' : 'none'}">
+    <figure class="img-container-position">
+        <span (click)="closeImg()" class="closebtn">&times;</span>
+        <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}" alt="expandedImgInfo?.alt">
+    </figure>
+</article>
+
+<article class="trip-info-whole" *ngIf="trip != undefined">
+    <h2 class="trip-title">Trip title: {{trip.name}}</h2>
+    <div class="trip-info">
+        <div>
+            <p>📍 Destination: {{trip.destination | uppercase}}</p>
+            <app-trip-rating [ratingDivisor]=getAverageRatingDivisor() [ratingNum]=getAverageRating()></app-trip-rating>
+            <app-trip-ratings [tripId]="tripId"></app-trip-ratings>
+            <p>📅 From {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
+        </div>
+        <div>
+            📝 Description: {{trip.description}}
+        </div>
+        <div>
+            <div *ngIf="trip.freeSeats - numOfReservations > 0; then availibleFreeSeats else unavailibleFreeSeats">
+            </div>
+            <ng-template #availibleFreeSeats>
+                <p [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">💺 {{trip.freeSeats -
+                    numOfReservations}} seats left</p>
+            </ng-template>
+            <ng-template #unavailibleFreeSeats>
+                <p class="unavailibleFreeSeats">💺 No free seats</p>
+            </ng-template>
+            <div class="trip-reservation">
+                <div class="trip-reservation-price">
+                    <h3>{{trip.unitPrice | currency}}&nbsp;</h3>
+                    <p>per pearson</p>
+                </div>
+                <div class="trip-reservation-panel">
+                    <div class="trip-reservation-buttons">
+                        <div *ngIf="ifFreeSeatsAvailible(); then showPlusButton else hideShowButton"></div>
+                        <ng-template #showPlusButton><button class="trip-reservation-button-plus"
+                                (click)="deltaReservation(1)">➕</button></ng-template>
+                        <ng-template #hideShowButton>
+                            <div style="width: 30px;"></div>
+                        </ng-template>
+                        <button class="trip-reservation-button-minus" (click)="deltaReservation(-1)">➖</button>
+                    </div>
+                    <div *ngIf="trip.freeSeats == 0">No free tickets!</div>
+                    <div *ngIf="trip.freeSeats != 0 && numOfReservations == 0" class="trip-reservation-num">Buy tickets!
+                    </div>
+                    <div *ngIf="trip.freeSeats != 0 && numOfReservations > 0" class="trip-reservation-num">You've
+                        chosen:
+                        {{numOfReservations}}</div>
+                </div>
+            </div>
+        </div>
+        <form (ngSubmit)="onSubmit()" #tripForm="ngForm" id="whole">
+            <h2>Send your opinion!</h2>
+            <div class="form-group">
+                <label for="nick">My nick</label>
+                <input name="nick" id="nick" required [(ngModel)]="model.nick">
+            </div>
+            <div class="form-group">
+                <label for="trip-title">Trip title</label>
+                <input name="trip-title" id="trip-title" required readonly [(ngModel)]="model.tripTitle">
+            </div>
+            <div class="form-group">
+                <label for="content">My comment</label>
+                <textarea style="width: 100%; height: 300px; resize: none;" name="content" id="content" required
+                    [(ngModel)]="model.content"></textarea>
+            </div>
+
+            <button type="submit" [disabled]="!tripForm.form.valid">Submit</button>
+            <div id="error-field">
+                <div *ngFor="let errorMsg of errorMsgs">
+                    {{errorMsg}}
+                </div>
+            </div>
+        </form>
+        <div>
+            <h1>Comments</h1>
+            <div *ngFor="let comment of comments" class="comment">
+                <div>Trip title: {{comment.tripTitle}}</div>
+                <div>By: {{comment.nick}}</div>
+                <p class="comment-content">{{comment.content}} </p>
+            </div>
+        </div>
+    </div>
+</article>
