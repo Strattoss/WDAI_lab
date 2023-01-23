@@ -1,7 +1,8 @@
 <div id="whole">
     <div id="persistence">
         <p>Selected session persistence:</p>
-        <select id="persistence-select" [(ngModel)]="selectedPersistence" (ngModelChange)="chosenPersistence()" name="persistence">
+        <select id="persistence-select" [(ngModel)]="selectedPersistence" (ngModelChange)="chosenPersistence()"
+            name="persistence">
             <option value="local">local</option>
             <option value="session">session</option>
             <option value="none">none</option>
@@ -9,11 +10,30 @@
     </div>
 
     <div id="users-panel">
-        <div *ngFor="let user of users">
-            <input type="radio"> Admin
-            <input type="radio"> Banned
-            <input type="radio"> Client
-            <input type="radio"> Manager
+        <div *ngFor="let user of users; let i = index" class="user">
+            <div class="user-info">
+                <p>Name: {{user[1].firstName + ' ' + user[1].lastName}}</p>
+                <p>Email: {{user[1].email}}</p>
+            </div>
+            <div class="user-roles">
+                <p>Roles: </p>
+                <div class="role">
+                    <input id="admin-{{i}}" type="checkbox" [checked]="user[1].roles.admin" (change)="changeRole(user, 'admin', !user[1].roles.admin)">
+                    <label for="admin-{{i}}">Admin</label>
+                </div>
+                <div class="role">
+                    <input id="banned-{{i}}" type="checkbox" [checked]="user[1].roles.banned"  (change)="changeRole(user, 'banned', !user[1].roles.banned)">
+                    <label for="banned-{{i}}">Banned</label>
+                </div>
+                <div class="role">
+                    <input id="client-{{i}}" type="checkbox" [checked]="user[1].roles.client"  (change)="changeRole(user, 'client', !user[1].roles.client)">
+                    <label for="client-{{i}}">Client</label>
+                </div>
+                <div class="role">
+                    <input id="manager-{{i}}" type="checkbox" [checked]="user[1].roles.manager"  (change)="changeRole(user, 'manager', !user[1].roles.manager)">
+                    <label for="manager-{{i}}">Manager</label>
+                </div>
+            </div>
         </div>
     </div>
 </div>

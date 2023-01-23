@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Trip } from 'src/assets/interfaces/trip';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { map, Observable, Subscription } from 'rxjs';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 import { TripHistory } from 'src/assets/interfaces/tripHistory';
 import { UserData } from 'src/assets/interfaces/userData';
 import { Review } from 'src/assets/interfaces/review';
@@ -51,17 +51,16 @@ export class FbDatabaseService {
   deleteTrip(id: TripId) {
     this.db.object('trips/' + id).remove();
   }
+  
+  getTripsHistories$() {
+    return this.db.list<TripHistory>('/tripHistory').valueChanges().pipe(map(x => x.filter(y => y.userId == this.currentUser?.uid)))
+  }
 
   changeNumOfAvailableTickets(tripId: TripId, delta: number) {
     return this.db.object<Trip>('/trips/' + tripId + '/freeSeats').query.ref.transaction(freeSeats => {
       if (freeSeats < delta) { return; }
       else { return freeSeats - delta }
     })
-  }
-
-  
-  getTripsHistories$() {
-    return this.db.list<TripHistory>('/tripHistory').valueChanges().pipe(map(x => x.filter(y => y.userId == this.currentUser?.uid)))
   }
 
   addTripHistory(tripId: TripId, numOfTickets: number) {

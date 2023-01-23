@@ -4,7 +4,7 @@ import { TripsToDistinguishService } from 'src/app/services/trips-to-distinguish
 import { Router } from '@angular/router';
 import { BasketService } from 'src/app/services/basket.service';
 import { Observable } from 'rxjs';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
 
 

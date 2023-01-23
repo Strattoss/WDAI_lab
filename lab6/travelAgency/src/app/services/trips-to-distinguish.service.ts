@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Reservation } from 'src/assets/interfaces/reservation';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 import { BasketService } from './basket.service';
 import { FbDatabaseService } from './fb-database.service';
 

@@ -1,9 +1,6 @@
 #whole {
     margin: 10px 5%;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 #persistence {
@@ -13,4 +10,27 @@
 
 #persistence-select {
     margin-left: 20px;
+}
+
+#user-panel { 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user {
+    display: inline-block;
+    background-color: var(--color-prim-light);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.user:hover {
+    background-color: var(--color-prim);
+}
+
+.user-roles {
+    display: flex;
+    flex-direction: column;
 }

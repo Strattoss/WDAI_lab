@@ -1,4 +1,4 @@
-import { TripId } from "./tripId";
+import { TripId } from "../types/tripId";
 
 export interface Reservation {
     id: TripId,

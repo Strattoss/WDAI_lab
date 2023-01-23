@@ -6,6 +6,7 @@ import { SignUpData } from 'src/assets/interfaces/signUpData';
 import { UserData } from 'src/assets/interfaces/userData';
 import { Roles } from 'src/assets/interfaces/roles';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { UserId } from 'src/assets/types/userId';
 
 @Injectable({
   providedIn: 'root'
@@ -88,10 +89,6 @@ export class FbAuthService {
     })
   }
 
-  isLoggedIn() {
-    return this.currentUser != null;
-  }
-
   changePersistence(newPers: string) {
     if (['local', 'session', 'none'].includes(newPers)) {
       this.persistenceSetting = newPers;
@@ -129,7 +126,11 @@ export class FbAuthService {
     return this.db.object<UserData>('/users/' + uid).valueChanges();
   }
 
-  getAllUsersData() {
-    return this.db.list('/users').snapshotChanges().pipe(map(x => x.map(y => [y.key, y.payload.val()] as [string, UserData])))
+  getAllUsersData(): Observable<[UserId, UserData][]> {
+    return this.db.list('/users').snapshotChanges().pipe(map(x => x.map(y => [y.key, y.payload.val()] as [UserId, UserData])))
+  }
+
+  updateUserRole(userId: UserId, role: string, changeTo: boolean) {
+    return this.db.object('/users/' + userId + '/roles/' + role).set(changeTo);
   }
 }

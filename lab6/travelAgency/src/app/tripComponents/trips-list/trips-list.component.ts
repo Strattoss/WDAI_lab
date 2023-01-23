@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 
 @Component({
   selector: 'app-trips-list',

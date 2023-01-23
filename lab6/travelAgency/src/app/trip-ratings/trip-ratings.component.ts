@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 import { FbDatabaseService } from '../services/fb-database.service';
 
 @Component({

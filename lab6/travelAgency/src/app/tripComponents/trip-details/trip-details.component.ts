@@ -8,7 +8,7 @@ import { FbDatabaseService } from 'src/app/services/fb-database.service';
 import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { Review } from 'src/assets/interfaces/review';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripId } from 'src/assets/interfaces/tripId';
+import { TripId } from 'src/assets/types/tripId';
 
 @Component({
   selector: 'app-trip-details',
