@@ -42,8 +42,6 @@ export class FbAuthService {
           else {
             this.currentUserRoles$.next(null);
           }
-          console.log(y?.roles);
-          
         })
       }
       
@@ -57,8 +55,7 @@ export class FbAuthService {
   signUpUser(signUpData: SignUpData, password: string) {
     this.afAuth.createUserWithEmailAndPassword(signUpData.email, password)
       .then((result) => {
-        console.log("Create new user");
-        console.log(result);
+        // new user created
         if (result.user == null) {
           window.alert("Couldn't create new user, error from Firebase");
           return;
@@ -73,8 +70,7 @@ export class FbAuthService {
   logInUser(email: string, password: string) {
     return this.afAuth.setPersistence(this.persistenceSetting).then(() => {
       this.afAuth.signInWithEmailAndPassword(email, password).then((result) => {
-        console.log("User logged in: ");
-        console.log(result);
+        // user logged in
         this.router.navigate(['home']);
       })
         .catch((error) => { window.alert(error.message); })
@@ -84,7 +80,7 @@ export class FbAuthService {
 
   logOutUser() {
     return this.afAuth.signOut().then(() => {
-      console.log("User logged out");
+      // user logged out
       this.router.navigate(['log-in']);
     })
   }

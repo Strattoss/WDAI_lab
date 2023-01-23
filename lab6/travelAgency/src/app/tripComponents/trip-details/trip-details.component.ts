@@ -139,13 +139,13 @@ export class TripDetailsComponent implements OnInit {
   }
 
   getAverageRatingDivisor() {
-    return Math.round(this.getAverageRating());
+    return Math.round(this.getAverageRating() - 1);
   }
 
   onSubmit() {
-    if (!this.reviewForm.value.content?.length || !this.tripId || !this.reviewForm.value.rating) { return; }
+    if (!this.reviewForm.value.content?.length || !this.tripId) { return; }
 
-    this.fbData.addReviewForTrip(this.tripId, this.reviewForm.value.rating, this.reviewForm.value.content);
+    this.fbData.addReviewForTrip(this.tripId, this.reviewForm.value.rating!, this.reviewForm.value.content);
 
     this.reviewForm.reset();
   }

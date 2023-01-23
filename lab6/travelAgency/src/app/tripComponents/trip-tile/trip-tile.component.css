@@ -43,6 +43,7 @@
 .trip-info {
     width: calc(100% - 2*var(--card-padding-margin));
     padding: 5px var(--card-padding-margin);
+    border-radius: 16px;
 
     /*background-color: #A9BBCC;*/
     background-color: white;

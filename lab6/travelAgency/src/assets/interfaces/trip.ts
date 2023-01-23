@@ -3,8 +3,8 @@ import { ImgInfo } from "./imgInfo";
 export interface Trip {
     name: string;
     destination: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     unitPrice: number;
     freeSeats: number;
     description: string;

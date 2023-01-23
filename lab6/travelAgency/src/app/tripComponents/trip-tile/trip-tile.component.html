@@ -40,5 +40,5 @@
             </div>
         </div>
     </div>
-    <button class="trip-remove-button" (click)="removeThisTrip()">REMOVE THIS TRIP</button>
+    <button *ngIf="userRoles?.manager" class="trip-remove-button" (click)="removeThisTrip()">REMOVE THIS TRIP</button>
 </div>

@@ -20,7 +20,7 @@ export class TripFormComponent {
     startDate: ['', Validators.required],
     endDate: ['', Validators.required],
     unitPrice: ['', Validators.required],
-    freeSeats: ['', Validators.required],
+    freeSeats: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     description: ['',  [Validators.required, Validators.pattern('[ -\uFFFF\x0A\x0D\x09]*')]],
     imgs: this.fb.array([
       this.fb.group({
@@ -88,8 +88,8 @@ export class TripFormComponent {
     let newTrip: Trip = {
       name: this.tripForm.value.name!,
       destination: this.tripForm.value.destination!,
-      startDate: new Date(this.tripForm.value.startDate),
-      endDate: new Date(this.tripForm.value.endDate),
+      startDate: this.tripForm.value.startDate,
+      endDate: this.tripForm.value.endDate,
       unitPrice: Number.parseFloat(this.tripForm.value.unitPrice!),
       freeSeats: Number.parseInt(this.tripForm.value.freeSeats!),
       description: this.tripForm.value.description!,

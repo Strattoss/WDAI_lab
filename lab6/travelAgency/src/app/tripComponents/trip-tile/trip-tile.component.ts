@@ -6,6 +6,8 @@ import { BasketService } from 'src/app/services/basket.service';
 import { Observable } from 'rxjs';
 import { TripId } from 'src/assets/types/tripId';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
+import { Roles } from 'src/assets/interfaces/roles';
+import { FbAuthService } from 'src/app/services/fb-auth.service';
 
 
 @Component({
@@ -17,6 +19,7 @@ export class TripTileComponent {
   @Input() public tripId?: TripId;
   trip?: Trip | null;
   trip$?: Observable<Trip | null>;
+  userRoles: Roles | null = null;
   numOfReservations = 0;
 
   borderRed?: TripId; // id of trip that should be red
@@ -26,7 +29,8 @@ export class TripTileComponent {
   constructor(public tripsToDistinguish: TripsToDistinguishService,
     public fbData: FbDatabaseService,
     public router: Router,
-    public basket: BasketService) { }
+    public basket: BasketService,
+    private fbAuth: FbAuthService) { }
 
   ngOnInit() {
     this.tripsToDistinguish.getRedBorder$().subscribe(v => {
@@ -45,6 +49,8 @@ export class TripTileComponent {
         }
       });
     }
+
+    this.fbAuth.getCurrentUserRules$().subscribe(x => this.userRoles = x);
   }
 
   deltaReservation(n: number) {

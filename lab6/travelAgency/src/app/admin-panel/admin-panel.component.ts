@@ -20,7 +20,6 @@ export class AdminPanelComponent implements OnInit{
   ngOnInit(): void {
     this.fbAuth.getAllUsersData().subscribe(x => {
       this.users = x;
-      console.log(x);
     });
   }
 
