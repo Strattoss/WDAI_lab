@@ -1,4 +1,4 @@
-<main id="whole">
+<main id="whole" (mouseleave)="setRatingDivisor(-1)">
     <div id="stars"></div>
     <app-star *ngFor="let num of [0, 1, 2, 3, 4]" [ngStyle]="{'cursor': ratingDivisorMovable ? 'pointer' : 'unset'}"
         [ratingDivisor]="(isNaN(ratingDivisor)) ? -1 : ratingDivisor" [myNum]="num" (mouseenter)="setRatingDivisor(num)"
