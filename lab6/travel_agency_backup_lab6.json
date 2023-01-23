@@ -250,23 +250,139 @@
     "Zimbabwe",
     "Åland Islands"
   ],
-  "trips": [
-    {
+  "reviews": {
+    "-NMVJD3U--FN3jrpthOu": {
+      "lfwLywTRFWMVlTTeDcdCifHl9Sq1": {
+        "content": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+        "date": "2023-01-23T22:13:45.602Z",
+        "nick": "Marek Cicero",
+        "rating": 0
+      }
+    },
+    "-trip_num_1": {
+      "hayoxO1jSAMv6cemfGXMSWMqpes2": {
+        "content": "sandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima exce",
+        "date": "2023-01-23T21:50:07.164Z",
+        "nick": "r r",
+        "rating": 2
+      }
+    },
+    "-trip_num_4": {
+      "Qz06V8nT9Se6MJxIXH2S7S6XZf12": {
+        "content": "n: Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum ven",
+        "date": "2023-01-23T18:08:39.395Z",
+        "nick": "KlientKlientowski",
+        "rating": 4
+      }
+    },
+    "-trip_num_6": {
+      "lfwLywTRFWMVlTTeDcdCifHl9Sq1": {
+        "content": "Nie nieśli mnie na rekach!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+        "date": "2023-01-23T22:07:01.158Z",
+        "nick": "Marek Cicero",
+        "rating": 1
+      }
+    },
+    "-trip_num_8": {
+      "Qz06V8nT9Se6MJxIXH2S7S6XZf12": {
+        "content": "re dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nem",
+        "date": "2023-01-23T18:36:49.011Z",
+        "nick": "Klient Klientowski",
+        "rating": 2
+      }
+    }
+  },
+  "tripHistory": {
+    "1ZdaMxlHEHdBSww34hEAMgw5j4U2": {
+      "-NMVdLva2v5mU1XLaAlr": {
+        "date": "2023-01-23T22:00:16.358Z",
+        "tickets": 2,
+        "tripId": "-trip_num_1"
+      }
+    },
+    "Qz06V8nT9Se6MJxIXH2S7S6XZf12": {
+      "-NMUkTd2lagI9R7AMX7m": {
+        "date": "2023-01-23T17:51:43.334Z",
+        "tickets": 1,
+        "tripId": "-trip_num_4"
+      },
+      "-NMUkTd3b9NLkffKIWPB": {
+        "date": "2023-01-23T17:51:43.336Z",
+        "tickets": 1,
+        "tripId": "-trip_num_6"
+      },
+      "-NMUrEwkgDOfwbr2Knan": {
+        "date": "2023-01-23T18:21:18.146Z",
+        "tickets": 1,
+        "tripId": "-trip_num_8"
+      }
+    },
+    "hayoxO1jSAMv6cemfGXMSWMqpes2": {
+      "-NMVb-Ajp_8F4Kf_xaFS": {
+        "date": "2023-01-23T21:49:58.900Z",
+        "tickets": 1,
+        "tripId": "-trip_num_1"
+      }
+    },
+    "lfwLywTRFWMVlTTeDcdCifHl9Sq1": {
+      "-NMVek_F2c77mAU32Rqs": {
+        "date": "2023-01-23T22:06:23.567Z",
+        "tickets": 1,
+        "tripId": "-trip_num_6"
+      },
+      "-NMVf4boLjzMY7JJWCsY": {
+        "date": "2023-01-23T22:07:49.747Z",
+        "tickets": 1,
+        "tripId": "-NMVJD3U--FN3jrpthOu"
+      },
+      "-NMVf4bqKvjyEbBrxQzQ": {
+        "date": "2023-01-23T22:07:49.749Z",
+        "tickets": 1,
+        "tripId": "-trip_num_5"
+      }
+    }
+  },
+  "trips": {
+    "-NMVJD3U--FN3jrpthOu": {
+      "description": "Lorem ipsum",
+      "destination": "Egypt",
+      "endDate": "2023-03-28",
+      "freeSeats": 27,
+      "imgs": [
+        {
+          "alt": "Giza-pyramids",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Giza-pyramids.JPG/1024px-Giza-pyramids.JPG",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Giza-pyramids.JPG/256px-Giza-pyramids.JPG",
+          "title": "Robster1983 at English Wikipedia, CC0, via Wikimedia Commons"
+        }
+      ],
+      "name": "Eye of Pharaoh",
+      "ratings": [
+        8,
+        3,
+        10,
+        25,
+        48
+      ],
+      "startDate": "2023-03-23",
+      "unitPrice": 679.99
+    },
+    "-trip_num_0": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Czech Republic",
       "endDate": "2023-06-28",
-      "freeSeats": 7,
+      "freeSeats": 4,
       "imgs": [
         {
           "alt": "Prague (6365119737)",
-          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/256px-Prague_%286365119737%29.jpg",
           "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/1024px-Prague_%286365119737%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/256px-Prague_%286365119737%29.jpg",
           "title": "Moyan Brenn from Italy, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Petřín Tower View IMG 3020",
-          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG/256px-Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG",
           "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG/1024px-Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG/256px-Pet%C5%99%C3%ADn_Tower_View_IMG_3020.JPG",
           "title": "Deror_avi, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         }
       ],
@@ -281,37 +397,37 @@
       "startDate": "2023-06-25",
       "unitPrice": 459.99
     },
-    {
+    "-trip_num_1": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Poland",
       "endDate": "2023-05-17",
-      "freeSeats": 20,
+      "freeSeats": 13,
       "imgs": [
         {
           "alt": "2017-05-27 Plac Zamkowy w Warszawie 1",
-          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg/256px-2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg",
           "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg/1024px-2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg/256px-2017-05-27_Plac_Zamkowy_w_Warszawie_1.jpg",
           "title": "Maksym Kozlenko, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Warsaw 07-13 img29 View from Palace of Culture and Science",
-          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg/256px-Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg",
           "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg/1024px-Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg/256px-Warsaw_07-13_img29_View_from_Palace_of_Culture_and_Science.jpg",
           "title": "A.Savin, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"
         }
       ],
       "name": "Phoenix from the Ashes",
       "ratings": [
         4,
-        3,
-        6,
+        4,
+        7,
         15,
         49
       ],
       "startDate": "2023-05-10",
       "unitPrice": 609.99
     },
-    {
+    "-trip_num_2": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Germany",
       "endDate": "2023-08-14",
@@ -319,17 +435,17 @@
       "imgs": [
         {
           "alt": "Siegessaeule Aussicht 10-13 img4 Tiergarten",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg/256px-Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg/1024px-Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg/1024px-Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg/256px-Siegessaeule_Aussicht_10-13_img4_Tiergarten.jpg",
           "title": "A.Savin, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Aerial view of Berlin (32881394137)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg/256px-Aerial_view_of_Berlin_%2832881394137%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg/1024px-Aerial_view_of_Berlin_%2832881394137%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg/1024px-Aerial_view_of_Berlin_%2832881394137%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg/256px-Aerial_view_of_Berlin_%2832881394137%29.jpg",
           "title": "dronepicr, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Law and Order",
       "ratings": [
         3,
@@ -341,25 +457,25 @@
       "startDate": "2023-08-11",
       "unitPrice": 929.99
     },
-    {
+    "-trip_num_3": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "France",
       "endDate": "2023-09-22",
-      "freeSeats": 3,
+      "freeSeats": 2,
       "imgs": [
         {
           "alt": "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/256px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/1024px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/1024px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/256px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
           "title": "Yann Caradec from Paris, France, CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Eiffel Tower from the Tour Montparnasse, 1 May 2012 N2",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg/256px-Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg/1024px-Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg/1024px-Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg/256px-Eiffel_Tower_from_the_Tour_Montparnasse%2C_1_May_2012_N2.jpg",
           "title": "Getfunky, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "What a Lovely Night",
       "ratings": [
         16,
@@ -371,89 +487,90 @@
       "startDate": "2023-09-20",
       "unitPrice": 419.99
     },
-    {
+    "-trip_num_4": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Hungary",
       "endDate": "2023-11-01",
-      "freeSeats": 8,
+      "freeSeats": 6,
       "imgs": [
         {
           "alt": "Budapest, Hungary (explored) (14995308504)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/256px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/1024px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/1024px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg/256px-Budapest%2C_Hungary_%28explored%29_%2814995308504%29.jpg",
           "title": "Thomas Depenbusch (Depi) from Cologne, Germany, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Széchenyi Chain Bridge in Budapest at night",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg/256px-Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg/1024px-Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg/1024px-Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg/256px-Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg",
           "title": "Wilfredor, CC0, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Tale of Two Cities",
       "ratings": [
         3,
         6,
         9,
-        7,
-        15
+        8,
+        18
       ],
       "startDate": "2023-10-30",
       "unitPrice": 749.99
     },
-    {
+    "-trip_num_5": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Türkiye",
       "endDate": "2023-07-15",
-      "freeSeats": 5,
+      "freeSeats": 2,
       "imgs": [
         {
           "alt": "Bosphorus Bridge (235499411)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bosphorus_Bridge_%28235499411%29.jpeg/256px-Bosphorus_Bridge_%28235499411%29.jpeg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bosphorus_Bridge_%28235499411%29.jpeg/1024px-Bosphorus_Bridge_%28235499411%29.jpeg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bosphorus_Bridge_%28235499411%29.jpeg/1024px-Bosphorus_Bridge_%28235499411%29.jpeg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bosphorus_Bridge_%28235499411%29.jpeg/256px-Bosphorus_Bridge_%28235499411%29.jpeg",
           "title": "Alexxx Malev, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Levent business district in Istanbul at night",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Levent_business_district_in_Istanbul_at_night.jpg/256px-Levent_business_district_in_Istanbul_at_night.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Levent_business_district_in_Istanbul_at_night.jpg/1024px-Levent_business_district_in_Istanbul_at_night.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Levent_business_district_in_Istanbul_at_night.jpg/1024px-Levent_business_district_in_Istanbul_at_night.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Levent_business_district_in_Istanbul_at_night.jpg/256px-Levent_business_district_in_Istanbul_at_night.jpg",
           "title": "Derrick Brutel, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "City of World's Desire",
       "ratings": [
         6,
         2,
         5,
         7,
-        10
+        10,
+        1
       ],
       "startDate": "2023-07-01",
       "unitPrice": 1399.99
     },
-    {
+    "-trip_num_6": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Italy",
       "endDate": "2023-03-21",
-      "freeSeats": 14,
+      "freeSeats": 10,
       "imgs": [
         {
           "alt": "Naples with Vesuvius (32286495892)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Naples_with_Vesuvius_%2832286495892%29.jpg/256px-Naples_with_Vesuvius_%2832286495892%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Naples_with_Vesuvius_%2832286495892%29.jpg/1024px-Naples_with_Vesuvius_%2832286495892%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Naples_with_Vesuvius_%2832286495892%29.jpg/1024px-Naples_with_Vesuvius_%2832286495892%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Naples_with_Vesuvius_%2832286495892%29.jpg/256px-Naples_with_Vesuvius_%2832286495892%29.jpg",
           "title": "Carlo Raso from Naples, Italy, PDM-owner, via Wikimedia Commons"
         },
         {
           "alt": "Napoli Alba",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Napoli_Alba.jpg/256px-Napoli_Alba.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Napoli_Alba.jpg/1024px-Napoli_Alba.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Napoli_Alba.jpg/1024px-Napoli_Alba.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Napoli_Alba.jpg/256px-Napoli_Alba.jpg",
           "title": "Maurizio Moro5153, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Respublica Nostra",
       "ratings": [
         7,
-        4,
+        5,
         6,
         7,
         18
@@ -461,7 +578,7 @@
       "startDate": "2023-03-10",
       "unitPrice": 1469.99
     },
-    {
+    "-trip_num_7": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Indonesia",
       "endDate": "2023-10-21",
@@ -469,17 +586,17 @@
       "imgs": [
         {
           "alt": "Busway in Bundaran HI",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Busway_in_Bundaran_HI.jpg/256px-Busway_in_Bundaran_HI.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Busway_in_Bundaran_HI.jpg/1024px-Busway_in_Bundaran_HI.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Busway_in_Bundaran_HI.jpg/1024px-Busway_in_Bundaran_HI.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Busway_in_Bundaran_HI.jpg/256px-Busway_in_Bundaran_HI.jpg",
           "title": "Om khonjin, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Kali Besar Jakarta",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kali_Besar_Jakarta.jpg/256px-Kali_Besar_Jakarta.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kali_Besar_Jakarta.jpg/1024px-Kali_Besar_Jakarta.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kali_Besar_Jakarta.jpg/1024px-Kali_Besar_Jakarta.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kali_Besar_Jakarta.jpg/256px-Kali_Besar_Jakarta.jpg",
           "title": "Zapata1000, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Southern Megaislands",
       "ratings": [
         8,
@@ -491,37 +608,37 @@
       "startDate": "2023-10-16",
       "unitPrice": 939.99
     },
-    {
+    "-trip_num_8": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Japan",
       "endDate": "2023-05-10",
-      "freeSeats": 21,
+      "freeSeats": 20,
       "imgs": [
         {
           "alt": "Skyscrapers of Shinjuku 2009 January (revised)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg/256px-Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg/1024px-Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg/1024px-Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg/256px-Skyscrapers_of_Shinjuku_2009_January_%28revised%29.jpg",
           "title": "Morio, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons"
         },
         {
           "alt": "Sunset on cityscape of Tokyo (2015-01-19 by calvision @Pixabay 617627)",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg/256px-Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg/1024px-Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg/1024px-Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg/256px-Sunset_on_cityscape_of_Tokyo_%282015-01-19_by_calvision_%40Pixabay_617627%29.jpg",
           "title": "康 复 (calvision) from Tokyo, Japan, CC0, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Technopolis",
       "ratings": [
         4,
         6,
-        18,
+        19,
         59,
         390
       ],
       "startDate": "2025-05-05",
       "unitPrice": 1869.99
     },
-    {
+    "-trip_num_9": {
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nihil perferendis laudantium autem? Odio labore dolore debitis facere in recusandae nulla suscipit alias molestiae fugiat nesciunt itaque eos non deleniti, quos cum veniam facilis officiis nemo corporis. Deleniti minima excepturi culpa vero praesentium maiores, unde fuga totam accusantium dolores voluptatum!",
       "destination": "Italy",
       "endDate": "2023-08-08",
@@ -529,17 +646,17 @@
       "imgs": [
         {
           "alt": "Vernazza from above",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Vernazza_from_above.JPG/256px-Vernazza_from_above.JPG",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Vernazza_from_above.JPG/1024px-Vernazza_from_above.JPG",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Vernazza_from_above.JPG/1024px-Vernazza_from_above.JPG",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Vernazza_from_above.JPG/256px-Vernazza_from_above.JPG",
           "title": "Evadb, Public domain, via Wikimedia Commons"
         },
         {
           "alt": "Cinque Terre Settembre 1999 12",
-		  "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cinque_Terre_Settembre_1999_12.jpg/256px-Cinque_Terre_Settembre_1999_12.jpg",
-		  "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cinque_Terre_Settembre_1999_12.jpg/1024px-Cinque_Terre_Settembre_1999_12.jpg",
+          "srcFull": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cinque_Terre_Settembre_1999_12.jpg/1024px-Cinque_Terre_Settembre_1999_12.jpg",
+          "srcThumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cinque_Terre_Settembre_1999_12.jpg/256px-Cinque_Terre_Settembre_1999_12.jpg",
           "title": "Infrogmation, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
         }
-	  ],
+      ],
       "name": "Colors All Around",
       "ratings": [
         17,
@@ -551,5 +668,117 @@
       "startDate": "2023-08-01",
       "unitPrice": 569.99
     }
-  ]
+  },
+  "users": {
+    "1ZdaMxlHEHdBSww34hEAMgw5j4U2": {
+      "email": "banned@banned.com",
+      "firstName": "Ban",
+      "lastName": "Banowski",
+      "roles": {
+        "admin": false,
+        "banned": true,
+        "client": true,
+        "manager": false
+      }
+    },
+    "50n9ofKufkfHmV59eK3sQxfbEki1": {
+      "email": "a@a.com",
+      "firstName": "a",
+      "lastName": "a",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "CwfNiH6fGEO21X1eB48l0bvP3UP2": {
+      "email": "manager@manager.com",
+      "firstName": "Manager",
+      "lastName": "Managerowski",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": false,
+        "manager": true
+      }
+    },
+    "Qz06V8nT9Se6MJxIXH2S7S6XZf12": {
+      "email": "client@client.com",
+      "firstName": "Klient",
+      "lastName": "Klientowski",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "TitUl1zO6WVGiCHiohYr311n0z12": {
+      "email": "admin@admin.com",
+      "firstName": "Admin",
+      "lastName": "Adminowski",
+      "roles": {
+        "admin": true,
+        "banned": false,
+        "client": false,
+        "manager": false
+      }
+    },
+    "eyyAOQlZUWdm6a9EbkHKq160EYO2": {
+      "email": "b@b.com",
+      "firstName": "b",
+      "lastName": "b",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "hayoxO1jSAMv6cemfGXMSWMqpes2": {
+      "email": "r@r.com",
+      "firstName": "r",
+      "lastName": "r",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "iil4uyUBUXfcyW5z5waDIdXiTtu2": {
+      "email": "t@t.com",
+      "firstName": "t",
+      "lastName": "t",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "lfwLywTRFWMVlTTeDcdCifHl9Sq1": {
+      "email": "marcustuliuscicero@spqr.ro",
+      "firstName": "Marek",
+      "lastName": "Cicero",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    },
+    "pb0KPWjFGZZkf8jQxtjsNokV9A62": {
+      "email": "g@g.com",
+      "firstName": "g",
+      "lastName": "g",
+      "roles": {
+        "admin": false,
+        "banned": false,
+        "client": true,
+        "manager": false
+      }
+    }
+  }
 }

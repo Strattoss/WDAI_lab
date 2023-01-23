@@ -15,7 +15,6 @@
         <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>LOG IN</a>
         <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/register'>REGISTER</a>
         <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">LOG OUT</a>
-        <!--<div *ngIf="currUser != null" id="notifications">🔔</div>-->
     </nav>
 
 
@@ -29,20 +28,19 @@
 </nav>
 <div class="hamburger-menu-position">
     <div [ngClass]="hamburgerToggled ? 'show-hamburger-menu' : 'hide-hamburger-menu'" id="hamburger-menu">
-        <a *ngIf="currUserRoles?.admin == true" (click)="route('/admin-panel')">ADMIN PANEL</a>
-        <a (click)="route('/home')">HOME</a>
-        <a (click)="route('/trips-list')">TRIPS</a>
-        <a *ngIf="currUserRoles?.manager == true" (click)="route('/add-trip')">ADD TRIP</a>
-        <a *ngIf="currUserRoles?.client == true" (click)="route('/history')">HISTORY</a>
-        <div *ngIf="currUserRoles?.client == true" id="basket" (click)="route('/basket')">
+        <a *ngIf="currUserRoles?.admin == true" routerLink='/admin-panel'>ADMIN PANEL</a>
+        <a routerLink='/home'>HOME</a>
+        <a routerLink='/trips-list'>TRIPS</a>
+        <a *ngIf="currUserRoles?.manager == true" routerLink='/manager-panel'>MANAGER PANEL</a>
+        <a *ngIf="currUserRoles?.client == true" routerLink='/history'>HISTORY</a>
+        <div *ngIf="currUserRoles?.client == true" id="basket" routerLink='/basket'>
             <div>BASKET INFO</div>
             <p>Made reservations: {{basket.getSumOfReservationsNum()}}</p>
             <p>Summed price: {{basket.getSumOfReservationsMoney() | currency}}</p>
         </div>
-        <div *ngIf="currUser != null" id="user" (click)="route('/user-info')">👤 {{currUserData?.firstName + " " + currUserData?.lastName}}</div>
-        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" (click)="route('/log-in')">LOG IN</a>
-        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" (click)="route('/register')">REGISTER</a>
+        <div *ngIf="currUser != null" id="user" routerLink='/user-info'>👤 {{currUserData?.firstName + " " + currUserData?.lastName}}</div>
+        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>LOG IN</a>
+        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/register'>REGISTER</a>
         <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">LOG OUT</a>
-        <!--<div *ngIf="currUser != null" id="notifications">🔔</div>-->
     </div>
 </div>
