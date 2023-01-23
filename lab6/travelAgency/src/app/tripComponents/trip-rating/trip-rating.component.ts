@@ -13,14 +13,14 @@ export class TripRatingComponent {
 
   setRatingDivisor(n: number) {
     if (this.ratingDivisorMovable) {
-      this.ratingDivisor = n;
+      this.ratingDivisor = n ;
     }
   }
 
   clickedStar(starNum: number) {
     if (this.ratingDivisorMovable) {
       this.ratingDivisor = starNum;
-      this.ratingNum = starNum;
+      this.ratingNum = starNum + 1;
       this.emitNumOfStars(this.ratingDivisor);
     }
   }

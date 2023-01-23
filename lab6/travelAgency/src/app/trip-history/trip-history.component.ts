@@ -12,7 +12,7 @@ export class TripHistoryComponent {
   tripHistories: TripHistory[] = [];
 
   constructor (public fbAuth: FbAuthService, public fbData: FbDatabaseService) {
-    fbData.getTripsHistories$().subscribe(x => {
+    fbData.getCurrentUserTripHistory$().subscribe(x => {
       this.tripHistories = x;
     })
   }

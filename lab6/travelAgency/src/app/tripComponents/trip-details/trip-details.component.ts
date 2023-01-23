@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { BasketService } from 'src/app/services/basket.service';
 import { FbAuthService } from 'src/app/services/fb-auth.service';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
 import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { Review } from 'src/assets/interfaces/review';
+import { Roles } from 'src/assets/interfaces/roles';
 import { Trip } from 'src/assets/interfaces/trip';
+import { TripHistory } from 'src/assets/interfaces/tripHistory';
+import { UserData } from 'src/assets/interfaces/userData';
 import { TripId } from 'src/assets/types/tripId';
 
 @Component({
@@ -20,12 +24,16 @@ export class TripDetailsComponent implements OnInit {
   trip?: Trip | null;
 
   userId?: string;
+  userRoles: Roles | null = null;
+  userReview: Review | null = null;
 
   /* img galery info */
   expandedImgInfo?: ImgInfo;
   showExpandedImg = false;
 
   numOfReservations = 0;
+
+  tripHistory: TripHistory[] = [];
 
   reviewForm = this.fb.group({
     content: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(500)]],
@@ -37,8 +45,8 @@ export class TripDetailsComponent implements OnInit {
   constructor(public basket: BasketService,
     private activatedRoute: ActivatedRoute,
     private fbData: FbDatabaseService,
-    private fb: FormBuilder,
     private fbAuth: FbAuthService,
+    private fb: FormBuilder,
     private afa: AngularFireAuth) { }
 
   ngOnInit(): void {
@@ -47,7 +55,7 @@ export class TripDetailsComponent implements OnInit {
       if (id != null) {
         this.tripId = id;
         let trip$ = this.fbData.getTrip$ById(this.tripId);
-        
+
         trip$.subscribe(tr => {
           this.trip = tr;
           if (this.tripId != undefined) {
@@ -61,7 +69,13 @@ export class TripDetailsComponent implements OnInit {
       }
     });
 
-    this.afa.authState.subscribe(x => this.userId = x?.uid)
+    this.afa.authState.subscribe(x => this.userId = x?.uid);
+
+    this.fbData.getCurrentUserTripHistory$().subscribe(x => this.tripHistory = x);
+
+    this.fbAuth.getCurrentUserRules$().subscribe(x => this.userRoles = x);
+
+    this.fbData.getCurrentUsersReview(this.tripId)?.subscribe(x => this.userReview = x)
   }
 
   expandImg(imgInfo: ImgInfo) {
@@ -69,9 +83,7 @@ export class TripDetailsComponent implements OnInit {
     this.showExpandedImg = true;
   }
 
-  closeImg() {
-    this.showExpandedImg = false;
-  }
+  closeImg() { this.showExpandedImg = false; }
 
   getThumbnails() {
     let a = this.trip?.imgs.map(val => val.srcThumbnail);
@@ -107,7 +119,7 @@ export class TripDetailsComponent implements OnInit {
     }
     this.numOfReservations += n;
 
-    if ( this.tripId == undefined) {return;}
+    if (this.tripId == undefined) { return; }
     if (n > 0) {
       this.basket.addReservation(this.tripId);
     } else {
@@ -123,7 +135,7 @@ export class TripDetailsComponent implements OnInit {
       n += val;
     });
 
-    return sum / n - 1;
+    return sum / n;
   }
 
   getAverageRatingDivisor() {
@@ -132,23 +144,18 @@ export class TripDetailsComponent implements OnInit {
 
   onSubmit() {
     if (!this.reviewForm.value.content?.length || !this.tripId || !this.reviewForm.value.rating) { return; }
-    
+
     this.fbData.addReviewForTrip(this.tripId, this.reviewForm.value.rating, this.reviewForm.value.content);
 
     this.reviewForm.reset();
-  }
-
-  getCurrentUserReviewedTrip() {
-    if (!this.userId) { undefined; }
-    return this.reviews.find(x => x.userId == this.userId);
   }
 
   ratingChanged(newRating: number) {
     this.reviewForm.patchValue({ rating: newRating })
   }
 
-  boughtThisTrip() {
-    return false;
+  ifBoughtThisTrip() {
+    return this.tripHistory.findIndex(x => x.tripId == this.tripId) != -1;
   }
 
 }

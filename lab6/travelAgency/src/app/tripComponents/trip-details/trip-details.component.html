@@ -64,32 +64,43 @@
             </div>
         </div>
 
-        <div *ngIf="getCurrentUserReviewedTrip() != undefined; then hasReviewed else hasntReviewed"></div>
+        <div *ngIf="userReview != undefined; then hasReviewed else hasntReviewed"></div>
         <ng-template #hasReviewed>
             <div>
                 <h2 style="text-align: center;">Your review:</h2>
                 <div class="review">
-                    <div>By: {{getCurrentUserReviewedTrip()?.nick}}</div>
-                    <div>{{getCurrentUserReviewedTrip()?.date | date: "medium"}}</div>
-                    <app-trip-rating [ratingDivisor]=getCurrentUserReviewedTrip()!.rating [ratingDivisorMovable]=false></app-trip-rating>
-                    <p class="review-content">{{getCurrentUserReviewedTrip()?.content}} </p>
+                    <div>By: {{userReview?.nick}}</div>
+                    <div>{{userReview?.date | date: "medium"}}</div>
+                    <app-trip-rating [ratingDivisor]=userReview!.rating [ratingDivisorMovable]=false [ratingNum]="userReview!.rating + 1"></app-trip-rating>
+                    <p class="review-content">{{userReview?.content}} </p>
                 </div>
             </div>
         </ng-template>
         <ng-template #hasntReviewed>
-            <div *ngIf="boughtThisTrip() != undefined; then bought else hasntBought"></div>
-            <ng-template #bought>Bought</ng-template>
-            <ng-template #hasntBought>Hasnt bought</ng-template>
-            <form (ngSubmit)="onSubmit()" [formGroup]="reviewForm" id="whole">
-                <h2>Send your opinion!</h2>
-                <div class="form-div">
-                    <label for="reviewContent">Your review (50 - 500 characters)</label>
-                    <textarea style="width: 100%; height: 300px; resize: none;" name="reviewContent" id="reviewContent"
-                        required formControlName="content"></textarea>
-                </div>
-                <app-trip-rating [ratingDivisor] = -1 [ratingDivisorMovable] = true (numOfStars)="ratingChanged($event)"></app-trip-rating>
-                <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
-            </form>
+            <div *ngIf="ifBoughtThisTrip(); then bought else hasntBought"></div>
+            <ng-template #bought>
+                <div *ngIf="userRoles?.banned; then banned else notBanned"></div>
+                <ng-template #banned>
+                    <p>Your account has been banned, so you cannot leave reviews! Contact with an administrator</p>
+                </ng-template>
+                <ng-template #notBanned>
+                    <form (ngSubmit)="onSubmit()" [formGroup]="reviewForm" id="whole">
+                        <h2>Send your opinion!</h2>
+                        <div class="form-div">
+                            <label for="reviewContent">Your review (50 - 500 characters)</label>
+                            <textarea style="width: 100%; height: 300px; resize: none;" name="reviewContent" id="reviewContent"
+                                required formControlName="content"></textarea>
+                        </div>
+                        <app-trip-rating [ratingDivisor] = -1 [ratingDivisorMovable] = true (numOfStars)="ratingChanged($event)"></app-trip-rating>
+                        <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
+                    </form>
+                </ng-template>
+                
+            </ng-template>
+            <ng-template #hasntBought>
+                <div>You cannot leave a review, because you haven't bought this trip</div>
+            </ng-template>
+            
         </ng-template>
 
         

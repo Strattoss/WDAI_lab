@@ -1,11 +1,11 @@
-<main id="whole" (mouseleave)="setRatingDivisor(-1)">
+<main id="whole">
     <div id="stars"></div>
     <app-star *ngFor="let num of [0, 1, 2, 3, 4]" [ngStyle]="{'cursor': ratingDivisorMovable ? 'pointer' : 'unset'}"
         [ratingDivisor]="(isNaN(ratingDivisor)) ? -1 : ratingDivisor" [myNum]="num" (mouseenter)="setRatingDivisor(num)"
         (clickedStarEmitter)="clickedStar($event)"></app-star>
     <div *ngIf="ratingNum != undefined">
         <div>
-            <p>&nbsp;({{ratingNum + 1 | number: '1.0-2'}})</p>
+            <p>&nbsp;({{ratingNum | number: '1.0-2'}})</p>
         </div>
     </div>
 </main>

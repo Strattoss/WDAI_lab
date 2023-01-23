@@ -105,11 +105,11 @@ export class TripTileComponent {
       n += val;
     }
     );
-    return sum / n - 1;
+    return sum / n;
   }
 
   getAverageRatingDivisor() {
-    return Math.round(this.getAverageRating());
+    return Math.round(this.getAverageRating() - 1);
   }
 
 }

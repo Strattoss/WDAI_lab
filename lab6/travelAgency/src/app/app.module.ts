@@ -38,12 +38,13 @@ import { LogInComponent } from './log-in/log-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
+import { TripDetailsGuard } from './guard/trip-details.guard';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'admin-panel', component: AdminPanelComponent, canActivate: [AdminGuard] },
   { path: 'trips-list', component: TripsListComponent },
-  { path: 'trip-details/:tripId', component: TripDetailsComponent, canActivate: [ClientGuard] },
+  { path: 'trip-details/:tripId', component: TripDetailsComponent, canActivate: [TripDetailsGuard] },
   { path: 'manager-panel', component: ManagerPanelComponent, canActivate: [ManagerGuard]},
   { path: 'manager-panel/add-trip', component: TripFormComponent, canActivate: [ManagerGuard]},
   { path: 'basket', component: BasketComponent, canActivate: [ClientGuard]},
