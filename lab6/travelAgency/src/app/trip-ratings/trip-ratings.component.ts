@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripsDataService } from '../trips-data.service';
+import { TripId } from 'src/assets/interfaces/tripId';
+import { FbDatabaseService } from '../services/fb-database.service';
 
 @Component({
   selector: 'app-trip-ratings',
@@ -9,14 +10,14 @@ import { TripsDataService } from '../trips-data.service';
   styleUrls: ['./trip-ratings.component.css']
 })
 export class TripRatingsComponent implements OnInit {
-  @Input() tripId?:number;
+  @Input() tripId?: TripId;
   tripObs?: Observable<Trip | null>
 
-  constructor (public tripsData: TripsDataService) {}
+  constructor (public fbData: FbDatabaseService) {}
 
   ngOnInit(): void {
     if (this.tripId != undefined) {
-      this.tripObs = this.tripsData.getTrip$ById(this.tripId);
+      this.tripObs = this.fbData.getTrip$ById(this.tripId);
     }
     
   }

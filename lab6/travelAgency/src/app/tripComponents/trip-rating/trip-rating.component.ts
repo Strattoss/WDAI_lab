@@ -20,7 +20,7 @@ export class TripRatingComponent {
   clickedStar(starNum: number) {
     if (this.ratingDivisorMovable) {
       this.ratingDivisor = starNum;
-      this.ratingDivisorMovable = false;
+      this.ratingNum = starNum;
       this.emitNumOfStars(this.ratingDivisor);
     }
   }

@@ -1,0 +1,16 @@
+<form id="whole" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 id="welcome">Welcome to FlyAway</h2>
+    <div class="form-div">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div class="form-div no-flex">
+        <label type="text" for="password">Password</label>
+        <input type="{{passwordVisible ? 'text': 'password'}}" name="password" id="password" formControlName="password">
+        <img id="password-visibility" src="{{getEyePath()}}" (click)="togglePasswordVisibility()">
+    </div>
+
+    <a id="register-link" [routerLink]="['/register']" >You haven't created an account yet? Join us!</a>
+    
+    <button id="submitButton" type="submit" [disabled]="!loginForm.valid">Log in</button>
+</form>

@@ -1,0 +1,18 @@
+<div id="whole">
+    <h2>My profile</h2>
+    <div id="info">
+        <p class="button-color-sec">Email: {{userData?.email}}</p>
+        <p class="button-color-sec">Email verified: {{user?.emailVerified}}</p>
+        <p class="button-color-sec">First name: {{userData?.firstName}}</p>
+        <p class="button-color-sec">Last name: {{userData?.lastName}}</p>
+        <div id="roles-div" class="button-color-sec">
+            <p>My roles in system:</p>
+            <ul id="user-roles">
+                <li *ngIf="userData?.roles?.admin">Admin</li>
+                <li *ngIf="userData?.roles?.banned">Banned</li>
+                <li *ngIf="userData?.roles?.client">Client</li>
+                <li *ngIf="userData?.roles?.manager">Manager</li>
+            </ul>
+        </div>
+    </div>
+</div>

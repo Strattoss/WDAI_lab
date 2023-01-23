@@ -2,53 +2,49 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Reservation } from 'src/assets/interfaces/reservation';
 import { Trip } from 'src/assets/interfaces/trip';
+import { TripId } from 'src/assets/interfaces/tripId';
 import { BasketService } from './basket.service';
-import { TripsDataService } from './trips-data.service';
+import { FbDatabaseService } from './fb-database.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class TripsToDistinguishService {
-  private tripsAndIds: [Trip, number][] = [];
+  private tripsAndIds: [Trip, TripId][] = [];
   private reservations?: Reservation[];
 
-  private redBorderId: number = 0; // id of appropiate trip
-  private redBorderId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.redBorderId);
+  private redBorderId: TripId = ""; // id of appropiate trip
+  private redBorderId$: BehaviorSubject<TripId> = new BehaviorSubject<TripId>(this.redBorderId);
 
-  private greenBorderId: number = 0; // id of appropiate trip
-  private greenBorderId$: BehaviorSubject<number> = new BehaviorSubject<number>(this.greenBorderId);
+  private greenBorderId: TripId = ""; // id of appropiate trip
+  private greenBorderId$: BehaviorSubject<TripId> = new BehaviorSubject<TripId>(this.greenBorderId);
 
-  constructor(public basket: BasketService, public tripsData: TripsDataService) {
+  constructor(public basket: BasketService, public fbData: FbDatabaseService) {
     this.basket.getReservations$().subscribe(v => {
       this.reservations = v;
       this.updateBorders();
     })
 
-    this.tripsData.getTripsAndIds$().subscribe(v => {
+    this.fbData.getTripsAndIds$().subscribe(v => {
       this.tripsAndIds = v;
       this.updateBorders();
     });
   }
 
-  getRedBorder$(): BehaviorSubject<number> {
+  getRedBorder$(): BehaviorSubject<TripId> {
     return this.redBorderId$;
   }
 
-  getGreenBorder$(): BehaviorSubject<number> {
+  getGreenBorder$(): BehaviorSubject<TripId> {
     return this.greenBorderId$;
-  }
-
-  iterate() {
-    this.greenBorderId++;
-    this.greenBorderId$.next(this.greenBorderId);
   }
 
   updateBorders() {
     this.tripsAndIds = this.sortByUnitPrice(this.tripsAndIds);
 
     for (let x of this.tripsAndIds) {
-      let madeReservations = this.reservations?.find(y => y.id == x[1])?.numOfReservations;
+      let madeReservations = this.reservations?.find(y => y.id == x[1])?.tickets;
       if (madeReservations != x[0].freeSeats) {
         this.greenBorderId = x[1];
         this.greenBorderId$.next(this.greenBorderId)
@@ -57,7 +53,7 @@ export class TripsToDistinguishService {
     }
 
     for (let x of this.tripsAndIds.slice().reverse()) {
-      let madeReservations = this.reservations?.find(y => y.id == x[1])?.numOfReservations;
+      let madeReservations = this.reservations?.find(y => y.id == x[1])?.tickets;
       if (madeReservations != x[0].freeSeats) {
         this.redBorderId = x[1];
         this.redBorderId$.next(this.redBorderId)
@@ -66,7 +62,7 @@ export class TripsToDistinguishService {
     }
   }
 
-  sortByUnitPrice(tripsAndIds: [Trip, number][]) {
+  sortByUnitPrice(tripsAndIds: [Trip, TripId][]) {
     return tripsAndIds.sort((a, b) => { return b[0].unitPrice - a[0].unitPrice; })
   }
 

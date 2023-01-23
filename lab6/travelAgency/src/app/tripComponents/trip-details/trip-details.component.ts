@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { BasketService } from 'src/app/basket.service';
-import { TripsDataService } from 'src/app/trips-data.service';
+import { BasketService } from 'src/app/services/basket.service';
+import { FbAuthService } from 'src/app/services/fb-auth.service';
+import { FbDatabaseService } from 'src/app/services/fb-database.service';
 import { ImgInfo } from 'src/assets/interfaces/imgInfo';
+import { Review } from 'src/assets/interfaces/review';
 import { Trip } from 'src/assets/interfaces/trip';
-import { Comment } from 'src/assets/interfaces/comment';
+import { TripId } from 'src/assets/interfaces/tripId';
 
 @Component({
   selector: 'app-trip-details',
@@ -12,8 +16,10 @@ import { Comment } from 'src/assets/interfaces/comment';
   styleUrls: ['./trip-details.component.css']
 })
 export class TripDetailsComponent implements OnInit {
-  tripId?: number;
+  tripId?: TripId;
   trip?: Trip | null;
+
+  userId?: string;
 
   /* img galery info */
   expandedImgInfo?: ImgInfo;
@@ -21,33 +27,41 @@ export class TripDetailsComponent implements OnInit {
 
   numOfReservations = 0;
 
-  model: Comment = { nick: "", tripTitle: "", content: "" };
-  errorMsgs: string[] = [];
-  comments: Comment[] = []
-  //comments: Comment[] = [{ nick: "abc", tripTitle: this.trip?.name, content: "Example of comment. zsertdxryrfctuughb rfctdgvui fcgvcybjihjnko ftyctgycvihboijnop tgigvihboijnop ycggicvybji vuigh" }];
+  reviewForm = this.fb.group({
+    content: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(500)]],
+    rating: [-1, [Validators.required, Validators.min(0), Validators.max(5)]]
+  })
+
+  reviews: Review[] = []
 
   constructor(public basket: BasketService,
     private activatedRoute: ActivatedRoute,
-    private tripsData: TripsDataService) { }
+    private fbData: FbDatabaseService,
+    private fb: FormBuilder,
+    private fbAuth: FbAuthService,
+    private afa: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       let id = paramMap.get('tripId');
       if (id != null) {
-        this.tripId = Number.parseInt(id);
-        let trip$ = this.tripsData.getTrip$ById(this.tripId);
+        this.tripId = id;
+        let trip$ = this.fbData.getTrip$ById(this.tripId);
         
         trip$.subscribe(tr => {
           this.trip = tr;
-          this.model.tripTitle = tr?.name;
           if (this.tripId != undefined) {
             this.numOfReservations = this.basket.getTripReservations(this.tripId);
           }
-        }
-        );
+        })
 
+        this.fbData.getReviewsForTrip$(this.tripId).subscribe(x => {
+          this.reviews = x;
+        })
       }
-    })
+    });
+
+    this.afa.authState.subscribe(x => this.userId = x?.uid)
   }
 
   expandImg(imgInfo: ImgInfo) {
@@ -107,28 +121,34 @@ export class TripDetailsComponent implements OnInit {
     this.trip?.ratings.forEach((val, i) => {
       sum += val * (i + 1);
       n += val;
-    }
-    );
+    });
 
-
-    return sum / n;
+    return sum / n - 1;
   }
 
   getAverageRatingDivisor() {
-    return Math.round(this.getAverageRating()) - 1;
+    return Math.round(this.getAverageRating());
   }
 
   onSubmit() {
-    this.errorMsgs = [];
-    if (this.model.content.length < 50) {
-      this.errorMsgs.push("Comment has to be at least 50 characters long! Current length: " + this.model.content.length)
-      return;
-    }
-    if (this.model.content.length > 500) {
-      this.errorMsgs.push("Comment cannot exceed 500 characters in length! Current length: " + this.model.content.length)
-      return;
-    }
-    this.comments.push(this.model);
+    if (!this.reviewForm.value.content?.length || !this.tripId || !this.reviewForm.value.rating) { return; }
+    
+    this.fbData.addReviewForTrip(this.tripId, this.reviewForm.value.rating, this.reviewForm.value.content);
+
+    this.reviewForm.reset();
+  }
+
+  getCurrentUserReviewedTrip() {
+    if (!this.userId) { undefined; }
+    return this.reviews.find(x => x.userId == this.userId);
+  }
+
+  ratingChanged(newRating: number) {
+    this.reviewForm.patchValue({ rating: newRating })
+  }
+
+  boughtThisTrip() {
+    return false;
   }
 
 }

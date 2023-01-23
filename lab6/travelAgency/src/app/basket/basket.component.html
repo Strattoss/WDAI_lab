@@ -2,6 +2,7 @@
     <div *ngIf="reservations.length > 0; else noReservations">
         <h3>Made reservations: {{sumOfReservationsNum}}</h3>
         <h3>Summed price: {{sumOfReservationsMoney | currency}}</h3>
+        <div id="buy-trips" (click)="buyTickets()">BUY TRIPS IN BASKET</div>
     </div>
     <ng-template #noReservations>
         <h2 id="no-reservations">You haven't made any reservations yet!</h2>

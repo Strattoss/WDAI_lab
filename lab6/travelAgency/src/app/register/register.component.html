@@ -1,0 +1,24 @@
+<form id="whole" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2 id="welcome">Register to FlyAway!</h2>
+    <div class="form-div">
+        <label for="firstName">First name</label>
+        <input name="firstName" id="firstName" formControlName="firstName">
+    </div>
+    <div class="form-div">
+        <label for="lastName">Last name</label>
+        <input name="lastName" id="lastName" formControlName="lastName">
+    </div>
+    <div class="form-div">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div class="form-div no-flex">
+        <label type="text" for="password">Password</label>
+        <input type="{{passwordVisible ? 'text': 'password'}}" name="password" id="password" formControlName="password">
+    </div>
+
+    <a id="register-link" [routerLink]="['/log-in']" >If you have already created your account,  log in!</a>
+    
+    <button id="submitButton" type="submit" [disabled]="!registerForm.valid">Register</button>
+</form>
+

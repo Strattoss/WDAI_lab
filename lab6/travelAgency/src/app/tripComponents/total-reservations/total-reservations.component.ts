@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BasketService } from 'src/app/basket.service';
+import { BasketService } from 'src/app/services/basket.service';
 
 @Component({
   selector: 'app-total-reservations',

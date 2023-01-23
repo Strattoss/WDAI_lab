@@ -17,3 +17,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.button-color-sec{
+    background-color: var(--color-sec);
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    display: inline-block;
+}
+
+.button-color-sec:hover {
+    background-color: var(--color-sec-dark);
+}

@@ -1,0 +1,16 @@
+#whole {
+    margin: 10px 5%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#persistence {
+    display: flex;
+    align-items: center;
+}
+
+#persistence-select {
+    margin-left: 20px;
+}

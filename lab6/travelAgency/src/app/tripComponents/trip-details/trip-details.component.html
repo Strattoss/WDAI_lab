@@ -5,13 +5,15 @@
 </div>
 
 <article class="thumbnails-list">
-    <img class="thumbnail" *ngFor="let img of trip?.imgs; let i = index" src="{{img.srcThumbnail}}" title="{{img.title}}" alt="{{img.alt}}" (click)="expandImg(img)">
+    <img class="thumbnail" *ngFor="let img of trip?.imgs; let i = index" src="{{img.srcThumbnail}}"
+        title="{{img.title}}" alt="{{img.alt}}" (click)="expandImg(img)">
 </article>
 
 <article class="img-container" [ngStyle]="{'display': showExpandedImg ? '' : 'none'}">
     <figure class="img-container-position">
         <span (click)="closeImg()" class="closebtn">&times;</span>
-        <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}" alt="expandedImgInfo?.alt">
+        <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}"
+            alt="expandedImgInfo?.alt">
     </figure>
 </article>
 
@@ -61,36 +63,44 @@
                 </div>
             </div>
         </div>
-        <form (ngSubmit)="onSubmit()" #tripForm="ngForm" id="whole">
-            <h2>Send your opinion!</h2>
-            <div class="form-group">
-                <label for="nick">My nick</label>
-                <input name="nick" id="nick" required [(ngModel)]="model.nick">
-            </div>
-            <div class="form-group">
-                <label for="trip-title">Trip title</label>
-                <input name="trip-title" id="trip-title" required readonly [(ngModel)]="model.tripTitle">
-            </div>
-            <div class="form-group">
-                <label for="content">My comment</label>
-                <textarea style="width: 100%; height: 300px; resize: none;" name="content" id="content" required
-                    [(ngModel)]="model.content"></textarea>
-            </div>
 
-            <button type="submit" [disabled]="!tripForm.form.valid">Submit</button>
-            <div id="error-field">
-                <div *ngFor="let errorMsg of errorMsgs">
-                    {{errorMsg}}
+        <div *ngIf="getCurrentUserReviewedTrip() != undefined; then hasReviewed else hasntReviewed"></div>
+        <ng-template #hasReviewed>
+            <div>
+                <h2 style="text-align: center;">Your review:</h2>
+                <div class="review">
+                    <div>By: {{getCurrentUserReviewedTrip()?.nick}}</div>
+                    <div>{{getCurrentUserReviewedTrip()?.date | date: "medium"}}</div>
+                    <app-trip-rating [ratingDivisor]=getCurrentUserReviewedTrip()!.rating [ratingDivisorMovable]=false></app-trip-rating>
+                    <p class="review-content">{{getCurrentUserReviewedTrip()?.content}} </p>
                 </div>
             </div>
-        </form>
-        <div>
-            <h1>Comments</h1>
-            <div *ngFor="let comment of comments" class="comment">
-                <div>Trip title: {{comment.tripTitle}}</div>
-                <div>By: {{comment.nick}}</div>
-                <p class="comment-content">{{comment.content}} </p>
-            </div>
+        </ng-template>
+        <ng-template #hasntReviewed>
+            <div *ngIf="boughtThisTrip() != undefined; then bought else hasntBought"></div>
+            <ng-template #bought>Bought</ng-template>
+            <ng-template #hasntBought>Hasnt bought</ng-template>
+            <form (ngSubmit)="onSubmit()" [formGroup]="reviewForm" id="whole">
+                <h2>Send your opinion!</h2>
+                <div class="form-div">
+                    <label for="reviewContent">Your review (50 - 500 characters)</label>
+                    <textarea style="width: 100%; height: 300px; resize: none;" name="reviewContent" id="reviewContent"
+                        required formControlName="content"></textarea>
+                </div>
+                <app-trip-rating [ratingDivisor] = -1 [ratingDivisorMovable] = true (numOfStars)="ratingChanged($event)"></app-trip-rating>
+                <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
+            </form>
+        </ng-template>
+
+        
+    </div>
+    <div>
+        <h1 style="text-align: center;">Reviews</h1>
+        <div *ngFor="let review of reviews" class="review">
+            <div>By: {{review.nick}}</div>
+            <div>{{review.date | date: "medium"}}</div>
+            <app-trip-rating [ratingDivisor]=review.rating  [ratingDivisorMovable]=false></app-trip-rating>
+            <p class="review-content">{{review.content}} </p>
         </div>
     </div>
 </article>

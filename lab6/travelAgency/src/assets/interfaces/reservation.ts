@@ -1,4 +1,6 @@
+import { TripId } from "./tripId";
+
 export interface Reservation {
-    id: number,
-    numOfReservations: number
+    id: TripId,
+    tickets: number
 }

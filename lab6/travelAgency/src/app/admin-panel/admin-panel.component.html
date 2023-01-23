@@ -1,0 +1,10 @@
+<div id="whole">
+    <div id="persistence">
+        <p>Selected session persistence:</p>
+        <select id="persistence-select" [(ngModel)]="selectedPersistence" (ngModelChange)="chosenPersistence()" name="persistence">
+            <option value="local">local</option>
+            <option value="session">session</option>
+            <option value="none">none</option>
+        </select>
+    </div>
+</div>

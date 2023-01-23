@@ -1,6 +1,10 @@
 import { Component, HostListener } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { BasketService } from '../basket.service';
+import { BasketService } from 'src/app/services/basket.service';
+import { Roles } from 'src/assets/interfaces/roles';
+import { UserData } from 'src/assets/interfaces/userData';
+import { FbAuthService } from '../services/fb-auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,8 +15,23 @@ export class NavBarComponent {
   hamburgerToggled = false;
   hamburgerEnabled = false;
 
-  constructor (private router: Router, public basket:BasketService) {
+  currUser: firebase.default.User | null = null;
+  currUserData: UserData | null = null;
+  currUserRoles: Roles | null = null;
+
+  constructor (private router: Router, public basket:BasketService, public fbAuth: FbAuthService, private afa: AngularFireAuth) {
     this.onResize();
+    fbAuth.getCurrentUserData$().subscribe(x => {
+      this.currUserData = x;
+    })
+
+    afa.authState.subscribe(x => {
+      this.currUser = x;
+    })
+
+    fbAuth.getCurrentUserRules$().subscribe( x => {
+      this.currUserRoles = x;
+  })
   }
 
   toggleHamburger() {
@@ -32,6 +51,10 @@ export class NavBarComponent {
       this.hamburgerEnabled = false;
       this.hamburgerToggled = false;
     }
+  }
+
+  logOut() {
+    this.fbAuth.logOutUser();
   }
 }
 

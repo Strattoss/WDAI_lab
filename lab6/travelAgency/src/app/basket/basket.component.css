@@ -10,6 +10,18 @@
     justify-content: center;
 }
 
+#buy-trips {
+    background-color: var(--color-sec);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+#buy-trips:hover {
+    background-color: var(--color-sec-dark);
+}
+
 #no-reservations {
     margin: 60px;
     text-align: center;

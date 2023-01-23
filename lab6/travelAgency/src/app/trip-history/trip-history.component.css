@@ -1,0 +1,19 @@
+#whole {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.trip {
+    background-color: var(--color-sec);
+    transition: all 0.5s;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.trip:hover {
+    background-color: var(--color-sec-dark);
+}

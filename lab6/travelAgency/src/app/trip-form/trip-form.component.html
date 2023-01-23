@@ -1,6 +1,5 @@
 <form id="whole" [formGroup]="tripForm" (ngSubmit)="onSubmit()">
     <h2>Trip Form</h2>
-    <h2>Formularz nie działa!</h2>
     <div class="form-div">
         <label for="destination">Destination country</label>
         <select class="form-control" name="destination" id="destination" required formControlName="destination">
@@ -20,7 +19,7 @@
         <input type="date" name="endDate" id="endDate" formControlName="endDate">
     </div>
     <div class="form-div">
-        <label for="unitPrice">Unit price</label>
+        <label for="unitPrice">Price per ticket (for ex. {{456.88 | currency}})</label>
         <input type="number" step="0.01" min="0" name="unitPrice" id="unitPrice" formControlName="unitPrice">
     </div>
     <div class="form-div">
@@ -47,11 +46,13 @@
                 <div class="form-div">
                     <label for="img-{{ i }}-thumbnail">Source for thumbnail</label>
                     <input type="text" formControlName="srcThumbnail">
+                    <p class="additional-field-info">Has to be in form:<br>http[s]://<i>my-address</i>.<i>dom</i></p>
                 </div>
 
                 <div class="form-div">
                     <label for="img-{{ i }}-full">Source for full image</label>
                     <input type="text" formControlName="srcFull">
+                    <p class="additional-field-info">Has to be in form:<br>http[s]://<i>my-address</i>.<i>dom</i></p>
                 </div>
 
                 <div class="form-div">

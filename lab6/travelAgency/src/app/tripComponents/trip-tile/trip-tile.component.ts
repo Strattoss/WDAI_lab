@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripsToDistinguishService } from 'src/app/trips-to-distinguish.service';
-import { TripsDataService } from 'src/app/trips-data.service';
+import { TripsToDistinguishService } from 'src/app/services/trips-to-distinguish.service';
 import { Router } from '@angular/router';
-import { BasketService } from 'src/app/basket.service';
+import { BasketService } from 'src/app/services/basket.service';
 import { Observable } from 'rxjs';
+import { TripId } from 'src/assets/interfaces/tripId';
+import { FbDatabaseService } from 'src/app/services/fb-database.service';
 
 
 @Component({
@@ -13,17 +14,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./trip-tile.component.css']
 })
 export class TripTileComponent {
-  @Input() public tripId?: number;
+  @Input() public tripId?: TripId;
   trip?: Trip | null;
   trip$?: Observable<Trip | null>;
   numOfReservations = 0;
 
-  borderRed?: number; // id of trip that should be red
-  borderGreen?: number; // id of trip that should be green
+  borderRed?: TripId; // id of trip that should be red
+  borderGreen?: TripId; // id of trip that should be green
   
 
   constructor(public tripsToDistinguish: TripsToDistinguishService,
-    public tripsDataService: TripsDataService,
+    public fbData: FbDatabaseService,
     public router: Router,
     public basket: BasketService) { }
 
@@ -36,7 +37,7 @@ export class TripTileComponent {
     });
 
     if (this.tripId != undefined) {
-      this.trip$ = this.tripsDataService.getTrip$ById(this.tripId);
+      this.trip$ = this.fbData.getTrip$ById(this.tripId);
       this.trip$.subscribe(val => {
         this.trip = val;
         if (this.tripId != undefined) {
@@ -88,7 +89,7 @@ export class TripTileComponent {
     if (this.trip == undefined) { return; }
     this.deltaReservation(-this.numOfReservations);
     if (this.tripId != undefined) {
-      this.tripsDataService.deleteTrip(this.tripId);
+      this.fbData.deleteTrip(this.tripId);
     }
   }
 
@@ -104,11 +105,11 @@ export class TripTileComponent {
       n += val;
     }
     );
-    return sum / n;
+    return sum / n - 1;
   }
 
   getAverageRatingDivisor() {
-    return Math.round(this.getAverageRating()) - 1;
+    return Math.round(this.getAverageRating());
   }
 
 }

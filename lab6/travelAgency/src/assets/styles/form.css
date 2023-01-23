@@ -1,0 +1,29 @@
+.form-div {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.form-div>* {
+    width: 250px;
+    padding: 5px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+.ng-valid,
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+}
+
+#submitButton {
+    margin: 10px;
+    width: 100px;
+    border-radius: 10px;
+    height: 30px;
+}

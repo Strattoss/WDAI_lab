@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
+import { FbDatabaseService } from 'src/app/services/fb-database.service';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripsDataService } from 'src/app/trips-data.service';
+import { TripId } from 'src/assets/interfaces/tripId';
 
 @Component({
   selector: 'app-trips-list',
@@ -8,13 +9,14 @@ import { TripsDataService } from 'src/app/trips-data.service';
   styleUrls: ['./trips-list.component.css']
 })
 export class TripsListComponent implements OnInit{
-  tripsAndIds?: [Trip,number][];
+  tripsAndIds?: [Trip, TripId][];
 
-  constructor(public tripsDataService: TripsDataService) { }
+  constructor(public fbData: FbDatabaseService) { }
 
   ngOnInit() {
-    this.tripsDataService.getTripsAndIds$().subscribe(x => this.tripsAndIds = x);
-    let a = this.tripsAndIds?.map(x => x[0]);
+    this.fbData.getTripsAndIds$().subscribe(x => this.tripsAndIds = x);
+    
+    
   }
 
   getTrips() {

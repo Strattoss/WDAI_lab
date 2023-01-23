@@ -1,0 +1,24 @@
+#whole {
+    margin: 10px 5%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#welcome {
+    margin:10px;
+}
+
+#password-visibility {
+    position: relative;
+    width: 25px;
+    height: 15px;
+    top: -27px;
+    left: 230px;
+}
+
+#register-link {
+    margin: 10px;
+    font-size: 0.8em;
+}

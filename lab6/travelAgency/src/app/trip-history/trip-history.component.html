@@ -1,1 +1,15 @@
-<p>trip-history works!</p>
+<main id="whole">
+    <div *ngIf="tripHistories.length == 0; then noHistory else yesHistory"></div>
+    <ng-template #noHistory>
+        <div>
+        <h2>You haven't bought any tickets yet!</h2>
+    </div>
+    </ng-template>
+    <ng-template #yesHistory>
+        <div #yesHistory class="trip" *ngFor="let trip of tripHistories" routerLink="/trip-details/{{trip.tripId}}">
+            <div>Trip id: {{trip.tripId}}</div>
+            <div>Purchase date: {{trip.date | date:"long"}}</div>
+            <div>Bought tickets: {{trip.tickets}}</div>
+        </div>
+    </ng-template>
+</main>

@@ -116,10 +116,18 @@ trip-title {
     border-radius: 10px;
 }
 
-.form-group {
+.form-div {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    border-radius: 10px;
+}
+
+.form-div>* {
+    width: 250px;
+    padding: 5px;
+    margin: 0px;
+    border-radius: 10px;
 }
 
 .ng-valid[required],
@@ -131,19 +139,20 @@ trip-title {
     border-left: 5px solid #a94442;
 }
 
-.comment {
-    width: 90%;
+.review {
+    width: 80%;
     padding: 5%;
+    margin: 5%;
     border-radius: 10px;
     background-color: var(--color-sec-dark);
     transition: all 0.5s;
 }
 
-.comment:hover {
+.review:hover {
     background-color: var(--color-sec);
 }
 
-.comment-content {
+.review-content {
     word-break: break-all;
     white-space: normal;
 }
