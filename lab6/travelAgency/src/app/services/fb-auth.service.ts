@@ -124,8 +124,12 @@ export class FbAuthService {
     });
   }
 
-  getUserData(uid: string): Observable<UserData | null> {
+  private getUserData(uid: string): Observable<UserData | null> {
     // Get data about user from firebase databse as observable
     return this.db.object<UserData>('/users/' + uid).valueChanges();
+  }
+
+  getAllUsersData() {
+    return this.db.list('/users').snapshotChanges().pipe(map(x => x.map(y => [y.key, y.payload.val()] as [string, UserData])))
   }
 }

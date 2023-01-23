@@ -7,4 +7,13 @@
             <option value="none">none</option>
         </select>
     </div>
+
+    <div id="users-panel">
+        <div *ngFor="let user of users">
+            <input type="radio"> Admin
+            <input type="radio"> Banned
+            <input type="radio"> Client
+            <input type="radio"> Manager
+        </div>
+    </div>
 </div>
