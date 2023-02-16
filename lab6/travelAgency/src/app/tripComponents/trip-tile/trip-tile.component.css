@@ -1,22 +1,61 @@
 #whole {
     --card-padding-margin: 5%;
+}
+
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    /* Remove perspective if you don't want the 3D effect */
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 250px;
     width: 250px;
-    border: 3px solid grey;
+    height: 550px;
     margin: 10px;
-
-    background-color: var(--color-prim-light);
-    border-radius: 20px;
-
-    transition: all 0.5s;
 }
 
-#whole:hover {
-    box-shadow: 5px 5px 5px 5px grey;
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: var(--color-prim-light);
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: var(--color-prim-light);
+    color: white;
+    transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .img-box {
@@ -25,57 +64,26 @@
     cursor: pointer;
     overflow: hidden;
 
-    border: 1px solid darkgrey;
-    box-shadow: 5px 5px 5px 5px grey;
-    border-radius: 50%;
-    width: calc(100% - 2*var(--card-padding-margin));
+    /*border: 1px solid darkgrey;*/
+    /*box-shadow: 5px 5px 5px 5px grey;*/
+    /*border-radius: 50%;*/
+    /*width: calc(100% - 2*var(--card-padding-margin));*/
+    width: 100%;
     aspect-ratio: 1 / 1;
-    margin: 5px var(--card-padding-margin);
+    /*margin: 5px var(--card-padding-margin);*/
 }
 
 .img {
     height: 100%;
 }
 
-.trip-title {
-}
-
 .trip-info {
     width: calc(100% - 2*var(--card-padding-margin));
     padding: 5px var(--card-padding-margin);
-    border-radius: 16px;
-
-    /*background-color: #A9BBCC;*/
-    background-color: white;
 }
 
-.trip-info>* { 
-    background-color: var(--color-prim-light);
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.unavailibleFreeSeats {
-    color: red;
-}
-
-.trip-reservation {
-    display: flex;
-    justify-content: space-around;
-
-    flex: 1 1 10px;
-
-    width: 96%;
-    padding: 2%;
-    margin-bottom: 5px;
-
-    border: 1px solid darkgrey;
-    border-radius: 20px;
-    background-color: var(--important-color);
-}
-
-.trip-reservation > * {
-    flex: 1 1 10px;
+.trip-info>* {
+    margin: 15px 0px;
 }
 
 .trip-reservation-price {
@@ -86,45 +94,16 @@
     padding: 5px;
 }
 
-.trip-reservation-price > * {
+.trip-reservation-price>* {
     margin: 0px;
 }
 
-.trip-reservation-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
 
-.trip-reservation-buttons {
-    
-    display: flex;
-    justify-content: flex-end;
-}
-
-.trip-reservation-buttons > * {
-    aspect-ratio: 1 / 1;
-    
-}
-
-.trip-reservation-num {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 0px;
-    margin: 0px;
-}
-
-.trip-reservation-num > * {
-    margin: 0px;
-}
 
 .trip-remove-button {
     width: calc(100% - 2 * var(--card-padding-margin));
     padding: var(--card-padding-margin);
     margin: var(--card-padding-margin);
-    background-color: red;
+    background-color: var(--color-important);
     color: white;
 }

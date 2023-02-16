@@ -29,7 +29,7 @@ export class NavBarComponent {
       this.currUser = x;
     })
 
-    fbAuth.getCurrentUserRules$().subscribe( x => {
+    fbAuth.getCurrentUserRoles$().subscribe( x => {
       this.currUserRoles = x;
   })
   }
@@ -45,7 +45,7 @@ export class NavBarComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (window.innerWidth < 1100) {
+    if (window.innerWidth < 800) {
       this.hamburgerEnabled = true;
     } else {
       this.hamburgerEnabled = false;

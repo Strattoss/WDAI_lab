@@ -94,7 +94,7 @@ export class FbAuthService {
     }
   }
 
-  getCurrentUserRules$(): BehaviorSubject<Roles | null> {
+  getCurrentUserRoles$(): BehaviorSubject<Roles | null> {
     return this.currentUserRoles$;
   }
 

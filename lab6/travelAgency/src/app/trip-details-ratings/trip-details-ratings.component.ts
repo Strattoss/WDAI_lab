@@ -1,15 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trip } from 'src/assets/interfaces/trip';
 import { TripId } from 'src/assets/types/tripId';
 import { FbDatabaseService } from '../services/fb-database.service';
 
 @Component({
-  selector: 'app-trip-ratings',
-  templateUrl: './trip-ratings.component.html',
-  styleUrls: ['./trip-ratings.component.css']
+  selector: 'app-trip-details-ratings',
+  templateUrl: './trip-details-ratings.component.html',
+  styleUrls: ['./trip-details-ratings.component.css']
 })
-export class TripRatingsComponent implements OnInit {
+export class TripDetailsRatingsComponent {
   @Input() tripId?: TripId;
   tripObs?: Observable<Trip | null>
 

@@ -1,11 +1,8 @@
 <div id="whole">
-    <div class="button-color-sec" routerLink="add-trip">Add new trip</div>
+    <div class="button-color-sec" routerLink="create-new-trip">Add new trip</div>
 
-    <h1>Modify trip</h1>
-    <h2>Modification panel doesn't work!</h2>
-
+    <h2>Modify existing trip</h2>
     <select>
-        <option>TripTitle1</option>
-        <option>TripTitle2</option>
+        <option *ngFor="let tripAndId of tripAndIds" routerLink="{{tripAndId[1]}}">{{tripAndId[0].name}}, id: {{tripAndId[1]}}</option>
     </select>
 </div>

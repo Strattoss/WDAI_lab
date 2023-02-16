@@ -1,0 +1,55 @@
+.trip-reservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 96%;
+    padding: 2%;
+    margin-bottom: 5px;
+
+    border: 1px solid darkgrey;
+    border-radius: 20px;
+    background-color: var(--important-color);
+}
+
+.trip-reservation>* {
+    flex: 1 1 10px;
+}
+
+.p-center {
+    text-align: center;
+}
+
+.unavailibleFreeSeats {
+    color: red;
+}
+
+.trip-reservation-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.trip-reservation-buttons {
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.trip-reservation-buttons>* {
+    aspect-ratio: 1 / 1;
+}
+
+.trip-reservation-num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+.trip-reservation-num>* {
+    margin: 0px;
+}

@@ -45,12 +45,16 @@ export class FbDatabaseService {
       throw new Error("Trip with this title already exists!");
     }
     else {
-      this.db.list('trips').push(newTrip);
+      return this.db.list('trips').push(newTrip);
     }
   }
 
+  alterTrip(alteredTrip: Trip, tripId: TripId) {
+    return this.db.object('trips/' + tripId).set(alteredTrip);
+  }
+
   deleteTrip(id: TripId) {
-    this.db.object('trips/' + id).remove();
+    return this.db.object('trips/' + id).remove();
   }
 
   getCurrentUserTripHistory$() {
@@ -105,8 +109,6 @@ export class FbDatabaseService {
     this.db.object('/reviews/' + tripId + '/' + this.currentUser.uid).set(newReview).then(() => {
         this.db.object<Trip>('/trips/' + tripId + '/ratings/' + rating).query.ref.transaction(rating => rating + 1)
     })
-    // update number of free tickets
-
   }
 }
 

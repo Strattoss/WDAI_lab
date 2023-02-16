@@ -4,9 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+// firebase modules
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { firebaseConfig } from '../environments/environment';
+
+// locales
 import locale from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(locale, 'pl')
@@ -32,21 +35,24 @@ import { TripHistoryComponent } from './trip-history/trip-history.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
-import { TripRatingsComponent } from './trip-ratings/trip-ratings.component';
 import { RegisterComponent } from './register/register.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ManagerPanelComponent } from './manager-panel/manager-panel.component';
 import { TripDetailsGuard } from './guard/trip-details.guard';
+import { TripDetailsReviewComponent } from './trip-details-review/trip-details-review.component';
+import { TripDetailsBuyComponent } from './trip-details-buy/trip-details-buy.component';
+import { TripDetailsRatingsComponent } from './trip-details-ratings/trip-details-ratings.component';
 
+// routes
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'admin-panel', component: AdminPanelComponent, canActivate: [AdminGuard] },
   { path: 'trips-list', component: TripsListComponent },
   { path: 'trip-details/:tripId', component: TripDetailsComponent, canActivate: [TripDetailsGuard] },
   { path: 'manager-panel', component: ManagerPanelComponent, canActivate: [ManagerGuard]},
-  { path: 'manager-panel/add-trip', component: TripFormComponent, canActivate: [ManagerGuard]},
+  { path: 'manager-panel/:tripId', component: TripFormComponent, canActivate: [ManagerGuard]},
   { path: 'basket', component: BasketComponent, canActivate: [ClientGuard]},
   { path: 'history', component: TripHistoryComponent, canActivate: [ClientGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
@@ -70,12 +76,14 @@ const appRoutes: Routes = [
     TripHistoryComponent,
     NavBarComponent,
     TripDetailsComponent,
-    TripRatingsComponent,
     RegisterComponent,
     LogInComponent,
     AdminPanelComponent,
     UserInfoComponent,
-    ManagerPanelComponent
+    ManagerPanelComponent,
+    TripDetailsReviewComponent,
+    TripDetailsBuyComponent,
+    TripDetailsRatingsComponent
   ],
   imports: [
     BrowserModule,

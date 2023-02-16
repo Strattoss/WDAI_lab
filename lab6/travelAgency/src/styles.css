@@ -2,12 +2,20 @@
 
 :root {
     margin: -8px;
-    --color-prim: #F5703C;
+    /*--color-prim: #F5703C;
     --color-prim-light:#ffa683;
     --color-prim-dark: #A84118;
     --color-sec: #3BF5D6;
-    --color-sec-dark: #07A88D;
+    --color-sec-dark: #07A88D;*/
+    --color-prim: #558594;
+    --color-prim-light:#84B59F;
+    --color-prim-dark: #426A76;
+    --color-sec: #538D5B;
+    --color-sec-light: #65A46D;
+    --color-sec-dark: #44744A;
     --color-grey-light: #e0e0e0;
+    --color-beige: #F5F5E1;
+    --color-important: #FF0000;
 }
 
 body {
@@ -18,12 +26,17 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .button-color-sec{
     background-color: var(--color-sec);
     padding: 10px;
     border-radius: 10px;
     transition: all 0.5s;
     display: inline-block;
+    cursor: pointer;
 }
 
 .button-color-sec:hover {

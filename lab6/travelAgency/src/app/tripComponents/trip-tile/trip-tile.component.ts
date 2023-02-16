@@ -50,7 +50,7 @@ export class TripTileComponent {
       });
     }
 
-    this.fbAuth.getCurrentUserRules$().subscribe(x => this.userRoles = x);
+    this.fbAuth.getCurrentUserRoles$().subscribe(x => this.userRoles = x);
   }
 
   deltaReservation(n: number) {
@@ -75,20 +75,6 @@ export class TripTileComponent {
       return false;
     }
     return this.trip.freeSeats - this.numOfReservations > 0;
-  }
-
-  ifYellow() {
-    if (this.trip == undefined) {
-      return false;
-    }
-    return this.trip.freeSeats - this.numOfReservations <= 10 && this.trip.freeSeats - this.numOfReservations >= 4;
-  }
-
-  ifRed() {
-    if (this.trip == undefined) {
-      return false;
-    }
-    return !this.ifYellow() && this.trip.freeSeats - this.numOfReservations <= 3;
   }
 
   removeThisTrip() {

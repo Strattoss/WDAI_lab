@@ -5,6 +5,9 @@ import { FormArray, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { FbDatabaseService } from '../services/fb-database.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TripId } from 'src/assets/types/tripId';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-trip-form',
@@ -14,6 +17,8 @@ import { FbDatabaseService } from '../services/fb-database.service';
 export class TripFormComponent {
   countries?: string[];
 
+  tripId?: TripId;
+
   tripForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern('[ -\uFFFF\x0A\x0D\x09]*')]],
     destination: ['', Validators.required],
@@ -22,31 +27,41 @@ export class TripFormComponent {
     unitPrice: ['', Validators.required],
     freeSeats: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     description: ['',  [Validators.required, Validators.pattern('[ -\uFFFF\x0A\x0D\x09]*')]],
-    imgs: this.fb.array([
-      this.fb.group({
-        alt: ['', Validators.required],
-        srcThumbnail: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
-        srcFull: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
-        title: ['', Validators.required]
-      })
-    ])
+    imgs: this.fb.array([])
   })
 
   imgsFormArray = this.tripForm.get('imgs') as FormArray;
 
   constructor(private countriesData: CountriesDataService,
     private fbData: FbDatabaseService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
+    this.addImgForm();
+
     this.countriesData.getCountries().subscribe(res => this.countries = res);
+
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+      let tripId = paramMap.get('tripId');
+      
+      if (tripId != null) {
+        this.tripId = tripId;
+        let trip$ = this.fbData.getTrip$ById(tripId);
+
+        trip$.subscribe(tr => {
+          this.fillTripForm(tr);
+        })
+      }
+    });
   }
 
   addImgForm() {
     const imgForm = this.fb.group({
       alt: ['', Validators.required],
-      srcThumbnail: ['', Validators.required],
-      srcFull: ['', Validators.required],
+      srcThumbnail: ['', [Validators.required, Validators.pattern('https?:\/\/[a-zA-Z0-9;,\/?:@%&=+$_.!~*\'()#\\-]*')]],
+        srcFull: ['', [Validators.required, Validators.pattern('https?:\/\/[a-zA-Z0-9;,\/?:@%&=+$_.!~*\'()#\\-]*')]],
       title: ['', Validators.required]
     });
 
@@ -61,7 +76,35 @@ export class TripFormComponent {
     }
   }
 
+  fillTripForm(trip: Trip | null) {
+    if (trip == null) {
+      this.tripForm.reset();
+      return;
+    }
+
+    let tmpTrip = {
+      description: trip.description,
+      destination: trip.destination,
+      endDate: trip.endDate,
+      freeSeats: trip.freeSeats.toString(),
+      name: trip.name,
+      startDate: trip.startDate,
+      unitPrice: trip.unitPrice.toString(),
+      imgs: trip.imgs
+    };
+
+    while (this.imgsFormArray.length < trip.imgs.length) {
+      this.addImgForm();
+    }
+
+    this.tripForm.setValue(tmpTrip);
+  }
+
   onSubmit() {
+    if (this.tripId == undefined) {
+      return;
+    }
+
     if (!this.tripForm.value.startDate) {
       alert("You need to give correct start date!")
       return;
@@ -96,7 +139,17 @@ export class TripFormComponent {
       imgs: imgsInfo,
       ratings: [0, 0, 0, 0, 0]
     }
-    this.fbData.addTrip(newTrip);
-    this.tripForm.reset();
+
+    this.tripForm.disable();
+
+    if (this.tripId == "create-new-trip") { this.fbData.addTrip(newTrip).then(x => {
+      alert("trip created");
+      this.location.back();
+    })}
+    else { this.fbData.alterTrip(newTrip, this.tripId).then(x => {
+      alert("trip altered");
+      this.location.back();
+    })}
+    
   }
 }

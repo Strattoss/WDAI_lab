@@ -13,6 +13,7 @@ import { Trip } from 'src/assets/interfaces/trip';
 import { TripHistory } from 'src/assets/interfaces/tripHistory';
 import { UserData } from 'src/assets/interfaces/userData';
 import { TripId } from 'src/assets/types/tripId';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-trip-details',
@@ -35,19 +36,14 @@ export class TripDetailsComponent implements OnInit {
 
   tripHistory: TripHistory[] = [];
 
-  reviewForm = this.fb.group({
-    content: ['', [Validators.required, Validators.minLength(50), Validators.maxLength(500)]],
-    rating: [-1, [Validators.required, Validators.min(0), Validators.max(5)]]
-  })
-
   reviews: Review[] = []
 
   constructor(public basket: BasketService,
     private activatedRoute: ActivatedRoute,
     private fbData: FbDatabaseService,
     private fbAuth: FbAuthService,
-    private fb: FormBuilder,
-    private afa: AngularFireAuth) { }
+    private afa: AngularFireAuth,
+    private location: Location) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -73,9 +69,7 @@ export class TripDetailsComponent implements OnInit {
 
     this.fbData.getCurrentUserTripHistory$().subscribe(x => this.tripHistory = x);
 
-    this.fbAuth.getCurrentUserRules$().subscribe(x => this.userRoles = x);
-
-    this.fbData.getCurrentUsersReview(this.tripId)?.subscribe(x => this.userReview = x)
+    this.fbAuth.getCurrentUserRoles$().subscribe(x => this.userRoles = x);
   }
 
   expandImg(imgInfo: ImgInfo) {
@@ -88,43 +82,6 @@ export class TripDetailsComponent implements OnInit {
   getThumbnails() {
     let a = this.trip?.imgs.map(val => val.srcThumbnail);
     return a != undefined ? a : new Array<string>();
-  }
-
-  ifYellow() {
-    if (this.trip == undefined || this.trip == null) {
-      return false;
-    }
-    return this.trip.freeSeats - this.numOfReservations <= 10 && this.trip.freeSeats - this.numOfReservations >= 4;
-  }
-
-  ifRed() {
-    if (this.trip == undefined) {
-      return false;
-    }
-    return !this.ifYellow() && this.trip.freeSeats - this.numOfReservations <= 3;
-  }
-
-  ifFreeSeatsAvailible() {
-    if (this.trip == undefined) {
-      return false;
-    }
-    return this.trip.freeSeats - this.numOfReservations > 0;
-  }
-
-  deltaReservation(n: number) {
-    if (!this.trip ||
-      this.numOfReservations + n < 0 ||
-      this.numOfReservations + n > this.trip.freeSeats) {
-      return;
-    }
-    this.numOfReservations += n;
-
-    if (this.tripId == undefined) { return; }
-    if (n > 0) {
-      this.basket.addReservation(this.tripId);
-    } else {
-      this.basket.removeReservation(this.tripId);
-    }
   }
 
   getAverageRating() {
@@ -142,20 +99,12 @@ export class TripDetailsComponent implements OnInit {
     return Math.round(this.getAverageRating() - 1);
   }
 
-  onSubmit() {
-    if (!this.reviewForm.value.content?.length || !this.tripId) { return; }
-
-    this.fbData.addReviewForTrip(this.tripId, this.reviewForm.value.rating!, this.reviewForm.value.content);
-
-    this.reviewForm.reset();
-  }
-
-  ratingChanged(newRating: number) {
-    this.reviewForm.patchValue({ rating: newRating })
-  }
-
   ifBoughtThisTrip() {
     return this.tripHistory.findIndex(x => x.tripId == this.tripId) != -1;
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
 }

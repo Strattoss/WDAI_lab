@@ -39,25 +39,25 @@
             <div [formGroupName]="i" class="img-form">
                 <p class="form-div"><b>Image num: {{i + 1}}</b></p>
                 <div class="form-div">
-                    <label for="img-{{ i }}-alt">Alternative</label>
-                    <input type="text" formControlName="alt">
+                    <label for="img-{{i}}-alt">Alternative</label>
+                    <input type="text" id="img-{{i}}-alt" formControlName="alt">
                 </div>
 
                 <div class="form-div">
-                    <label for="img-{{ i }}-thumbnail">Source for thumbnail</label>
-                    <input type="text" formControlName="srcThumbnail">
-                    <p class="additional-field-info">Has to be in form:<br>http[s]://<i>my-address</i>.<i>dom</i></p>
+                    <label for="img-{{i}}-thumbnail">Source for thumbnail</label>
+                    <input type="text" id="img-{{i}}-thumbnail" formControlName="srcThumbnail">
+                    <p class="additional-field-info">Has to start with:<br>http[s]://</p>
                 </div>
 
                 <div class="form-div">
-                    <label for="img-{{ i }}-full">Source for full image</label>
-                    <input type="text" formControlName="srcFull">
-                    <p class="additional-field-info">Has to be in form:<br>http[s]://<i>my-address</i>.<i>dom</i></p>
+                    <label for="img-{{i}}-full">Source for full image</label>
+                    <input type="text" id="img-{{i}}-full" formControlName="srcFull">
+                    <p class="additional-field-info">Has to start with:<br>http[s]://</p>
                 </div>
 
                 <div class="form-div">
-                    <label for="img-{{ i }}-title">Image title</label>
-                    <input type="text" formControlName="title">
+                    <label for="img-{{i}}-title">Image title</label>
+                    <input type="text" id="img-{{i}}-title" formControlName="title">
                 </div>
 
                 <button type="button" (click)="deleteImgForm(i)"  class="form-div">Delete</button>
@@ -65,5 +65,12 @@
         </div>
     </div>
 
-    <button id="submitButton" type="submit" [disabled]="!tripForm.valid">Submit</button>
+    <div *ngIf="tripId=='create-new-trip'; then create else alter"></div>
+    <ng-template #create>
+        <button id="submitButton" type="submit" [disabled]="!tripForm.valid">Create new trip</button>
+    </ng-template>
+    <ng-template #alter>
+        <button id="submitButton" type="submit" [disabled]="!tripForm.valid">Alter trip</button>
+    </ng-template>
+    
 </form>

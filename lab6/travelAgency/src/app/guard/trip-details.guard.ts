@@ -14,8 +14,12 @@ export class TripDetailsGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.fbAuth.getCurrentUserRules$().pipe(map(x => {
+      return this.fbAuth.getCurrentUserRoles$().pipe(map(x => {
         if (x?.client === true || x?.manager === true) {
+          return true;
+        }
+        else if (x === null) {
+          this.router.navigate(['log-in']);
           return true;
         }
         else {

@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.fbAuth.getCurrentUserRules$().pipe(map(x => {
+    return this.fbAuth.getCurrentUserRoles$().pipe(map(x => {
       if (x?.admin === true) {
         return true;
       }
