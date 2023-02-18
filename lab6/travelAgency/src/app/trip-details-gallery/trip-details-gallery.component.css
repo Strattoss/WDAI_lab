@@ -22,7 +22,7 @@
 }
 
 #expandedImg {
-    width: 86%;
+    width: 90%;
     margin: 10px;
 }
 
@@ -35,18 +35,17 @@
     position: relative;
     display: flex;
     justify-content: center;
-
 }
 
 .closebtn {
     position: absolute;
-    right: 7%;
+    right: 5%;
     top: 10px;
     background-color: white;
 
-    width: 70px;
-    height: 70px;
-    font-size: 50px;
+    height: 12%;
+    aspect-ratio: 1 / 1;
+
     text-align: center;
     cursor: pointer;
     transition: all 0.5s;
