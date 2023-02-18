@@ -23,8 +23,8 @@ import { NotGuestGuard } from './guard/not-guest.guard';
 
 // components
 import { AppComponent } from './app.component';
-import { TripsListComponent } from './tripComponents/trips-list/trips-list.component';
-import { TripTileComponent } from './tripComponents/trip-tile/trip-tile.component';
+import { TripsListComponent } from './trips-list/trips-list.component';
+import { TripTileComponent } from './trip-tile/trip-tile.component';
 import { TripFormComponent } from './trip-form/trip-form.component';
 import { TotalReservationsComponent } from './total-reservations/total-reservations.component';
 import { TripRatingComponent } from './trip-rating/trip-rating.component';
