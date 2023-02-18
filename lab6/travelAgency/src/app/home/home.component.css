@@ -2,10 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-grey-light);
+    background-color: var(--color-beige);
 }
 
 #main>* {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.info-list {
+    padding: 40px;
 }

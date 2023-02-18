@@ -3,3 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+#whole>* {
+    margin: 10px;
+}

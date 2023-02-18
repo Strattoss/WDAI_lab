@@ -10,9 +10,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { firebaseConfig } from '../environments/environment';
 
 // locales
-import locale from '@angular/common/locales/pl';
+import locale from '@angular/common/locales/en-GB';
 import { registerLocaleData } from '@angular/common';
-registerLocaleData(locale, 'pl')
+registerLocaleData(locale, 'en-GB')
 
 // guards
 import { AdminGuard } from './guard/admin.guard';
@@ -31,7 +31,7 @@ import { TripRatingComponent } from './trip-rating/trip-rating.component';
 import { StarComponent } from './trip-rating/star/star.component';
 import { HomeComponent } from './home/home.component';
 import { BasketComponent } from './basket/basket.component';
-import { TripHistoryComponent } from './trip-history/trip-history.component';
+import { TripHistoryComponent } from './purchase-history/purchase-history.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TripDetailsComponent } from './trip-details/trip-details.component';
@@ -44,6 +44,7 @@ import { TripDetailsGuard } from './guard/trip-details.guard';
 import { TripDetailsReviewComponent } from './trip-details-review/trip-details-review.component';
 import { TripDetailsBuyComponent } from './trip-details-buy/trip-details-buy.component';
 import { TripDetailsRatingsComponent } from './trip-details-ratings/trip-details-ratings.component';
+import { PurchaseHistoryTileComponent } from './purchase-history-tile/purchase-history-tile.component';
 
 // routes
 const appRoutes: Routes = [
@@ -83,7 +84,8 @@ const appRoutes: Routes = [
     ManagerPanelComponent,
     TripDetailsReviewComponent,
     TripDetailsBuyComponent,
-    TripDetailsRatingsComponent
+    TripDetailsRatingsComponent,
+    PurchaseHistoryTileComponent
   ],
   imports: [
     BrowserModule,
@@ -91,14 +93,14 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [{
     provide: LOCALE_ID,
-    useValue: 'pl'
+    useValue: 'en-GB'
   },
   {provide: DEFAULT_CURRENCY_CODE,
-  useValue: 'PLN'}],
+  useValue: 'EUR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

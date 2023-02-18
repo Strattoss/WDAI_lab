@@ -1,0 +1,12 @@
+<div *ngIf="purchase && trip" class="purchase" routerLink="/trip-details/{{purchase.tripId}}">
+    <div class="purchase-strip" [ngStyle]="{'background-color': getPurchaseColor()}"></div>
+    <div class="purchase-inner">
+        <img src="{{trip.imgs[0].srcFull}}" class="purchase-img" />
+        <div class="purchase-info">
+            <h2 class="purchase-title">{{trip.name}}, {{trip.destination | uppercase}}</h2>
+            <div>Purchased {{purchase.purchaseDate | date:"long"}}</div>
+            <div>Lasts from {{purchase.startDate | date}} to {{purchase.endDate | date}}</div>
+            <div>Bought {{purchase.tickets}} tickets for {{purchase.unitPrice | currency}}</div>
+        </div>
+    </div>
+</div>

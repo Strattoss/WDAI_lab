@@ -1,4 +1,4 @@
-<div id="whole" (click)="clickedStar()">
+<main (click)="clickedStar()">
     <div *ngIf="ifStarEmpty(); else star">☆</div>
     <ng-template #star>★</ng-template>
-</div>
+</main>

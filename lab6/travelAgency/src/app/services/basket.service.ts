@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { BehaviorSubject } from 'rxjs';
 import { Reservation } from 'src/assets/interfaces/reservation';
+import { Roles } from 'src/assets/interfaces/roles';
 import { Trip } from 'src/assets/interfaces/trip';
 import { TripId } from 'src/assets/types/tripId';
 import { FbAuthService } from './fb-auth.service';
@@ -11,6 +12,8 @@ import { FbDatabaseService } from './fb-database.service';
   providedIn: 'root'
 })
 export class BasketService {
+
+  currentUserRoles: Roles | null = null;
 
   private tripsAndIds: [Trip, TripId][] = [];
   private reservations: Reservation[] = [];
@@ -29,12 +32,13 @@ export class BasketService {
       this.clearBasket();
     })
 
+    fbAuth.getCurrentUserRoles$().subscribe(x => this.currentUserRoles = x);
   }
 
   getTripReservations(id: TripId): number {
     if (id == undefined || id == null) { return 0; }
 
-    let correctTrip = this.reservations.find(x => x.id == id)
+    let correctTrip = this.reservations.find(x => x.tripId == id)
     if (correctTrip == undefined) { return 0; }
     return correctTrip.tickets;
   }
@@ -44,13 +48,16 @@ export class BasketService {
   }
 
   private findReservation(id: TripId): Reservation | undefined {
-    return this.reservations.find(x => x.id == id);
+    return this.reservations.find(x => x.tripId == id);
   }
 
   addReservation(id: TripId) {
+    if (!this.currentUserRoles?.client) {
+      throw new Error("Cannot add trips to basket, because you don't have 'client' role");
+    }
     let correctTrip = this.findReservation(id);
     if (correctTrip == undefined) {
-      this.reservations.push({ id: id, tickets: 1 });
+      this.reservations.push({ tripId: id, tickets: 1 });
     }
     else {
       correctTrip.tickets++;
@@ -87,7 +94,7 @@ export class BasketService {
   getSumOfReservationsMoney() {
     let sumMoney = 0;
     this.reservations.forEach(x => {
-      let unitPr = this.tripsAndIds.find(y => y[1] == x.id)?.[0].unitPrice;
+      let unitPr = this.tripsAndIds.find(y => y[1] == x.tripId)?.[0].unitPrice;
       if (unitPr != undefined) {
         sumMoney += unitPr * x.tickets;
       }
@@ -111,7 +118,7 @@ export class BasketService {
 
   buyTickets() {
     this.reservations.forEach(x => {
-      this.fbData.addTripHistory(x.id, x.tickets);
+      this.fbData.addPurchase(x.tripId, x.tickets);
     })
     this.clearBasket();
   }

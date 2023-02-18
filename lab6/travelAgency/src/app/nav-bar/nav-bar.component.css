@@ -1,6 +1,4 @@
 a,
-#basket,
-#user,
 #hamburger-menu>*,
 #notifications {
     color: black;
@@ -11,6 +9,7 @@ a,
 
 #flex-nav {
     background-color: var(--color-prim);
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,7 +34,7 @@ a,
 .hide-flex-bar>* {
     padding: 0px;
     margin: 0px;
-    font-size: 0px;
+    display: none;
 }
 
 #company-logo {
@@ -98,13 +97,14 @@ a,
     z-index: 1;
 
     width: 100vw;
-    height: 1000vh;
+    height: 200vh;
     transition: transform 1s, background-color 1.5s;
 }
 
 #hamburger-menu-flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #hamburger-menu-flex>* {
@@ -112,18 +112,23 @@ a,
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
     background-color: var(--color-prim);
-    width: 25vw;
+    width: 150px;
     aspect-ratio: 1 / 0.75;
-    font-size: 3vh;
-    padding: 1vw;
-    margin: 1vw;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 #hamburger-menu-flex>*:hover {
     background-color: var(--color-prim-dark);
     box-shadow: 5px 5px 5px grey;
+}
+
+#hamburger-menu-flex>*>* {
+    font-size: 1.5em;
 }
 
 .hide-hamburger-menu {
@@ -154,11 +159,27 @@ a,
     transform: rotate(45deg) translate(-0.9em, -0.6em);
 }
 
-#basket {
-    flex-direction: column;
+.basket-div {
+    width: 48px;
+    aspect-ratio: 1;
+    background-image: url(../../assets/imgs/basket-64x64.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-#basket>* {
-    margin: 0px;
-    padding: 0px;
+.basket-counter, .basket-summary {
+    display: inline-block;
+    position: relative;
+    background-color: var(--color-prim-light);
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.basket-counter {
+    left: 75%;
+}
+
+.basket-summary {
+    top: 40%;
+    left: 40%;
 }

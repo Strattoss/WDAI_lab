@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TripHistoryComponent } from './trip-history.component';
+import { TripHistoryComponent } from './purchase-history.component';
 
 describe('TripHistoryComponent', () => {
   let component: TripHistoryComponent;

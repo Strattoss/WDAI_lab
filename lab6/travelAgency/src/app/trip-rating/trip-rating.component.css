@@ -1,17 +1,14 @@
-#whole {
+main {
     display: flex;
     align-items: center;
     padding: 0px 15px;
     height: 60px;
 }
 
-#whole > * {
+main>* {
     font-size: 1.5em;
-    aspect-ratio: 1 / 1;
 }
 
-#avgRating {
-    vertical-align: bottom;
-  border: 3px solid green;
-  padding: 10px;
+.square {
+    aspect-ratio: 1 / 1;
 }

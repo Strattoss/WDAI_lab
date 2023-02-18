@@ -1,16 +1,17 @@
 <div id="basket-info">
     <div *ngIf="reservations.length > 0; else noReservations">
-        <h3>Made reservations: {{sumOfReservationsNum}}</h3>
+        <h3>Sum of tickets: {{sumOfReservationsNum}}</h3>
         <h3>Summed price: {{sumOfReservationsMoney | currency}}</h3>
         <div id="buy-trips" (click)="buyTickets()">BUY TRIPS IN BASKET</div>
     </div>
     <ng-template #noReservations>
-        <h2 id="no-reservations">You haven't made any reservations yet!</h2>
+        <h2 id="no-reservations">You haven't added any trip to your basket yet!</h2>
     </ng-template>
 </div>
 
 <div class="trips-list">
-    <div #showReservations *ngFor="let reservation of reservations">
-        <app-trip-tile [tripId]="reservation.id"></app-trip-tile>
+    <div #showReservations *ngFor="let reservation of reservations" class="trip-card-and-info" >
+        <h3 class="trip-info">Tickets in basket: {{reservation.tickets}}</h3>
+        <app-trip-tile [tripId]="reservation.tripId"></app-trip-tile>
     </div>
 </div>

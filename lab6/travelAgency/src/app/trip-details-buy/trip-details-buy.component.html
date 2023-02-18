@@ -1,4 +1,4 @@
-<div class="trip-reservation" *ngIf="trip != undefined">
+<main *ngIf="trip != undefined">
     <div *ngIf="ifFreeSeatsAvailible(); then availibleFreeSeats else unavailibleFreeSeats">
     </div>
     <ng-template #availibleFreeSeats class="p-center">
@@ -26,4 +26,4 @@
         <div *ngIf="trip.freeSeats != 0 && numOfReservations > 0" class="trip-reservation-num">
             You've chosen: {{numOfReservations}}</div>
     </div>
-</div>
+</main>

@@ -1,6 +1,6 @@
 <div class="prev-button-position">
     <div class="prev-button" (click)="navigateBack()">
-        Back to list of trips
+        Back
     </div>
 </div>
 
@@ -18,25 +18,28 @@
 </article>
 
 <article class="trip-info-whole" *ngIf="trip != undefined">
-    <h2 class="trip-title">Trip title: {{trip.name}}</h2>
+    <h2 class="trip-title center">{{trip.name}}</h2>
     <div class="trip-info">
         <div>
+            <h2 class="center">Basic informations</h2>
             <p>📍 Destination: {{trip.destination | uppercase}}</p>
+            <p>📅 From {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
             <app-trip-rating [ratingDivisor]=getAverageRatingDivisor() [ratingNum]=getAverageRating()></app-trip-rating>
             <app-trip-details-ratings [tripId]="tripId"></app-trip-details-ratings>
-            <p>📅 From {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
         </div>
 
         <div>
-            📝 Description: {{trip.description}}
+            <h2 class="center">📝 Description</h2>
+            <p>{{trip.description}}</p>
         </div>
 
         <div *ngIf="userRoles?.client">
-
+            <h2 class="center">Buy tickets</h2>
             <app-trip-details-buy [tripId]="tripId"></app-trip-details-buy>
         </div>
 
         <div *ngIf="userRoles?.client">
+            <h2 class="center"> My review</h2>
             <app-trip-details-review [tripId]="tripId"></app-trip-details-review>
         </div>
 

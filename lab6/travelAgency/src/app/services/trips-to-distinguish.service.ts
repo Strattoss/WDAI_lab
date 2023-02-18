@@ -44,7 +44,7 @@ export class TripsToDistinguishService {
     this.tripsAndIds = this.sortByUnitPrice(this.tripsAndIds);
 
     for (let x of this.tripsAndIds) {
-      let madeReservations = this.reservations?.find(y => y.id == x[1])?.tickets;
+      let madeReservations = this.reservations?.find(y => y.tripId == x[1])?.tickets;
       if (madeReservations != x[0].freeSeats) {
         this.greenBorderId = x[1];
         this.greenBorderId$.next(this.greenBorderId)
@@ -53,7 +53,7 @@ export class TripsToDistinguishService {
     }
 
     for (let x of this.tripsAndIds.slice().reverse()) {
-      let madeReservations = this.reservations?.find(y => y.id == x[1])?.tickets;
+      let madeReservations = this.reservations?.find(y => y.tripId == x[1])?.tickets;
       if (madeReservations != x[0].freeSeats) {
         this.redBorderId = x[1];
         this.redBorderId$.next(this.redBorderId)

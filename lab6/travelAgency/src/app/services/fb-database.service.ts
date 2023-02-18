@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Trip } from 'src/assets/interfaces/trip';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { map, Observable, Subscription } from 'rxjs';
+import { first, last, map, Observable, Subscription } from 'rxjs';
 import { TripId } from 'src/assets/types/tripId';
-import { TripHistory } from 'src/assets/interfaces/tripHistory';
+import { Purchase } from 'src/assets/interfaces/purchase';
 import { UserData } from 'src/assets/interfaces/userData';
 import { Review } from 'src/assets/interfaces/review';
 import { FbAuthService } from './fb-auth.service';
@@ -57,8 +57,8 @@ export class FbDatabaseService {
     return this.db.object('trips/' + id).remove();
   }
 
-  getCurrentUserTripHistory$() {
-    return this.db.list<TripHistory>('/tripHistory/' + this.currentUser?.uid).valueChanges();
+  getCurrentUserPurchases$() {
+    return this.db.list<Purchase>('/purchases/' + this.currentUser?.uid).valueChanges();
   }
 
   changeNumOfAvailableTickets(tripId: TripId, delta: number) {
@@ -68,20 +68,31 @@ export class FbDatabaseService {
     })
   }
 
-  addTripHistory(tripId: TripId, numOfTickets: number) {
+  addPurchase(tripId: TripId, numOfTickets: number) {
     if (!this.currentUser?.uid) { return; }
 
-    let newTripHistory: TripHistory = {
-      tripId: tripId,
-      tickets: numOfTickets,
-      date: new Date().toISOString()
-    }
-
-    this.db.list('/tripHistory/' + this.currentUser.uid).push(newTripHistory).then(x => {
-      if (x) {
-        this.changeNumOfAvailableTickets(tripId, numOfTickets);
+    this.getTrip$ById(tripId).pipe(first()).subscribe(x => {
+      
+      if (x == null) { return; }
+      
+      if (this.currentUser?.uid == null) { return; }
+      
+      let purchase: Purchase = {
+        tripId: tripId,
+        startDate: x.startDate,
+        endDate: x.endDate,
+        unitPrice: x.unitPrice,
+        tickets: numOfTickets,
+        purchaseDate: new Date().toISOString()
       }
-    });
+
+      this.db.list('/purchases/' + this.currentUser.uid).push(purchase).then(x => {
+        if (x) {
+          this.changeNumOfAvailableTickets(purchase.tripId, purchase.tickets);
+        }
+      });
+    })
+
   }
 
   getReviewsForTrip$(tripId: TripId) {
@@ -107,7 +118,7 @@ export class FbDatabaseService {
       date: new Date().toISOString()
     }
     this.db.object('/reviews/' + tripId + '/' + this.currentUser.uid).set(newReview).then(() => {
-        this.db.object<Trip>('/trips/' + tripId + '/ratings/' + rating).query.ref.transaction(rating => rating + 1)
+      this.db.object<Trip>('/trips/' + tripId + '/ratings/' + rating).query.ref.transaction(rating => rating + 1)
     })
   }
 }

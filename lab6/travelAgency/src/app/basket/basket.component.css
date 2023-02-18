@@ -5,6 +5,18 @@
     margin: 10px;
 }
 
+.trip-card-and-info {
+    margin: 10px;
+    background-color: var(--color-sec);
+    border-radius: 10px;
+}
+
+.trip-info {
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+}
+
 #basket-info {
     display: flex;
     justify-content: center;

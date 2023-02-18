@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { BasketService } from 'src/app/services/basket.service';
 import { FbAuthService } from 'src/app/services/fb-auth.service';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
@@ -10,8 +8,7 @@ import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { Review } from 'src/assets/interfaces/review';
 import { Roles } from 'src/assets/interfaces/roles';
 import { Trip } from 'src/assets/interfaces/trip';
-import { TripHistory } from 'src/assets/interfaces/tripHistory';
-import { UserData } from 'src/assets/interfaces/userData';
+import { Purchase } from 'src/assets/interfaces/purchase';
 import { TripId } from 'src/assets/types/tripId';
 import { Location } from '@angular/common';
 
@@ -34,7 +31,7 @@ export class TripDetailsComponent implements OnInit {
 
   numOfReservations = 0;
 
-  tripHistory: TripHistory[] = [];
+  tripHistory: Purchase[] = [];
 
   reviews: Review[] = []
 
@@ -67,7 +64,7 @@ export class TripDetailsComponent implements OnInit {
 
     this.afa.authState.subscribe(x => this.userId = x?.uid);
 
-    this.fbData.getCurrentUserTripHistory$().subscribe(x => this.tripHistory = x);
+    this.fbData.getCurrentUserPurchases$().subscribe(x => this.tripHistory = x);
 
     this.fbAuth.getCurrentUserRoles$().subscribe(x => this.userRoles = x);
   }

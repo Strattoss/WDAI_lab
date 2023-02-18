@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Roles } from 'src/assets/interfaces/roles';
 import { Trip } from 'src/assets/interfaces/trip';
 import { TripId } from 'src/assets/types/tripId';
 import { BasketService } from '../services/basket.service';
+import { FbAuthService } from '../services/fb-auth.service';
 import { FbDatabaseService } from '../services/fb-database.service';
 
 @Component({
@@ -13,10 +16,14 @@ export class TripDetailsBuyComponent {
   @Input() tripId?: TripId;
   trip?: Trip;
 
+  currentUserRoles: Roles | null = null;
+
   numOfReservations = 0;
 
   constructor(private basket: BasketService,
-    private fbData: FbDatabaseService) { }
+    private fbData: FbDatabaseService,
+    private fbAuth: FbAuthService,
+    private router: Router) { }
 
   ngOnInit() {
     if (this.tripId == undefined) { return; }
@@ -25,6 +32,8 @@ export class TripDetailsBuyComponent {
       this.trip = x;
     })
     this.numOfReservations = this.basket.getTripReservations(this.tripId)
+
+    this.fbAuth.getCurrentUserRoles$().subscribe(x => this.currentUserRoles = x);
   }
 
   ifFreeSeatsAvailible() {
@@ -49,6 +58,9 @@ export class TripDetailsBuyComponent {
   }
 
   deltaReservation(n: number) {
+    if (!this.currentUserRoles?.client) {
+      this.router.navigate(['/log-in']);
+    }
     if (!this.trip ||
       this.numOfReservations + n < 0 ||
       this.numOfReservations + n > this.trip.freeSeats) {
