@@ -1,6 +1,6 @@
 <nav id="flex-nav">
     <a id="company-logo" routerLink="/home">FlyAway</a>
-    <nav id="flex-bar" [ngClass]="hamburgerEnabled ? 'hide-flex-bar' : 'show-flex-bar'">
+    <nav id="flex-bar" [ngClass]="burgerEnabled ? 'hide-flex-bar' : 'show-flex-bar'">
         <a *ngIf="currUserRoles?.admin == true" routerLink='/admin-panel'>ADMIN PANEL</a>
         <a routerLink='/home'>HOME</a>
         <a routerLink='/trips-list'>TRIPS</a>
@@ -13,26 +13,26 @@
         </a>
         <a *ngIf="currUser != null" routerLink='/user-info'>👤 {{currUserData?.firstName + " " +
             currUserData?.lastName}}</a>
-        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>LOG
+        <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>LOG
             IN</a>
-        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null"
+        <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null"
             routerLink='/register'>REGISTER</a>
-        <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">LOG
+        <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">LOG
             OUT</a>
     </nav>
 
 
-    <div id="hamburger" [ngClass]="hamburgerEnabled ? 'show-hambuger' : 'hide-hamburger'" (click)="toggleHamburger()">
-        <div [ngClass]="hamburgerToggled ? 'line1' : ''"></div>
-        <div [ngClass]="hamburgerToggled ? 'line2' : ''"></div>
-        <div [ngClass]="hamburgerToggled ? 'line3' : ''"></div>
+    <div id="burger" [ngClass]="burgerEnabled ? 'show-hambuger' : 'hide-burger'" (click)="toggleburger()">
+        <div [ngClass]="burgerToggled ? 'line1' : ''"></div>
+        <div [ngClass]="burgerToggled ? 'line2' : ''"></div>
+        <div [ngClass]="burgerToggled ? 'line3' : ''"></div>
     </div>
 
 
 </nav>
-<div class="hamburger-menu-position">
-    <div [ngClass]="hamburgerToggled ? 'show-hamburger-menu' : 'hide-hamburger-menu'" id="hamburger-menu">
-        <div id="hamburger-menu-flex">
+<div class="burger-menu-position">
+    <div [ngClass]="burgerToggled ? 'show-burger-menu' : 'hide-burger-menu'" id="burger-menu">
+        <div id="burger-menu-flex" (click)="toggleburger()">
             <a *ngIf="currUserRoles?.admin == true" routerLink='/admin-panel'>
                 <p>ADMIN PANEL</p>
             </a>
@@ -58,14 +58,14 @@
                 <div>{{currUserData?.firstName}}</div>
                 <div>{{currUserData?.lastName}}</div>
             </a>
-            <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>
+            <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>
                 <p>LOG IN</p>
             </a>
-            <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null"
+            <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null"
                 routerLink='/register'>
                 <p>REGISTER</p>
             </a>
-            <a [ngClass]="hamburgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">
+            <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser != null" (click)="logOut()">
                 <p>LOG OUT</p>
             </a>
         </div>

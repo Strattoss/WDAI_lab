@@ -1,0 +1,57 @@
+.thumbnails-list {
+    margin: 5px;
+}
+
+.thumbnail {
+    height: 15vh;
+    width: auto;
+    margin: 5px;
+    float: left;
+    transition: all 0.5s;
+}
+
+.thumbnail:hover {
+    box-shadow: 5px 5px 5px grey;
+}
+
+/* Clear floats after imgaes */
+.thumbnails-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#expandedImg {
+    width: 86%;
+    margin: 10px;
+}
+
+.img-container {
+    position: relative;
+    background-color: var(--color-beige);
+}
+
+.img-container-position {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.closebtn {
+    position: absolute;
+    right: 7%;
+    top: 10px;
+    background-color: white;
+
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.closebtn:hover {
+    background-color: var(--color-prim);
+}

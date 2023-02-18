@@ -1,0 +1,12 @@
+<article class="thumbnails-list">
+    <img class="thumbnail" *ngFor="let img of imgs; let i = index" src="{{img.srcThumbnail}}"
+        title="{{img.title}}" alt="{{img.alt}}" (click)="expandImg(img)">
+</article>
+
+<article class="img-container" [ngStyle]="{'display': showExpandedImg ? '' : 'none'}">
+    <figure class="img-container-position">
+        <span (click)="closeImg()" class="closebtn">&times;</span>
+        <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}"
+            alt="expandedImgInfo?.alt">
+    </figure>
+</article>

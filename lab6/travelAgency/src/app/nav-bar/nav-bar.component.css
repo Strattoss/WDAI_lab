@@ -1,5 +1,5 @@
 a,
-#hamburger-menu>*,
+#burger-menu>*,
 #notifications {
     color: black;
     text-decoration: none;
@@ -59,7 +59,7 @@ a,
 }
 
 
-#hamburger {
+#burger {
     position: absolute;
     top: 1em;
     right: 2em;
@@ -68,15 +68,15 @@ a,
     transition: font-size 1s;
 }
 
-.show-hamburger {
+.show-burger {
     font-size: medium;
 }
 
-.hide-hamburger {
+.hide-burger {
     font-size: 0px;
 }
 
-#hamburger div {
+#burger div {
     position: relative;
     width: 3em;
     height: 0.5em;
@@ -86,13 +86,13 @@ a,
     transition: all 1s;
 }
 
-.hamburger-menu-position {
+.burger-menu-position {
     position: absolute;
     width: 0px;
     height: 0px;
 }
 
-#hamburger-menu {
+#burger-menu {
     position: relative;
     z-index: 1;
 
@@ -101,13 +101,13 @@ a,
     transition: transform 1s, background-color 1.5s;
 }
 
-#hamburger-menu-flex {
+#burger-menu-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#hamburger-menu-flex>* {
+#burger-menu-flex>* {
     /*to center content*/
     display: flex;
     align-items: center;
@@ -122,20 +122,20 @@ a,
     border-radius: 10px;
 }
 
-#hamburger-menu-flex>*:hover {
+#burger-menu-flex>*:hover {
     background-color: var(--color-prim-dark);
     box-shadow: 5px 5px 5px grey;
 }
 
-#hamburger-menu-flex>*>* {
+#burger-menu-flex>*>* {
     font-size: 1.5em;
 }
 
-.hide-hamburger-menu {
+.hide-burger-menu {
     transform: translateX(-150%);
 }
 
-.show-hamburger-menu {
+.show-burger-menu {
     transform: translate(0%);
     background-color: rgba(100, 100, 100, 0.9);
 }

@@ -12,8 +12,8 @@ import { FbAuthService } from '../services/fb-auth.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  hamburgerToggled = false;
-  hamburgerEnabled = false;
+  burgerEnabled = false; // if nav-bar is in its toggle-able form (not full form)
+  burgerToggled = false; // if burger menu is visible for user
 
   currUser: firebase.default.User | null = null;
   currUserData: UserData | null = null;
@@ -34,22 +34,22 @@ export class NavBarComponent {
   })
   }
 
-  toggleHamburger() {
-    this.hamburgerToggled = !this.hamburgerToggled;
+  toggleburger() {
+    this.burgerToggled = !this.burgerToggled;
   }
 
   route(path: string) {
-    this.hamburgerToggled = false;
+    this.burgerToggled = false;
     this.router.navigate([path]);
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     if (window.innerWidth < 800) {
-      this.hamburgerEnabled = true;
+      this.burgerEnabled = true;
     } else {
-      this.hamburgerEnabled = false;
-      this.hamburgerToggled = false;
+      this.burgerEnabled = false;
+      this.burgerToggled = false;
     }
   }
 

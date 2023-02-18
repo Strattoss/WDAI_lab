@@ -25,10 +25,6 @@ export class TripDetailsComponent implements OnInit {
   userRoles: Roles | null = null;
   userReview: Review | null = null;
 
-  /* img galery info */
-  expandedImgInfo?: ImgInfo;
-  showExpandedImg = false;
-
   numOfReservations = 0;
 
   tripHistory: Purchase[] = [];
@@ -67,18 +63,6 @@ export class TripDetailsComponent implements OnInit {
     this.fbData.getCurrentUserPurchases$().subscribe(x => this.tripHistory = x);
 
     this.fbAuth.getCurrentUserRoles$().subscribe(x => this.userRoles = x);
-  }
-
-  expandImg(imgInfo: ImgInfo) {
-    this.expandedImgInfo = imgInfo;
-    this.showExpandedImg = true;
-  }
-
-  closeImg() { this.showExpandedImg = false; }
-
-  getThumbnails() {
-    let a = this.trip?.imgs.map(val => val.srcThumbnail);
-    return a != undefined ? a : new Array<string>();
   }
 
   getAverageRating() {

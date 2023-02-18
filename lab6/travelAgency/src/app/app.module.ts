@@ -45,6 +45,7 @@ import { TripDetailsReviewComponent } from './trip-details-review/trip-details-r
 import { TripDetailsBuyComponent } from './trip-details-buy/trip-details-buy.component';
 import { TripDetailsRatingsComponent } from './trip-details-ratings/trip-details-ratings.component';
 import { PurchaseHistoryTileComponent } from './purchase-history-tile/purchase-history-tile.component';
+import { TripDetailsGalleryComponent } from './trip-details-gallery/trip-details-gallery.component';
 
 // routes
 const appRoutes: Routes = [
@@ -85,7 +86,8 @@ const appRoutes: Routes = [
     TripDetailsReviewComponent,
     TripDetailsBuyComponent,
     TripDetailsRatingsComponent,
-    PurchaseHistoryTileComponent
+    PurchaseHistoryTileComponent,
+    TripDetailsGalleryComponent
   ],
   imports: [
     BrowserModule,

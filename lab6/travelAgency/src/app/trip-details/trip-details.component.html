@@ -4,27 +4,18 @@
     </div>
 </div>
 
-<article class="thumbnails-list">
-    <img class="thumbnail" *ngFor="let img of trip?.imgs; let i = index" src="{{img.srcThumbnail}}"
-        title="{{img.title}}" alt="{{img.alt}}" (click)="expandImg(img)">
-</article>
-
-<article class="img-container" [ngStyle]="{'display': showExpandedImg ? '' : 'none'}">
-    <figure class="img-container-position">
-        <span (click)="closeImg()" class="closebtn">&times;</span>
-        <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}"
-            alt="expandedImgInfo?.alt">
-    </figure>
-</article>
+<app-trip-details-gallery [imgs]="trip?.imgs"></app-trip-details-gallery>
 
 <article class="trip-info-whole" *ngIf="trip != undefined">
-    <h2 class="trip-title center">{{trip.name}}</h2>
+    <h2 class="center">{{trip.name}}</h2>
     <div class="trip-info">
         <div>
             <h2 class="center">Basic informations</h2>
             <p>📍 Destination: {{trip.destination | uppercase}}</p>
             <p>📅 From {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
+            <div>⭐ Average rating:</div>
             <app-trip-rating [ratingDivisor]=getAverageRatingDivisor() [ratingNum]=getAverageRating()></app-trip-rating>
+            <hr>
             <app-trip-details-ratings [tripId]="tripId"></app-trip-details-ratings>
         </div>
 
@@ -34,24 +25,30 @@
         </div>
 
         <div *ngIf="userRoles?.client">
-            <h2 class="center">Buy tickets</h2>
+            <h2 class="center">🎫 Buy tickets</h2>
             <app-trip-details-buy [tripId]="tripId"></app-trip-details-buy>
         </div>
 
         <div *ngIf="userRoles?.client">
-            <h2 class="center"> My review</h2>
+            <h2 class="center">🖋️ My review</h2>
             <app-trip-details-review [tripId]="tripId"></app-trip-details-review>
         </div>
 
 
     </div>
-    <div>
-        <h1 style="text-align: center;">Reviews</h1>
-        <div *ngFor="let review of reviews" class="review">
-            <div>By: {{review.nick}}</div>
-            <div>{{review.date | date: "medium"}}</div>
-            <app-trip-rating [ratingDivisor]=review.rating [ratingDivisorMovable]=false></app-trip-rating>
-            <p class="review-content">{{review.content}} </p>
-        </div>
+    <div class="all-reviews">
+        <h1 style="text-align: center;">🖋️ Reviews</h1>
+        <div *ngIf="reviews.length <= 0; then noAllReviews else yesAllReviews"></div>
+        <ng-template #noAllReviews>
+            <h3>Tris trip currently has no reviews</h3>
+        </ng-template>
+        <ng-template #yesAllReviews>
+            <div *ngFor="let review of reviews" class="review">
+                <div>By: {{review.nick}}</div>
+                <div>{{review.date | date: "medium"}}</div>
+                <app-trip-rating [ratingDivisor]=review.rating [ratingDivisorMovable]=false></app-trip-rating>
+                <p class="review-content">{{review.content}} </p>
+            </div>
+        </ng-template>
     </div>
 </article>
