@@ -11,7 +11,7 @@
                 <div class="basket-counter">{{basket.getSumOfReservationsNum()}}</div>
             </div>
         </a>
-        <a *ngIf="currUser != null" routerLink='/user-info'>👤 {{currUserData?.firstName + " " +
+        <a *ngIf="currUser != null" routerLink='/user-info'>{{currUserData?.firstName + " " +
             currUserData?.lastName}}</a>
         <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>LOG
             IN</a>
@@ -48,12 +48,11 @@
                 <p>HISTORY</p>
             </a>
             <a *ngIf="currUserRoles?.client == true" routerLink='/basket'>
-                <div class="basket-div">
-                    <div class="basket-counter">{{basket.getSumOfReservationsNum()}}</div>
-                </div>
+                <div class="basket-div" style="background-image: 'url(assets/imgs/basket-64x64.png)'">
+                <div class="basket-counter">{{basket.getSumOfReservationsNum()}}</div>
+            </div>
             </a>
             <a *ngIf="currUser != null" routerLink='/user-info'>
-                <div>👤</div>
                 <div>{{currUserData?.firstName}}</div>
                 <div>{{currUserData?.lastName}}</div>
             </a>
