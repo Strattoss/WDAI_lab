@@ -85,15 +85,6 @@ export class FbAuthService {
     })
   }
 
-  changePersistence(newPers: string) {
-    if (['local', 'session', 'none'].includes(newPers)) {
-      this.persistenceSetting = newPers;
-    }
-    else {
-      throw new Error("Incorrect persistence setting");
-    }
-  }
-
   getCurrentUserRoles$(): BehaviorSubject<Roles | null> {
     return this.currentUserRoles$;
   }

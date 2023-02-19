@@ -1,6 +1,4 @@
-#whole {
-    margin: 10px 5%;
-    padding: 10px;
+form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -20,5 +18,4 @@
 
 #register-link {
     margin: 10px;
-    font-size: 0.8em;
 }

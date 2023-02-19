@@ -1,10 +1,10 @@
-<div id="whole" class="flip-card" *ngIf="trip">
+<section id="whole" class="flip-card" *ngIf="trip">
     <div class="flip-card-inner">
         <div class="flip-card-front "
             [ngStyle]="{'border-color': tripId==borderGreen ? 'green' : tripId==borderRed ? 'red' : ''}">
             <div class="img-box">
-                <img (click)="showTripDetails()" class="img" src="{{trip.imgs[0].srcFull}}" title="{{trip.imgs[0].title}}"
-                    alt="{{trip.imgs[0].alt}}">
+                <img (click)="showTripDetails()" class="img" src="{{trip.imgs[0].srcFull}}"
+                    title="{{trip.imgs[0].title}}" alt="{{trip.imgs[0].alt}}">
             </div>
             <h3 class="trip-title">{{trip.name}}</h3>
             <p style="color: #292929;">{{trip.destination | uppercase}}</p>
@@ -14,8 +14,12 @@
                     <p>per pearson</p>
                 </div>
 
-                <app-trip-rating style="background-color: unset; padding: 5px 0px; margin-top: 20px;"
-                    [ratingNum]="getAverageRating()" [ratingDivisor]="getAverageRatingDivisor()"></app-trip-rating>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <app-trip-rating [ratingNum]="getAverageRating()" [ratingDivisor]="getAverageRatingDivisor()"></app-trip-rating>
+                    <div>
+                        from {{getNumOfRatings()}} rating<div style="float: right" *ngIf="getNumOfRatings() != 1">s</div>
+                    </div>
+                </div>
             </div>
             <button *ngIf="userRoles?.manager" class="trip-remove-button" (click)="removeThisTrip()">REMOVE THIS
                 TRIP</button>
@@ -24,8 +28,6 @@
         <div class="flip-card-back" (click)="showTripDetails()">
             <h3 class="trip-title">{{trip.name}}</h3>
             <hr>
-
-
             <div class="trip-info">
                 <p>📍 {{trip.destination | uppercase}}</p>
                 <p>📅 from {{trip.startDate | date:"dd-MM-yyyy"}} to {{trip.endDate | date:"dd-MM-yyyy"}}</p>
@@ -44,9 +46,9 @@
                     <p>per pearson</p>
                 </div>
 
-                <div style="color: black;" class="button-color-sec" (click)="showTripDetails()">Buy tickets now!</div>
+                <button class="button-color-sec buy-button" (click)="showTripDetails()">Buy tickets now!</button>
             </div>
 
         </div>
     </div>
-</div>
+</section>

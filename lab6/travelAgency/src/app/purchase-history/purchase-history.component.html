@@ -1,5 +1,5 @@
 <h1 style="text-align: center;">Purchased trips</h1>
-<main id="whole">
+<section id="purchases-list">
     <div *ngIf="purchases.length == 0; then noHistory else yesHistory"></div>
     <ng-template #noHistory>
         <h2>You haven't bought any tickets yet!</h2>
@@ -9,4 +9,4 @@
             <app-purchase-history-tile [purchase]="purchase"></app-purchase-history-tile>
         </div>
     </ng-template>
-</main>
+</section>

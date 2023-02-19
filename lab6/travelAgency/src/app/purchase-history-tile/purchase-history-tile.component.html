@@ -1,4 +1,4 @@
-<div *ngIf="purchase && trip" class="purchase" routerLink="/trip-details/{{purchase.tripId}}">
+<section *ngIf="purchase && trip" class="purchase-tile" routerLink="/trip-details/{{purchase.tripId}}">
     <div class="purchase-strip" [ngStyle]="{'background-color': getPurchaseColor()}"></div>
     <div class="purchase-inner">
         <img src="{{trip.imgs[0].srcFull}}" class="purchase-img" />
@@ -9,4 +9,4 @@
             <div>Bought {{purchase.tickets}} tickets for {{purchase.unitPrice | currency}}</div>
         </div>
     </div>
-</div>
+</section>

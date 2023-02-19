@@ -3,7 +3,7 @@
     <div *ngIf="userReview == null; then showReviewForm else currUserReview"></div>
     <ng-template #showReviewForm>
         <form (ngSubmit)="onSubmit()" [formGroup]="reviewForm" id="form">
-            <h3>Send your opinion!</h3>
+            <h3 class="center">Send your opinion!</h3>
             <div class="form-div">
                 <label for="reviewContent">Your review (50 - 500 characters)</label>
                 <textarea style="width: 100%; height: 300px; resize: none;" name="reviewContent" id="reviewContent"
@@ -14,9 +14,10 @@
             <button type="submit" [disabled]="!reviewForm.valid">Submit</button>
         </form>
     </ng-template>
+
     <ng-template #currUserReview>
         <div>
-            <h3 style="text-align: center;">You have already left a review:</h3>
+            <h3 class="center">You have already left a review:</h3>
             <div class="review">
                 <div>By: {{userReview?.nick}}</div>
                 <div>{{userReview?.date | date: "medium"}}</div>
@@ -26,6 +27,7 @@
         </div>
     </ng-template>
 </ng-template>
+
 <ng-template #cannotReview>
     <div>{{getMessage()}}</div>
 </ng-template>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserData } from 'src/assets/interfaces/userData';
 import { FbAuthService } from '../services/fb-auth.service';
-import { FbDatabaseService } from '../services/fb-database.service';
 
 @Component({
   selector: 'app-user-info',
@@ -15,10 +14,10 @@ export class UserInfoComponent {
   user: firebase.default.User | null = null;
 
   constructor (private fbAuth: FbAuthService, private afa: AngularFireAuth) {
-    this.fbAuth.getCurrentUserData$().subscribe(x => this.userData = x)
-    this.afa.authState.subscribe(x => this.user = x
-    );
-    JSON.stringify(this.userData)
+    this.fbAuth.getCurrentUserData$().subscribe(x => {this.userData = x; console.log(this.userData);});
+    this.afa.authState.subscribe(x => {this.user = x; console.log(this.user);});
+    
+    
   }
 
 }

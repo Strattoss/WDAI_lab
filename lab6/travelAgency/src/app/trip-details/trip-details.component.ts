@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { BasketService } from 'src/app/services/basket.service';
 import { FbAuthService } from 'src/app/services/fb-auth.service';
 import { FbDatabaseService } from 'src/app/services/fb-database.service';
-import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 import { Review } from 'src/assets/interfaces/review';
 import { Roles } from 'src/assets/interfaces/roles';
 import { Trip } from 'src/assets/interfaces/trip';

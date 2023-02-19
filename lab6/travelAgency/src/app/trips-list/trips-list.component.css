@@ -1,9 +1,9 @@
-#whole {
+article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#whole>* {
+article>* {
     margin: 10px;
 }

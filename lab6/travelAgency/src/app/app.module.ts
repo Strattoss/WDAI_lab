@@ -26,7 +26,6 @@ import { AppComponent } from './app.component';
 import { TripsListComponent } from './trips-list/trips-list.component';
 import { TripTileComponent } from './trip-tile/trip-tile.component';
 import { TripFormComponent } from './trip-form/trip-form.component';
-import { TotalReservationsComponent } from './total-reservations/total-reservations.component';
 import { TripRatingComponent } from './trip-rating/trip-rating.component';
 import { StarComponent } from './trip-rating/star/star.component';
 import { HomeComponent } from './home/home.component';
@@ -70,7 +69,6 @@ const appRoutes: Routes = [
     TripsListComponent,
     TripTileComponent,
     TripFormComponent,
-    TotalReservationsComponent,
     TripRatingComponent,
     StarComponent,
     HomeComponent,

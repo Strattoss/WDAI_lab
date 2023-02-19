@@ -27,10 +27,9 @@
         <div [ngClass]="burgerToggled ? 'line2' : ''"></div>
         <div [ngClass]="burgerToggled ? 'line3' : ''"></div>
     </div>
-
-
 </nav>
-<div class="burger-menu-position">
+
+<nav class="burger-menu-position">
     <div [ngClass]="burgerToggled ? 'show-burger-menu' : 'hide-burger-menu'" id="burger-menu">
         <div id="burger-menu-flex" (click)="toggleburger()">
             <a *ngIf="currUserRoles?.admin == true" routerLink='/admin-panel'>
@@ -69,6 +68,5 @@
                 <p>LOG OUT</p>
             </a>
         </div>
-
     </div>
-</div>
+</nav>

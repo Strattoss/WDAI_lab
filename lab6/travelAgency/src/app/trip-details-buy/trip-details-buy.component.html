@@ -1,29 +1,35 @@
-<main *ngIf="trip != undefined">
-    <div *ngIf="ifFreeSeatsAvailible(); then availibleFreeSeats else unavailibleFreeSeats">
-    </div>
-    <ng-template #availibleFreeSeats class="p-center">
-        <p class="p-center" [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">💺 {{trip.freeSeats -
-            numOfReservations}} seats left</p>
+<section *ngIf="trip != undefined">
+    <div *ngIf="ifFreeSeatsAvailible(); then availibleFreeSeats else unavailibleFreeSeats"></div>
+    <ng-template #availibleFreeSeats>
+        <p class="center" [ngStyle]="{'color': ifYellow() ? 'yellow' : ifRed() ? 'red' : 'black'}">
+            💺 {{trip.freeSeats - numOfReservations}} seats left
+        </p>
     </ng-template>
     <ng-template #unavailibleFreeSeats>
-        <p class="p-center unavailibleFreeSeats">💺 No free seats</p>
+        <p class="center unavailibleFreeSeats">💺 No free seats</p>
     </ng-template>
 
-    <div class="trip-reservation-panel">
+    <section class="trip-reservation-panel">
         <div class="trip-reservation-buttons">
             <div *ngIf="ifFreeSeatsAvailible(); then showPlusButton else hideShowButton"></div>
-            <ng-template #showPlusButton><button class="trip-reservation-button-plus"
-                    (click)="deltaReservation(1)">➕</button></ng-template>
+            <ng-template #showPlusButton>
+                <button class="trip-reservation-button-plus" (click)="deltaReservation(1)">➕</button>
+            </ng-template>
             <ng-template #hideShowButton>
                 <div style="width: 30px;"></div>
             </ng-template>
             <button class="trip-reservation-button-minus" (click)="deltaReservation(-1)">➖</button>
         </div>
-        <div *ngIf="trip.freeSeats == 0" style="text-align: center;">No free tickets!</div>
-        <div *ngIf="trip.freeSeats != 0 && numOfReservations == 0" class="trip-reservation-num">
-            Buy tickets!
-        </div>
-        <div *ngIf="trip.freeSeats != 0 && numOfReservations > 0" class="trip-reservation-num">
-            You've chosen: {{numOfReservations}}</div>
-    </div>
-</main>
+
+        <p *ngIf="trip.freeSeats == 0; else freeSeats" class="center">No free tickets!</p>
+        <ng-template #freeSeats>
+            <p *ngIf="numOfReservations == 0; else reservationsCounter" class="trip-reservation-num">
+                Add tickets to basket!
+            </p>
+            <ng-template #reservationsCounter>
+                <p class="trip-reservation-num">Tickets in basket: {{numOfReservations}}</p>
+            </ng-template>
+        </ng-template>
+
+    </section>
+</section>

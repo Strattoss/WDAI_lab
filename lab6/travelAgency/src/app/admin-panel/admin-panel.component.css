@@ -1,25 +1,11 @@
-#whole {
-    margin: 10px 5%;
-    padding: 10px;
-}
-
-#persistence {
-    display: flex;
-    align-items: center;
-}
-
-#persistence-select {
-    margin-left: 20px;
-}
-
-#user-panel { 
+section { 
     display: flex;
     flex-wrap: wrap;
 }
 
 .user {
     display: inline-block;
-    background-color: var(--color-prim-light);
+    background-color: var(--color-sec-light);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -27,7 +13,7 @@
 }
 
 .user:hover {
-    background-color: var(--color-prim);
+    background-color: var(--color-sec);
 }
 
 .user-roles {

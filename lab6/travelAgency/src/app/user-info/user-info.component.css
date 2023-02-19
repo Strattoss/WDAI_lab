@@ -1,14 +1,30 @@
-#whole {
+section {
     margin: 15px;
 }
 
-#info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.center {
+    text-align: center;
 }
 
-#roles-div {
-    margin-top: 16px;
-    margin-bottom: 16px;
+.user-info {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--color-sec);
+}
+
+.user-info>tr:hover {
+    background-color: var(--color-sec-light);
+}
+
+.user-info>tr>th,
+.user-info>tr>td {
+    border: 2px solid black;
+    padding: 4vh 4vw;
+    text-align: left;
+}
+
+.no-bullets {
+    list-style-position: inside;
+    padding: 0px;
+    margin: 0px;
 }

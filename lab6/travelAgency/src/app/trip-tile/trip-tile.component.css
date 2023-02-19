@@ -63,13 +63,8 @@
     cursor: pointer;
     overflow: hidden;
 
-    /*border: 1px solid darkgrey;*/
-    /*box-shadow: 5px 5px 5px 5px grey;*/
-    /*border-radius: 50%;*/
-    /*width: calc(100% - 2*var(--card-padding-margin));*/
     width: 100%;
     aspect-ratio: 1 / 1;
-    /*margin: 5px var(--card-padding-margin);*/
 }
 
 .img {
@@ -97,12 +92,15 @@
     margin: 0px;
 }
 
-
-
 .trip-remove-button {
     width: calc(100% - 2 * var(--card-padding-margin));
     padding: var(--card-padding-margin);
     margin: var(--card-padding-margin);
     background-color: var(--color-important);
     color: white;
+}
+
+.buy-button {
+    color: black;
+    width: calc(100% - 2*var(--card-padding-margin));
 }

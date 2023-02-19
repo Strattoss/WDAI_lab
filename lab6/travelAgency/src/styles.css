@@ -23,15 +23,29 @@ body {
     margin: 0px;
 }
 
+a,
+th,
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-    font-family: Arial, Helvetica, sans-serif;
+
+
+a:link {
+    color: var(--color-prim);
 }
 
-.button-color-sec{
+a:visited {
+    color: var(--color-sec);
+}
+
+a:hover,
+a:active {
+    color: var(--color-prim-dark);
+}
+
+.button-color-sec {
+    all: unset;
     background-color: var(--color-sec);
     padding: 10px;
     border-radius: 10px;

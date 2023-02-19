@@ -11,7 +11,6 @@ import { FbDatabaseService } from '../services/fb-database.service';
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit{
-  selectedPersistence = this.fbAuth.persistenceSetting;
 
   users: [UserId, UserData][] = [];
 
@@ -21,10 +20,6 @@ export class AdminPanelComponent implements OnInit{
     this.fbAuth.getAllUsersData().subscribe(x => {
       this.users = x;
     });
-  }
-
-  chosenPersistence() {
-    this.fbAuth.changePersistence(this.selectedPersistence);
   }
 
   changeRole(user: [UserId, UserData], role: string, changeTo: boolean) {

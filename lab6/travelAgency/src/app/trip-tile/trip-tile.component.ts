@@ -89,6 +89,12 @@ export class TripTileComponent {
     this.router.navigate([`/trip-details/${this.tripId}`])
   }
 
+  getNumOfRatings() {
+    let sum = 0;
+    this.trip?.ratings.forEach(x => sum += x);
+    return sum;
+  }
+
   getAverageRating() {
     let sum = 0;
     let n = 0;

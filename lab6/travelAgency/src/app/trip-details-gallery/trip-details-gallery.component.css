@@ -1,11 +1,7 @@
-.thumbnails-list {
-    margin: 5px;
-}
-
 .thumbnail {
     height: 15vh;
     width: auto;
-    margin: 5px;
+    margin: 5px 5px 5px 0px;
     float: left;
     transition: all 0.5s;
 }
