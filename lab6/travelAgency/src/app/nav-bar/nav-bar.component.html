@@ -7,7 +7,7 @@
         <a *ngIf="currUserRoles?.manager == true" routerLink='/manager-panel'>MANAGER PANEL</a>
         <a *ngIf="currUserRoles?.client == true" routerLink='/history'>HISTORY</a>
         <a *ngIf="currUserRoles?.client == true" routerLink='/basket'>
-            <div class="basket-div" style="background-image: 'url(./assets/imgs/basket-64x64.png)'">
+            <div class="basket-div" style="background-image: 'url(assets/imgs/basket-64x64.png)'">
                 <div class="basket-counter">{{basket.getSumOfReservationsNum()}}</div>
             </div>
         </a>
