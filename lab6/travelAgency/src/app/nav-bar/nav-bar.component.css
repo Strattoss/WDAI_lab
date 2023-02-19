@@ -162,7 +162,6 @@ a,
 .basket-div {
     width: 48px;
     aspect-ratio: 1;
-    background-image: url(../../assets/imgs/basket-64x64.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
