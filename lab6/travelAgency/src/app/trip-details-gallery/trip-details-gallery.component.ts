@@ -9,18 +9,38 @@ import { ImgInfo } from 'src/assets/interfaces/imgInfo';
 export class TripDetailsGalleryComponent {
   @Input() imgs?: ImgInfo[];
 
-  expandedImgInfo?: ImgInfo;
-  showExpandedImg = false;
+  expandedImgIndex: number | null = 0;
 
-  expandImg(imgInfo: ImgInfo) {
-    this.expandedImgInfo = imgInfo;
-    this.showExpandedImg = true;
+  expandImg(imgIndex: number) {
+    this.expandedImgIndex = imgIndex;
   }
 
-  closeImg() { this.showExpandedImg = false; }
+  closeImg() {
+    this.expandedImgIndex = null;
+  }
 
   getThumbnails() {
     let a = this.imgs?.map(val => val.srcThumbnail);
     return a != undefined ? a : new Array<string>();
+  }
+
+  nextImg() {
+    if (this.expandedImgIndex === null || this.imgs === undefined || this.imgs.length == 0) { return; }
+    if (this.expandedImgIndex == this.imgs.length - 1) {
+      this.expandedImgIndex = 0;
+    }
+    else {
+      this.expandedImgIndex++;
+    }
+  }
+
+  prevImg() {
+    if (this.expandedImgIndex === null || this.imgs === undefined || this.imgs.length == 0) { return; }
+    if (this.expandedImgIndex == 0) {
+      this.expandedImgIndex = this.imgs?.length - 1;
+    }
+    else {
+      this.expandedImgIndex--;
+    }
   }
 }

@@ -1,14 +1,16 @@
-<section>
+<section id="gallery" *ngIf="imgs != undefined && imgs.length > 0">
     <div class="thumbnails-list">
         <img class="thumbnail" *ngFor="let img of imgs; let i = index" src="{{img.srcThumbnail}}" title="{{img.title}}"
-            alt="{{img.alt}}" (click)="expandImg(img)">
+            alt="{{img.alt}}" (click)="expandImg(i)">
     </div>
 
-    <div class="img-container" [ngStyle]="{'display': showExpandedImg ? '' : 'none'}">
-        <figure class="img-container-position">
-            <img (click)="closeImg()" class="closebtn" src="assets/imgs/close_button.png" />
-            <img id="expandedImg" src="{{expandedImgInfo?.srcFull}}" title="{{expandedImgInfo?.title}}"
-                alt="expandedImgInfo?.alt">
-        </figure>
+    <div *ngIf="expandedImgIndex != null" class="img-container">
+        <div class="img-container-position">
+            <img (click)="closeImg()" class="btn closebtn" src="assets/imgs/close_button.png" />
+            <img (click)="prevImg()" class="btn leftbtn" src="assets/imgs/left.png" />
+            <img (click)="nextImg()" class="btn rightbtn" src="assets/imgs/right.png" />
+            <img id="expanded-img" src="{{imgs[expandedImgIndex].srcFull}}" title="{{imgs[expandedImgIndex].title}}"
+                alt="imgs[expandedImgIndex].alt">
+        </div>
     </div>
 </section>

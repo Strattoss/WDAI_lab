@@ -1,3 +1,8 @@
+#gallery {
+    margin-bottom: 25px;
+    --img-width: 80%;
+}
+
 .thumbnail {
     height: 15vh;
     width: auto;
@@ -17,8 +22,8 @@
     clear: both;
 }
 
-#expandedImg {
-    width: 90%;
+#expanded-img {
+    width: var(--img-width);
     margin: 10px;
 }
 
@@ -33,20 +38,60 @@
     justify-content: center;
 }
 
-.closebtn {
+.btn {
     position: absolute;
-    right: 5%;
-    top: 10px;
     background-color: white;
 
     height: 12%;
     aspect-ratio: 1 / 1;
 
-    text-align: center;
     cursor: pointer;
     transition: all 0.5s;
 }
 
-.closebtn:hover {
+.closebtn {
+    right: calc((100% - var(--img-width))/2);
+    top: 10px;
+}
+
+.leftbtn {
+    left: calc((100% - var(--img-width))/2);
+    top: calc(50% - 10px - 6%);
+}
+
+.rightbtn {
+    right: calc((100% - var(--img-width))/2);
+    top: calc(50% - 10px - 6%);
+}
+
+.btn:hover {
     background-color: var(--color-prim);
+}
+
+@media (max-width: 600px) {
+    .thumbnail {
+        height: 8vw;
+    }
+
+    .btn {
+        height: 20%;
+    }
+
+    #expanded-img {
+        margin: 0px;
+        width: 100%;
+    }
+
+    .closebtn {
+        top: 0px;
+        right: 0px;
+    }
+
+    .leftbtn {
+        left: 0px;
+    }
+
+    .rightbtn {
+        right: 0px;
+    }
 }

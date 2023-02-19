@@ -1,12 +1,14 @@
-<section *ngIf="purchase && trip" class="purchase-tile" routerLink="/trip-details/{{purchase.tripId}}">
-    <div class="purchase-strip" [ngStyle]="{'background-color': getPurchaseColor()}"></div>
-    <div class="purchase-inner">
-        <img src="{{trip.imgs[0].srcFull}}" class="purchase-img" />
-        <div class="purchase-info">
-            <h2 class="purchase-title">{{trip.name}}, {{trip.destination | uppercase}}</h2>
-            <div>Purchased {{purchase.purchaseDate | date:"long"}}</div>
-            <div>Lasts from {{purchase.startDate | date}} to {{purchase.endDate | date}}</div>
-            <div>Bought {{purchase.tickets}} tickets for {{purchase.unitPrice | currency}}</div>
+<section *ngIf="purchase && trip" class="tile" routerLink="/trip-details/{{purchase.tripId}}">
+    <div class="strip" [ngStyle]="{'background-color': getPurchaseColor()}"></div>
+    <div class="inner">
+        <img src="{{trip.imgs[0].srcFull}}" class="img" />
+        <div class="info">
+            <h2 class="title">{{trip.name}}, {{trip.destination | uppercase}}</h2>
+            <div class="info-inner">
+            <p>Purchased {{purchase.purchaseDate | date:"long"}}</p>
+            <p>Lasts from {{purchase.startDate | date}} to {{purchase.endDate | date}}</p>
+            <p>Bought {{purchase.tickets}} tickets for {{purchase.unitPrice | currency}}</p>
+        </div>
         </div>
     </div>
 </section>
