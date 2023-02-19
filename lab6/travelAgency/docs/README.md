@@ -1,2 +1,0 @@
-# Info
-This folder contains files for full-built web app for GitHub Pages to host it
