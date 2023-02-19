@@ -19,7 +19,7 @@ export class LogInComponent {
   constructor(private fb: FormBuilder, private fbAuth: FbAuthService) {}
 
   getEyePath() {
-    return this.passwordVisible ? "assets/imgs/opened_eye.jpg" : "assets/imgs/closed_eye.jpg";
+    return this.passwordVisible ? "./assets/imgs/opened_eye.jpg" : "./assets/imgs/closed_eye.jpg";
   }
 
   togglePasswordVisibility() {

@@ -14,8 +14,8 @@ export class UserInfoComponent {
   user: firebase.default.User | null = null;
 
   constructor (private fbAuth: FbAuthService, private afa: AngularFireAuth) {
-    this.fbAuth.getCurrentUserData$().subscribe(x => {this.userData = x; console.log(this.userData);});
-    this.afa.authState.subscribe(x => {this.user = x; console.log(this.user);});
+    this.fbAuth.getCurrentUserData$().subscribe(x => this.userData = x);
+    this.afa.authState.subscribe(x => this.user = x);
     
     
   }
