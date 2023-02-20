@@ -129,6 +129,7 @@ a,
 
 #burger-menu-flex>*>* {
     font-size: 1.5em;
+    text-align: center;
 }
 
 .hide-burger-menu {

@@ -1,7 +1,9 @@
 <button class="button-color-sec" routerLink="create-new-trip">Add new trip</button>
 
 <h2>Modify existing trip</h2>
-<select>
-    <option *ngFor="let tripAndId of tripAndIds" routerLink="{{tripAndId[1]}}">{{tripAndId[0].name}}, id:
-        {{tripAndId[1]}}</option>
-</select>
+
+<section class="trips-list">
+    <button class="button-color-sec" *ngFor="let tripAndId of tripAndIds"
+        routerLink="{{tripAndId[1]}}">{{tripAndId[0].name}},
+        id:{{tripAndId[1]}}</button>
+</section>

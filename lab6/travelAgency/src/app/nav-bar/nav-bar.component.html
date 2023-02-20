@@ -53,8 +53,8 @@
             </div>
             </a>
             <a *ngIf="currUser != null" routerLink='/user-info'>
-                <div>{{currUserData?.firstName}}</div>
-                <div>{{currUserData?.lastName}}</div>
+                <p>{{currUserData?.firstName}}&#32;{{currUserData?.lastName}}</p>
+                
             </a>
             <a [ngClass]="burgerEnabled ? '' : 'log-in-out-register'" *ngIf="currUser == null" routerLink='/log-in'>
                 <p>LOG IN</p>
